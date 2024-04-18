@@ -13,7 +13,7 @@ export class AddRestaurantComponent {
     count:number = 0;
     countSecondFormSubmit: number = 0;
     restaurant:Restaurant;
-   // arrAddresses:Address[] = []
+    arrAddresses:Address[] = []
     isLinear = false;
     addId:number = 1;
 
@@ -64,21 +64,24 @@ export class AddRestaurantComponent {
       console.log(this.restaurant);
       if(this.countSecondFormSubmit==this.count){
         console.log(formdata);
-      }
-      let addressArr = Object.values(formdata);
+        let addressArr = Object.values(formdata);
       console.log(addressArr[0])
+
+      this.restaurant.arrAddresses = []
+      this.addId = 1;
       
       addressArr[0].forEach((add:any)=>{console.log(add)
         this.restaurant.arrAddresses.push(new Address(this.addId++,add.houseno,add.street,add.area,add.city,add.pincode,add.country))
       })
-
-
-      console.log(this.restaurant);
-
+      console.log(this.restaurant)
+      }
       
-      this.restaurantService.addRestaurant(this.restaurant).subscribe(data=>{
-        console.log(data)
-      })
+
+
+
+      // this.restaurantService.addRestaurant(this.restaurant).subscribe(data=>{
+      //   console.log(data)
+      // })
     }
 
     Addresses():FormArray{

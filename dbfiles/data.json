@@ -145,122 +145,48 @@
       ],
       "arrDishes": [
         {
-          "Name": "Noodles",
+          "dishName": "Noodles",
           "price": 456,
           "img_path": "https://www.recipetineats.com/wp-content/uploads/2023/09/Garlic-noodles-with-egg-close-up.jpg",
           "isAvailable": true,
-          "id": 1
+          "id": 1,
+          "restaurant_id":4
         }
       ]
     },
     {
-      "img_path": "https://assets.architecturaldigest.in/photos/6385cf3311f0276636badfb6/16:9/w_2560%2Cc_limit/DSC_8367-Edit-W.png",
-      "ownerId": 1,
+     
+      "user_id": 1,
       "id": 6,
-      "dish_name": "Paradise",
-      "addresses": [
+      "rName": "Paradise",
+      "arrAddresses": [
         {
-          "BuildingNo": 1,
-          "Street": "akd",
-          "Area": "23",
-          "City": "Anirudh",
-          "Country": "India",
-          "Pincode": 123456,
-          "Id": 1
+          "houseno": 1,
+          "street": "akd",
+          "area": "23",
+          "city": "Anirudh",
+          "country": "India",
+          "pincode": 123456,
+          "id": 1
         },
         {
-          "BuildingNo": 26,
-          "Street": "ABC rd",
-          "Area": "adf",
-          "City": "Bangalore",
-          "Country": "India",
-          "Pincode": 561123,
-          "Id": 2
+          "houseno": 26,
+          "street": "ABC rd",
+          "area": "adf",
+          "city": "Bangalore",
+          "country": "India",
+          "pincode": 561123,
+          "id": 2
         }
       ],
       "arrDishes": [
         {
-          "dish_name": "Biriyani",
+          "dishName": "Biriyani",
           "price": 330,
           "img_path": "https://bonmasala.com/wp-content/uploads/2022/10/mutton-biriyani-recipe.jpeg",
           "isAvailable": true,
-          "id": 1
-        }
-      ]
-    },
-    {
-      "img_path": "https://etimg.etb2bimg.com/photo/75161189.cms",
-      "ownerId": 1,
-      "id": 7,
-      "rName": "Vasant Vihar",
-      "addresses": [
-        {
-          "BuildingNo": 4046,
-          "Street": "akd",
-          "Area": "ads1",
-          "City": "Anirudh",
-          "Country": "India",
-          "Pincode": 123456,
-          "Id": 1
-        },
-        {
-          "BuildingNo": 324,
-          "Street": "akd",
-          "Area": "waegfra",
-          "City": "Anirudh",
-          "Country": "India",
-          "Pincode": 123455,
-          "Id": 2
-        }
-      ],
-      "arrDishes": [
-        {
-          "dish_name": "Gobi Manchurian",
-          "price": 95,
-          "img_path": "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/02/gobi-manchurian.jpg",
-          "isAvailable": false,
-          "id": 1
-        }
-      ]
-    },
-    {
-      "img_path": "../../../assets/images/chickenpizza.jpeg",
-      "ownerId": 1,
-      "id": 109,
-      "rName": "Chillies",
-      "addresses": [],
-      "arrDishes": [
-        {
-          "dish_name": "Biriyani",
-          "price": 170,
-          "img_path": "../../../assets/images/vegpizza.jpeg",
-          "isAvailable": true,
-          "id": 1
-        },
-        {
-          "dish_name": "Pastry",
-          "price": 120,
-          "img_path": "../../../assets/images/cappuchino.jpeg",
-          "isAvailable": true,
-          "id": 2
-        }
-      ]
-    },
-    {
-      "id": 0,
-      "rName": "Tulip",
-      "location": "bangalore",
-      "user_id": "12",
-      "dishes": [],
-      "arrAddresses": [
-        {
           "id": 1,
-          "houseno": "12",
-          "street": "vg",
-          "area": "victoria",
-          "city": "bangalore",
-          "pincode": "42344",
-          "country": "India"
+          "restaurant_id":6
         }
       ]
     }
