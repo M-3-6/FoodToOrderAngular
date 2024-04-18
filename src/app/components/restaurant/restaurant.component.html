@@ -1,0 +1,50 @@
+<!-- {{rName}} -->
+
+<!-- {{arrRestaurants[0]}}
+{{arrRestaurants[1]}}
+{{arrRestaurants[2]}} -->
+
+<!-- <ul>
+    <li *ngFor="let rName of arrRestaurants">{{rName}}</li>
+</ul> -->
+
+<!-- <div *ngFor="let restaurant of arrRestaurants">
+    <b>
+    {{restaurant.id}} {{restaurant.rName}} {{restaurant.location}} {{restaurant.user_id}} </b>
+    <br> Dishes:
+    <div *ngFor="let dish of restaurant.dishes">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" [src]="dish.img_path" alt="dish image">
+        <div class="card-body">
+          <h5 class="card-title"> {{dish.dishName}}</h5>
+          <h6 class="card-title"> Rs. {{dish.price}}</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary" (click)="displayDish(dish.dishName)">Add To Cart</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    
+   
+</div> -->
+
+
+  <div *ngFor="let restaurant of arrRestaurants">
+  <div class="card" style="width: 18rem;">
+      
+      <div class="card-body">
+        <h5 class="card-title"> {{restaurant.rName}}</h5>
+        <h6 class="card-title"> {{restaurant.location}}</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a class="btn btn-primary" (click)="displayDetails(restaurant.id)" >View Details</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dishes:
+  <div *ngFor="let dish of restaurant.dishes">
+      <img [src]="dish.img_path"/>
+      {{dish.id}} {{dish.dishName}} {{dish.price}} 
+  </div>
+  <br> -->
+ 

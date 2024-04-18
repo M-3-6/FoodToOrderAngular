@@ -1,0 +1,105 @@
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button>
+  <mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup" (ngSubmit)="saveFirstStepData(firstFormGroup)">
+        <!-- <ng-template matStepLabel>Fill out your name</ng-template> -->
+        <mat-toolbar color="primary">
+          Add Restaurant Details
+        </mat-toolbar>
+        <mat-form-field appearance="fill">
+          <mat-label>Restaurant Name</mat-label>
+          <input matInput placeholder="rName" formControlName="rNameCtrl" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Location</mat-label>
+          <input matInput placeholder="rLocation" formControlName="rLocationCtrl" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>User Id</mat-label>
+          <input matInput placeholder="rUserId" formControlName="rUserIdCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext type="submit">Save</button>
+        </div>
+        <div>
+          <button mat-button matStepperNext >Next</button>
+        </div>
+      </form>
+    </mat-step>
+  
+   
+    <mat-step [stepControl]="secondFormGroup" label="Fill out restaurant address" >
+      <!-- <form [formGroup]="secondFormGroup" > -->
+  
+        <form class="basic-container" [formGroup]="addressListForm" (ngSubmit)="saveSecondStepData(addressListForm.value)" >
+          <mat-toolbar color="primary">
+            Add/Remove multiple addresses
+          </mat-toolbar>
+          <div formArrayName="addresses">
+            <div class="row" *ngFor="let address of Addresses().controls; let i = index"
+                [formGroupName]="i">            
+  
+              <mat-form-field class="col-4">
+                <input matInput formControlName="houseno" placeholder="houseno" >
+               
+              </mat-form-field>
+              <mat-form-field class="col-4">
+                <input matInput formControlName="street" placeholder="street" >
+               
+              </mat-form-field>         
+              
+              <mat-form-field class="col-4">
+                <input matInput formControlName="area" placeholder="area" >
+               
+              </mat-form-field>    
+              <mat-form-field class="col-4">
+                <input matInput formControlName="city" placeholder="city" >
+               
+              </mat-form-field>    
+              <mat-form-field class="col-4">
+                <input matInput formControlName="pincode" placeholder="pincode" >
+               
+              </mat-form-field>    
+              <mat-form-field class="col-4">
+                <input matInput formControlName="country" placeholder="country" >
+               
+              </mat-form-field>  
+  
+             
+  
+              <div class="col-3">
+                <button class="float-left" mat-icon-button color="primary" aria-label="Remove/clear"
+                    (click)="removeOrClearItinery(i)" matTooltip="Remove">
+                  <mat-icon>highlight_off</mat-icon>
+                </button>
+                <button class="float-left" mat-icon-button color="primary" aria-label="Add"
+                    (click)="addItineryFormGroup()" matTooltip="Add">
+                  <mat-icon>add_circle_outline</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button mat-button matStepperNext type="submit">Save</button>
+          </div>
+        </form>
+  
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      <!-- </form> -->
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+
+   

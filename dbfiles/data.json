@@ -1,0 +1,624 @@
+{
+  "restaurants": [
+    {
+      "user_id": 1,
+      "id": 1,
+      "rName": "Truffles2323",
+      "arrAddresses": [
+        {
+          "houseno": 4046,
+          "street": "akd",
+          "area": "ads1",
+          "city": "Anirudh",
+          "country": "India",
+          "pincode": 123456,
+          "id": 1
+        },
+        {
+          "houseno": 324,
+          "street": "akd",
+          "area": "waegfra",
+          "city": "Anirudh",
+          "country": "India",
+          "pincode": 123455,
+          "id": 2
+        }
+      ],
+      "dishes": [
+        {
+          "dishName": "Biriyani",
+          "price": 170,
+          "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
+          "isAvailable": true,
+          "id": 1,
+          "restaurant_id": 1
+        },
+        {
+          "dishName": "Pastry",
+          "price": 120,
+          "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
+          "isAvailable": true,
+          "id": 2,
+          "restaurant_id": 1
+        },
+        {
+          "dishName": "Burger",
+          "price": 250,
+          "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
+          "isAvailable": true,
+          "id": 3,
+          "restaurant_id": 1
+        },
+        {
+          "dishName": "Steak",
+          "price": 7000,
+          "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
+          "isAvailable": true,
+          "id": 4,
+          "restaurant_id": 1
+        },
+        {
+          "dishName": "Soup",
+          "price": 123,
+          "img_path": "https://www.seriouseats.com/thmb/2nouHHsjM0bN1vwXMOZGUkLFsJ8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__12__20171115-chicken-soup-vicky-wasik-11-80db1a04d84a43a089e0559efdddd517.jpg",
+          "isAvailable": false,
+          "id": 5,
+          "restaurant_id": 1
+        }
+      ]
+    },
+    {
+      "user_id": 2,
+      "id": 2,
+      "rName": "Tonique",
+     
+      "arrAddresses": [
+        {
+          "id": 3,
+          "housenoo": 26,
+          "street": "ABC rd",
+          "area": "Domlur",
+          "city": "Bangalore",
+          "country": "India",
+          "pincode": 560012
+        },
+        {
+          "id": 4,
+          "housenoo": 27,
+          "street": "Palmgrove rd",
+          "area": "Victoria Layout",
+          "city": "Bangalore",
+          "country": "India",
+          "pincode": 560013
+        }
+      ],
+      "dishes": [
+        {
+          "id": 1,
+          "dishName": "Biriyani",
+          "price": 170,
+          "img_path": "https://healux.in/wp-content/uploads/2020/11/ChickenBiryani.jpg",
+          "isAvailable": true,
+          "restaurant_id":2
+        },
+        {
+          "id": 2,
+          "dishName": "Pastry",
+          "price": 120,
+          "img_path": "https://theobroma.in/cdn/shop/products/RedVelvetPastry1.jpg?v=1632143810",
+          "isAvailable": true,
+          "restaurant_id":2
+        },
+        {
+          "id": 3,
+          "dishName": "Burger",
+          "price": 250,
+          "img_path": "https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/1:1/w_2560%2Cc_limit/Smashburger-recipe-120219.jpg",
+          "isAvailable": true,
+          "restaurant_id":2
+        },
+        {
+          "id": 4,
+          "dishName": "Steak",
+          "price": 300,
+          "img_path": "https://food-images.files.bbci.co.uk/food/recipes/rib-eye_steak_with_61963_16x9.jpg",
+          "isAvailable": true,
+          "restaurant_id":2
+        }
+      ]
+    },
+    {
+      
+      "user_id": 1,
+      "id": 4,
+      "rName": "Cafe Jade",
+      "arrAddresses": [
+        {
+          "houseno": 1,
+          "street": "akd",
+          "area": "area23",
+          "city": "Anirudh",
+          "country": "India",
+          "pincode": 123456,
+          "id": 1
+        }
+      ],
+      "arrDishes": [
+        {
+          "Name": "Noodles",
+          "price": 456,
+          "img_path": "https://www.recipetineats.com/wp-content/uploads/2023/09/Garlic-noodles-with-egg-close-up.jpg",
+          "isAvailable": true,
+          "id": 1
+        }
+      ]
+    },
+    {
+      "img_path": "https://assets.architecturaldigest.in/photos/6385cf3311f0276636badfb6/16:9/w_2560%2Cc_limit/DSC_8367-Edit-W.png",
+      "ownerId": 1,
+      "id": 6,
+      "dish_name": "Paradise",
+      "addresses": [
+        {
+          "BuildingNo": 1,
+          "Street": "akd",
+          "Area": "23",
+          "City": "Anirudh",
+          "Country": "India",
+          "Pincode": 123456,
+          "Id": 1
+        },
+        {
+          "BuildingNo": 26,
+          "Street": "ABC rd",
+          "Area": "adf",
+          "City": "Bangalore",
+          "Country": "India",
+          "Pincode": 561123,
+          "Id": 2
+        }
+      ],
+      "arrDishes": [
+        {
+          "dish_name": "Biriyani",
+          "price": 330,
+          "img_path": "https://bonmasala.com/wp-content/uploads/2022/10/mutton-biriyani-recipe.jpeg",
+          "isAvailable": true,
+          "id": 1
+        }
+      ]
+    },
+    {
+      "img_path": "https://etimg.etb2bimg.com/photo/75161189.cms",
+      "ownerId": 1,
+      "id": 7,
+      "rName": "Vasant Vihar",
+      "addresses": [
+        {
+          "BuildingNo": 4046,
+          "Street": "akd",
+          "Area": "ads1",
+          "City": "Anirudh",
+          "Country": "India",
+          "Pincode": 123456,
+          "Id": 1
+        },
+        {
+          "BuildingNo": 324,
+          "Street": "akd",
+          "Area": "waegfra",
+          "City": "Anirudh",
+          "Country": "India",
+          "Pincode": 123455,
+          "Id": 2
+        }
+      ],
+      "arrDishes": [
+        {
+          "dish_name": "Gobi Manchurian",
+          "price": 95,
+          "img_path": "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/02/gobi-manchurian.jpg",
+          "isAvailable": false,
+          "id": 1
+        }
+      ]
+    },
+    {
+      "img_path": "../../../assets/images/chickenpizza.jpeg",
+      "ownerId": 1,
+      "id": 109,
+      "rName": "Chillies",
+      "addresses": [],
+      "arrDishes": [
+        {
+          "dish_name": "Biriyani",
+          "price": 170,
+          "img_path": "../../../assets/images/vegpizza.jpeg",
+          "isAvailable": true,
+          "id": 1
+        },
+        {
+          "dish_name": "Pastry",
+          "price": 120,
+          "img_path": "../../../assets/images/cappuchino.jpeg",
+          "isAvailable": true,
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 0,
+      "rName": "Tulip",
+      "location": "bangalore",
+      "user_id": "12",
+      "dishes": [],
+      "arrAddresses": [
+        {
+          "id": 1,
+          "houseno": "12",
+          "street": "vg",
+          "area": "victoria",
+          "city": "bangalore",
+          "pincode": "42344",
+          "country": "India"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "first_name": "John",
+      "last_name": "Hopkins",
+      "role": "restaurantOwner",
+      "dob": "24/04/2001",
+      "email": "abc@xyz.com",
+      "password": "00asp00",
+      "address": {
+        "Id": 1,
+        "BuildingNo": 23,
+        "Street": "Palmgrove rd",
+        "Area": "Victoria Layout",
+        "City": "Bangalore",
+        "Country": "India",
+        "Pincode": 560010
+      },
+      "mobile": 9447416588
+    },
+    {
+      "id": 2,
+      "first_name": "James",
+      "last_name": "May",
+      "role": "user",
+      "dob": "2/01/2002",
+      "email": "def@xyz.com",
+      "mobile": "8547416578",
+      "password": "01asp01",
+      "address": {
+        "Id": 2,
+        "BuildingNo": 24,
+        "Street": "HAL rd",
+        "Area": "Indiranagar",
+        "City": "Bangalore",
+        "Country": "India",
+        "Pincode": 560011
+      }
+    },
+    {
+      "id": 3,
+      "first_name": "Jim",
+      "last_name": "Parson",
+      "role": "admin",
+      "dob": "12/05/2003",
+      "email": "lmn@xyz.com",
+      "mobile": "9007416578",
+      "password": "02asp02",
+      "address": {
+        "Id": 3,
+        "BuildingNo": 26,
+        "Street": "ABC rd",
+        "Area": "Domlur",
+        "City": "Bangalore",
+        "Country": "India",
+        "Pincode": 560012
+      }
+    },
+    {
+      "id": 4,
+      "first_name": "Tom",
+      "last_name": "Jerry1",
+      "role": "user",
+      "dob": "12/05/2003",
+      "email": "jerry@xyz.com",
+      "password": "as",
+      "address": {
+        "Id": 4,
+        "BuildingNo": 26,
+        "Street": "ABC rd",
+        "Area": "assa",
+        "City": "Bangalore",
+        "Country": "India",
+        "Pincode": "561123"
+      },
+      "mobile": 7306076348
+    },
+    {
+      "id": 5,
+      "first_name": "Miti",
+      "last_name": "aa",
+      "role": "user",
+      "dob": "12/05/2003",
+      "email": "miti@gmail.com",
+      "password": "miti",
+      "address": {
+        "Id": 5,
+        "BuildingNo": 45,
+        "Street": "Palmgrove rd",
+        "Area": "sfdz",
+        "City": "Bangalore",
+        "Country": "India",
+        "Pincode": "560010"
+      },
+      "mobile": 7306076345
+    },
+    {
+      "id": 6,
+      "first_name": "Anirudh",
+      "last_name": "Priyan",
+      "role": "user",
+      "dob": "24-04-01",
+      "email": "abc@xyz.com",
+      "password": "asp",
+      "address": {
+        "Id": 6,
+        "BuildingNo": 1,
+        "Street": "akd",
+        "Area": "Victoria Layout",
+        "City": "Anirudh",
+        "Country": "India",
+        "Pincode": "123456"
+      },
+      "mobile": 7306076345
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "orderDate": "12/02/2001",
+      "orderAmount": 410,
+      "arrDishes": [
+        {
+          "id": 1,
+          "Name": "Biriyani",
+          "price": 170,
+          "img_path": "",
+          "isAvailable": true
+        },
+        {
+          "id": 2,
+          "Name": "Pastry",
+          "price": 120,
+          "img_path": "",
+          "isAvailable": true
+        }
+      ],
+      "quantity": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "orderDate": "14/07/1999",
+      "orderAmount": 1500,
+      "arrDishes": [
+        {
+          "id": 3,
+          "Name": "Burger",
+          "price": 250,
+          "img_path": "",
+          "isAvailable": true
+        },
+        {
+          "id": 4,
+          "Name": "Steak",
+          "price": 300,
+          "img_path": "",
+          "isAvailable": true
+        }
+      ],
+      "quantity": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "orderDate": "18/10/2023",
+      "orderAmount": 1796,
+      "arrDishes": [
+        {
+          "id": 1,
+          "Name": "Biriyani",
+          "price": 170,
+          "img_path": "",
+          "isAvailable": true
+        },
+        {
+          "id": 2,
+          "Name": "Pastry",
+          "price": 120,
+          "img_path": "",
+          "isAvailable": true
+        },
+        {
+          "Name": "Soup",
+          "price": 123,
+          "img_path": "",
+          "isAvailable": "true",
+          "id": 5
+        }
+      ],
+      "quantity": [
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "id": 7,
+      "userId": 3,
+      "orderDate": "18/10/2023",
+      "orderAmount": 620,
+      "arrDishes": [
+        {
+          "Name": "Burger",
+          "price": 250,
+          "img_path": "",
+          "isAvailable": true,
+          "id": 3
+        },
+        {
+          "Name": "Pastry",
+          "price": 120,
+          "img_path": "",
+          "isAvailable": true,
+          "id": 2
+        }
+      ],
+      "quantity": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": 8,
+      "userId": 3,
+      "orderDate": "18/10/2023",
+      "orderAmount": 870,
+      "arrDishes": [
+        {
+          "id": 1,
+          "Name": "Biriyani",
+          "price": 170,
+          "img_path": "",
+          "isAvailable": true
+        },
+        {
+          "id": 2,
+          "Name": "Pastry",
+          "price": 120,
+          "img_path": "",
+          "isAvailable": true
+        }
+      ],
+      "quantity": [
+        3,
+        3
+      ]
+    },
+    {
+      "id": 9,
+      "userId": 2,
+      "orderDate": "18/10/2023",
+      "orderAmount": 750,
+      "arrDishes": [
+        {
+          "Name": "mandhi",
+          "price": 250,
+          "img_path": "../../assets/Images/pic1.jpg",
+          "isAvailable": "true",
+          "id": 1
+        }
+      ],
+      "quantity": [
+        3
+      ]
+    },
+    {
+      "id": 10,
+      "userId": "5",
+      "orderDate": "26/10/2023",
+      "orderAmount": 700,
+      "arrDishes": [
+        {
+          "id": 1,
+          "Name": "Biriyani",
+          "price": 170,
+          "img_path": "https://healux.in/wp-content/uploads/2020/11/ChickenBiryani.jpg",
+          "isAvailable": true
+        },
+        {
+          "id": 2,
+          "Name": "Pastry",
+          "price": 120,
+          "img_path": "https://theobroma.in/cdn/shop/products/RedVelvetPastry1.jpg?v=1632143810",
+          "isAvailable": true
+        }
+      ],
+      "quantity": [
+        2,
+        3
+      ]
+    }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "Amount": 550,
+      "arrDishes": [
+        {
+          "id": 3,
+          "Name": "Burger",
+          "price": 250,
+          "img_path": "",
+          "isAvailable": true
+        },
+        {
+          "id": 4,
+          "Name": "Steak",
+          "price": 300,
+          "img_path": "",
+          "isAvailable": true
+        }
+      ],
+      "quantity": [
+        1,
+        3
+      ]
+    },
+    {
+      "Amount": 0,
+      "id": 2,
+      "arrDishes": [],
+      "quantity": []
+    },
+    {
+      "Amount": 0,
+      "id": 3,
+      "arrDishes": [],
+      "quantity": []
+    },
+    {
+      "Amount": 0,
+      "id": 4,
+      "arrDishes": [],
+      "quantity": []
+    },
+    {
+      "Amount": 0,
+      "id": 5,
+      "arrDishes": [],
+      "quantity": []
+    },
+    {
+      "Amount": 0,
+      "id": 6,
+      "arrDishes": [],
+      "quantity": []
+    }
+  ]
+}

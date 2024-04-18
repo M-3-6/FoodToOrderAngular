@@ -1,0 +1,79 @@
+
+<form [formGroup]="updateUserForm"
+        (ngSubmit)="onSubmit(updateUserForm.value)"
+        class="ui form" [class.error]="!updateUserForm.valid && updateUserForm.touched">
+        <div class="form-group">
+            <label class="form-label" for="id"> Select a user for Update:</label>
+            <select class="form-select" id="id" formControlName="id" (change)="onChangeType($event)">
+                <option selected>Select a value</option>
+                <option *ngFor="let u of arrUsers" [ngValue]="u.id">{{u.firstName}}</option>
+            </select>
+        </div>
+<div class="mb-3"  [class.error]="!updateUserForm.get('firstName')?.valid && updateUserForm.get('firstName')?.touched">
+    <label for="firstName" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="firstName">
+    <!-- <div *ngIf="!updateUserForm.controls['firstName'].valid"
+    style="color: red;" class="form_error">First Name is not valid</div> -->
+    <div *ngIf="updateUserForm.controls['firstName'].hasError('required') && updateUserForm.get('firstName')?.touched" class="invalid-feedback" style="color: red;" class="form_error">First Name is required</div>
+  </div>  
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="lastName">
+    <div *ngIf="updateUserForm.controls['lastName'].hasError('required')  && updateUserForm.get('lastName')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Last Name is required</div>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="text" class="form-control" id="email" formControlName="email" placeholder="email">
+    <div *ngIf="updateUserForm.controls['email'].hasError('required') && updateUserForm.get('email')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Email is required</div>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" formControlName="password" placeholder="password">
+    <div *ngIf="updateUserForm.controls['password'].hasError('required') && updateUserForm.get('password')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Password is required</div>
+  </div>
+  <!-- <div class="mb-3">
+    <label for="role" class="form-label">Role</label>
+    <input type="text" class="form-control" id="role" formControlName="role" placeholder="role">
+    <div *ngIf="updateUserForm.controls['role'].hasError('required') && updateUserForm.get('role')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Role is required</div>
+  </div> -->
+  <div class="mb-3">
+    <label for="date_of_birth" class="form-label">Date Of Birth</label>
+    <input type="date" class="form-control" id="date_of_birth" formControlName="date_of_birth" placeholder="date_of_birth">
+    <div *ngIf="updateUserForm.controls['date_of_birth'].hasError('required') && updateUserForm.get('date_of_birth')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Date of birth is required</div>
+  </div>
+  <div class="mb-3">
+    <label for="houseno" class="form-label">House Number</label>
+    <input type="text" class="form-control" id="houseno" formControlName="houseno" placeholder="houseno">
+    <div *ngIf="updateUserForm.controls['houseno'].hasError('required') && updateUserForm.get('houseno')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">House No. is required</div>
+  </div>
+  <div class="mb-3">
+    <label for="street" class="form-label">Street</label>
+    
+    <input type="text" class="form-control" id="street" formControlName="street" placeholder="street">
+    <div *ngIf="updateUserForm.controls['street'].hasError('required') && updateUserForm.get('street')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Street is required</div>
+  </div>
+  <div class="mb-3">
+    <label for="area" class="form-label">Area</label>
+    <input type="text" class="form-control" id="area" formControlName="area" placeholder="area">
+    <div *ngIf="updateUserForm.controls['area'].hasError('required') && updateUserForm.get('area')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Area is required</div>
+  </div>
+  <div class="mb-3">
+    <label for="city" class="form-label">City</label>
+    <input type="text" class="form-control" id="city" formControlName="city" placeholder="city">
+    <div *ngIf="updateUserForm.controls['city'].hasError('required') && updateUserForm.get('city')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">City is required</div>
+  </div>
+  <div class="mb-3">
+    <label for="pincode" class="form-label">Pincode</label>
+    <input type="text" class="form-control" id="pincode" formControlName="pincode" placeholder="pincode">
+    <div *ngIf="updateUserForm.controls['pincode'].hasError('required') && updateUserForm.get('pincode')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Pincode is required</div>
+  </div>
+  <div class="mb-3">
+    <label for="country" class="form-label">Country</label>
+    <input type="text" class="form-control" id="country" formControlName="country" placeholder="country">
+    <div *ngIf="updateUserForm.controls['country'].hasError('required') && updateUserForm.get('country')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Country is required</div>
+  </div>
+  
+  <div *ngIf="!updateUserForm.valid" style="color: red;" class="form_error">Form is invalid</div>
+  <button type="submit" class="ui button">Submit</button>
+</form>
+
