@@ -39,6 +39,8 @@ import {MatSelectModule} from '@angular/material/select';
 
 import{HttpClientModule} from '@angular/common/http'
 
+import {MatRadioModule} from '@angular/material/radio';
+
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import{HttpClientModule} from '@angular/common/http'
     MatOptionModule,
     MatSelectModule,
 
-    HttpClientModule
+    HttpClientModule,
+
+    MatRadioModule
   ],
   providers: [RestaurantService,DishService,UserService, provideAnimationsAsync()],
   bootstrap: [AppComponent]

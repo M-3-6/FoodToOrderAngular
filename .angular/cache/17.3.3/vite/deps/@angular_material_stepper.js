@@ -4,12 +4,6 @@ import {
   TemplatePortal
 } from "./chunk-7FUO3BQH.js";
 import {
-  MatIcon,
-  MatIconModule
-} from "./chunk-GGQR5YBZ.js";
-import "./chunk-YMMCUNHX.js";
-import "./chunk-YJ35XV4A.js";
-import {
   animate,
   animateChild,
   group,
@@ -19,6 +13,12 @@ import {
   transition,
   trigger
 } from "./chunk-W3GRXQQY.js";
+import {
+  MatIcon,
+  MatIconModule
+} from "./chunk-GGQR5YBZ.js";
+import "./chunk-YMMCUNHX.js";
+import "./chunk-YJ35XV4A.js";
 import {
   BidiModule,
   Directionality,
