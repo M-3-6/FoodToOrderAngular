@@ -128,6 +128,12 @@ export class AddRestaurantComponent {
       })
       console.log(this.restaurant)
       
+
+      this.restaurantService.getRestaurants().subscribe(data=>{
+        const largestId = Math.max(...data.map(item=>item.id))
+        console.log(largestId)
+        this.restaurant.id = largestId + 1;
+      })
       
       this.restaurantService.addRestaurant(this.restaurant).subscribe(data=>{
         console.log(data)

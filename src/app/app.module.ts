@@ -40,6 +40,7 @@ import {MatSelectModule} from '@angular/material/select';
 import{HttpClientModule} from '@angular/common/http'
 
 import {MatRadioModule} from '@angular/material/radio';
+import { UpdateRestaurantComponent } from './components/AdminRestaurant/update-restaurant/update-restaurant.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import {MatRadioModule} from '@angular/material/radio';
     UpdateUser2Component,
     AddRestaurantComponent,
     AddDishComponent,
+    UpdateRestaurantComponent,
     
   ],
   imports: [
