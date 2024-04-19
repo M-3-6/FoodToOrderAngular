@@ -10,7 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class RestaurantDetailsComponent {
  //arrRestaurants:Restaurant[]=[]
- restaurant:Restaurant = new Restaurant(0,'','',0,[],[])
+ restaurant:Restaurant = new Restaurant(0,'',0,[],[])
  //restaurantService:RestaurantService = new RestaurantService()
 
 

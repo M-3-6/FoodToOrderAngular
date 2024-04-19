@@ -21,7 +21,7 @@ export class AddRestaurantComponent {
 
     firstFormGroup = this.formBuilder.group({
       rNameCtrl: ['', Validators.required],
-      rLocationCtrl: ['', Validators.required],
+      // rLocationCtrl: ['', Validators.required],
       rUserIdCtrl: ['', Validators.required],
     });
   
@@ -31,7 +31,7 @@ export class AddRestaurantComponent {
     
 
     constructor(private formBuilder:FormBuilder, private restaurantService:RestaurantService){
-      this.restaurant = new Restaurant(0,"","",0,[],[])
+      this.restaurant = new Restaurant(0,"",0,[],[])
 
       this.addressListForm = this.formBuilder.group({
         addresses:this.formBuilder.array([this.createAddressListFormGroup()])
@@ -55,7 +55,7 @@ export class AddRestaurantComponent {
       console.log(formData.value);
   
       this.restaurant.rName = formData.value.rNameCtrl;
-      this.restaurant.location = formData.value.rLocationCtrl;
+      //this.restaurant.location = formData.value.rLocationCtrl;
       this.restaurant.user_id = formData.value.rUserIdCtrl;
     }
 

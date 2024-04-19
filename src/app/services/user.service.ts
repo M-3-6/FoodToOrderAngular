@@ -9,8 +9,8 @@ export class UserService {
   arrUsers:User[]
   constructor() { 
     this.arrUsers = [
-      new User(101,"Prajith","Shetty","admin","prajith123@gmail.com","Prajith@12",new Date("2001-02-23"),new Address(101,"5/8","Ks road","Mallar","Mangalore","576897","India")),
-      new User(1,"John","Doe","user","john@gmail.com","john@12",new Date("1995-08-06"),new Address(102,"5/8","Bs road","Karkala","Udupi","576497","India")),
+      new User(101,"John","Doe","admin","admin@gmail.com","admin@12",new Date("2001-02-23"),new Address(101,"5/8","Ks road","Mallar","Mangalore","576897","India")),
+      new User(1,"Peter","Doe","user","john@gmail.com","john@12",new Date("1995-08-06"),new Address(102,"5/8","Bs road","Karkala","Udupi","576497","India")),
       new User(2,"Rohan","Peter","user","rohan@gmail.com","rohan@12",new Date("2004-05-13"),new Address(103,"5/8","s road","Mallar","Mangalore","576897","India")),
       new User(3,"Rahul","Bhat","user","rahul@gmail.com","rahul@12",new Date("1997-11-03"),new Address(104,"5/8","Ks street","Mallar","Shivamogga","576897","India")),
       new User(4,"Jay","Lobo","user","jay@gmail.com","jay@12",new Date("2002-05-15"),new Address(105,"5/8","Ks road","Mallar","Mangalore","576897","India")),
