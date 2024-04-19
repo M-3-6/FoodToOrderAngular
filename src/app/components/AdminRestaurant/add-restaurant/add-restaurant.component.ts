@@ -3,6 +3,7 @@ import { Restaurant } from '../../../models/restaurant';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RestaurantService } from '../../../services/restaurantService';
 import { Address } from '../../../models/address';
+import { Dish } from '../../../models/dish';
 
 @Component({
   selector: 'app-add-restaurant',
@@ -11,13 +12,23 @@ import { Address } from '../../../models/address';
 })
 export class AddRestaurantComponent {
     count:number = 0;
-    countSecondFormSubmit: number = 0;
+    dishesCount:number=0;
+    // countSecondFormSubmit: number = 0;
+    // countThirdFormSubmit:number=0;
+
     restaurant:Restaurant;
     arrAddresses:Address[] = []
     isLinear = false;
     addId:number = 1;
+    addDishId:number=1;
+
+    submitClicked:boolean = false;
+
+    //availabilityOptions:Boolean[] = [true, false]
 
     public addressListForm:FormGroup
+
+    public addDishesListForm:FormGroup
 
     firstFormGroup = this.formBuilder.group({
       rNameCtrl: ['', Validators.required],
@@ -29,12 +40,17 @@ export class AddRestaurantComponent {
       secondCtrl: ['', Validators.required],
     });
     
+    thirdFormGroup = this.formBuilder.group({});
 
     constructor(private formBuilder:FormBuilder, private restaurantService:RestaurantService){
       this.restaurant = new Restaurant(0,"",0,[],[])
 
       this.addressListForm = this.formBuilder.group({
         addresses:this.formBuilder.array([this.createAddressListFormGroup()])
+      })
+
+      this.addDishesListForm = this.formBuilder.group({
+        dishFormArray:this.formBuilder.array([this.createDishListFormGroup()])
       })
 
     }
@@ -51,6 +67,17 @@ export class AddRestaurantComponent {
       })
     }
 
+    createDishListFormGroup():FormGroup{
+      this.dishesCount++;
+      return new FormGroup({
+        'dishName':new FormControl('',Validators.required),
+        'price':new FormControl('',Validators.required),
+        'img_path':new FormControl('',Validators.required),
+        'isAvailable':new FormControl(true),
+        
+      })
+    }
+
     saveFirstStepData(formData:FormGroup){
       console.log(formData.value);
   
@@ -60,32 +87,65 @@ export class AddRestaurantComponent {
     }
 
     saveSecondStepData(formdata:FormGroup){
-      this.countSecondFormSubmit++;
+      // console.log(evt.srcElement)
+      // if(submit){
+      //   console.log("Submit clicked")
+      // }
+      console.log("2nd stepper submit clicked")
+
       console.log(this.restaurant);
-      if(this.countSecondFormSubmit==this.count){
-        console.log(formdata);
+      
+       // console.log(formdata);
         let addressArr = Object.values(formdata);
       console.log(addressArr[0])
 
-      this.restaurant.arrAddresses = []
+     // this.restaurant.arrAddresses = []
       this.addId = 1;
       
-      addressArr[0].forEach((add:any)=>{console.log(add)
+      
+      addressArr[0].forEach((add:any)=>{
         this.restaurant.arrAddresses.push(new Address(this.addId++,add.houseno,add.street,add.area,add.city,add.pincode,add.country))
       })
       console.log(this.restaurant)
-      }
       
-
-
-
+      
       // this.restaurantService.addRestaurant(this.restaurant).subscribe(data=>{
       //   console.log(data)
       // })
     }
 
-    Addresses():FormArray{
+    saveThirdStepData(formdata:FormGroup){
+      // console.log(evt.srcElement)
+      console.log("3rd stepper submit clicked")
+
+        let dishesArr = Object.values(formdata);
+      console.log(dishesArr[0])
+
+      this.addDishId = 1;
+      
+      dishesArr[0].forEach((add:any)=>{
+        this.restaurant.dishes.push(new Dish(this.addDishId++,add.dishName,add.price,add.img_path,this.restaurant.id,add.isAvailable))
+      })
+      console.log(this.restaurant)
+      
+
+      this.restaurantService.getRestaurants().subscribe(data=>{
+        const largestId = Math.max(...data.map(item=>item.id))
+        console.log(largestId)
+        this.restaurant.id = largestId + 1;
+      })
+      
+      this.restaurantService.addRestaurant(this.restaurant).subscribe(data=>{
+        console.log(data)
+      })
+    }
+
+    addresses():FormArray{
       return this.addressListForm.get("addresses") as FormArray
+    }
+
+    dishFormArray():FormArray{
+      return this.addDishesListForm.get("dishFormArray") as FormArray
     }
 
     public addItineryFormGroup() {
@@ -102,5 +162,18 @@ export class AddRestaurantComponent {
       }
     }
   
+    public addDishFormGroup() {
+      const dishFormArray = this.addDishesListForm.get('dishFormArray') as FormArray
+      dishFormArray.push(this.createDishListFormGroup())
+    }
+    
+    public removeOrClearDish(i: number) {
+      const dishFormArray = this.addDishesListForm.get('dishFormArray') as FormArray
+      if (dishFormArray.length > 1) {
+        dishFormArray.removeAt(i)
+      } else {
+        dishFormArray.reset()
+      }
+    }
   
 }

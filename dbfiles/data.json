@@ -128,7 +128,7 @@
     },
     {
       "user_id": 1,
-      "id": "4",
+      "id": "3",
       "rName": "Cafe Jade",
       "arrAddresses": [
         {
@@ -154,7 +154,7 @@
     },
     {
       "user_id": 1,
-      "id": "6",
+      "id": "4",
       "rName": "Paradise",
       "arrAddresses": [
         {
@@ -186,31 +186,8 @@
           "restaurant_id": 6
         }
       ]
-    },
-    {
-      "id": 0,
-      "rName": "Chaithanya",
-      "user_id": "20",
-      "dishes": [
-        {
-          "id": null,
-          "dName": "Dosa",
-          "price": "60",
-          "rId": 2,
-          "available": "",
-          "img_path": "\"\""
-        },
-        {
-          "id": null,
-          "dName": "Idly",
-          "price": "20",
-          "rId": 2,
-          "available": "",
-          "img_path": "\"\""
-        }
-      ],
-      "arrAddress": []
     }
+    
   ],
   "users": [
     {
@@ -289,30 +266,19 @@
   "orders": [
     {
       "id": "1",
-      "userId": 1,
-      "orderDate": "12/02/2001",
-      "orderAmount": 410,
-      "arrDishes": [
+      "order_date" : "18/10/2023",
+      "order_amount" : "400",
+      "user_id": "1",
+      "order_details": [
         {
-          "id": 1,
-          "Name": "Biriyani",
-          "price": 170,
-          "img_path": "",
-          "isAvailable": true
-        },
-        {
-          "id": 2,
-          "Name": "Pastry",
-          "price": 120,
-          "img_path": "",
-          "isAvailable": true
+          "id": "1",
+          "order_id" : "1",
+          "dish_id" : "1",
+          "quantity" : "2"
         }
-      ],
-      "quantity": [
-        1,
-        2
       ]
     },
+    
     {
       "id": "2",
       "userId": 2,

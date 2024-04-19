@@ -42,6 +42,9 @@ import { AddOrderComponent } from './components/order/add-order/add-order.compon
 import { UpdateOrderComponent } from './components/order/update-order/update-order.component';
 import { ViewOrderComponent } from './components/order/view-order/view-order.component'
 
+import {MatRadioModule} from '@angular/material/radio';
+import { UpdateRestaurantComponent } from './components/AdminRestaurant/update-restaurant/update-restaurant.component';
+
 
 @NgModule({
   declarations: [
@@ -65,9 +68,11 @@ import { ViewOrderComponent } from './components/order/view-order/view-order.com
     UpdateUser2Component,
     AddRestaurantComponent,
     AddDishComponent,
-    AddOrderComponent,
     UpdateOrderComponent,
     ViewOrderComponent,
+    AddOrderComponent,
+    UpdateRestaurantComponent
+
     
   ],
   imports: [
@@ -86,7 +91,9 @@ import { ViewOrderComponent } from './components/order/view-order/view-order.com
     MatOptionModule,
     MatSelectModule,
 
-    HttpClientModule
+    HttpClientModule,
+
+    MatRadioModule
   ],
   providers: [RestaurantService,DishService,UserService, provideAnimationsAsync()],
   bootstrap: [AppComponent]

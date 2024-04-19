@@ -1,0 +1,42 @@
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button> -->
+  <mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup" (ngSubmit)="saveFirstStepData(firstFormGroup)">
+        <!-- <ng-template matStepLabel>Fill out your name</ng-template> -->
+        <mat-toolbar color="primary">
+          Update Restaurant Details
+        </mat-toolbar>
+        <mat-form-field appearance="fill">
+            <mat-label>Select Restaurant</mat-label>
+            <mat-select formControlName="restCtrl" >
+              <mat-option *ngFor="let rest of restaurants" [value]="rest.id">{{rest.rName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+       
+        <div>
+          <button mat-button matStepperNext type="submit">Save</button>
+        </div>
+        <div>
+          <button mat-button matStepperNext >Next</button>
+        </div>
+      </form>
+    </mat-step>
+  
+   
+    
+
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+
+   
+

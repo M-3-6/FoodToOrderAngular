@@ -74,6 +74,11 @@ export class RestaurantService{
       )
   }
 
+
+  // getTotalRestaurants():int{
+  //   return this.httpClient.get<Restaurant>(this.baseUrl+'/restaurants').
+  // }
+
 addRestaurant(r:Restaurant):Observable<Restaurant>{
 return this.httpClient.post<Restaurant>(this.baseUrl+'/restaurants/',JSON.stringify(r),this.httpHeader).pipe(
   catchError(this.httpError))
