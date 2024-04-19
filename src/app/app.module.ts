@@ -19,9 +19,9 @@ import { UserService } from './services/user.service';
 import { CartComponent } from './components/cart/cart.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatTabsModule} from '@angular/material/tabs';
-import { AddUserComponent } from './components/user/add-user/add-user.component';
+
 import { ViewUserComponent } from './components/user/view-user/view-user.component';
-import { UpdateUserComponent } from './components/user/update-user/update-user.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddUser2Component } from './components/user/add-user2/add-user2.component';
 import { UpdateUser2Component } from './components/user/update-user2/update-user2.component';
@@ -55,9 +55,9 @@ import{HttpClientModule} from '@angular/common/http'
     SecondComponent,
     NotFoundComponent,
     CartComponent,
-    AddUserComponent,
+  
     ViewUserComponent,
-    UpdateUserComponent,
+  
     AddUser2Component,
     UpdateUser2Component,
     AddRestaurantComponent,
