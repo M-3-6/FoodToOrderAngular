@@ -1,4 +1,10 @@
 import {
+  MatIcon,
+  MatIconModule
+} from "./chunk-GGQR5YBZ.js";
+import "./chunk-YMMCUNHX.js";
+import "./chunk-YJ35XV4A.js";
+import {
   CdkPortalOutlet,
   PortalModule,
   TemplatePortal

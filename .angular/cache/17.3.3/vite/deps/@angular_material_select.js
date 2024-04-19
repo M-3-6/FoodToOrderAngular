@@ -39,6 +39,12 @@ import {
   trigger
 } from "./chunk-W3GRXQQY.js";
 import {
+  FormGroupDirective,
+  NgControl,
+  NgForm,
+  Validators
+} from "./chunk-MVPNF6FW.js";
+import {
   A,
   ActiveDescendantKeyManager,
   BidiModule,

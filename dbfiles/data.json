@@ -3,6 +3,7 @@
     {
       "user_id": 1,
       "id": "1",
+      "id": "1",
       "rName": "Truffles2323",
       "arrAddresses": [
         {
@@ -69,6 +70,7 @@
     },
     {
       "user_id": 2,
+      "id": "2",
       "id": "2",
       "rName": "Tonique",
       "arrAddresses": [
@@ -186,122 +188,104 @@
           "restaurant_id": 6
         }
       ]
+    },
+    {
+      "id": 0,
+      "rName": "Chaithanya",
+      "user_id": "20",
+      "dishes": [
+        {
+          "id": null,
+          "dName": "Dosa",
+          "price": "60",
+          "rId": 2,
+          "available": "",
+          "img_path": "\"\""
+        },
+        {
+          "id": null,
+          "dName": "Idly",
+          "price": "20",
+          "rId": 2,
+          "available": "",
+          "img_path": "\"\""
+        }
+      ],
+      "arrAddress": []
     }
   ],
   "users": [
     {
       "id": "1",
-      "first_name": "John",
-      "last_name": "Hopkins",
-      "role": "restaurantOwner",
-      "dob": "24/04/2001",
-      "email": "abc@xyz.com",
-      "password": "00asp00",
+      "firstName": "Maria",
+      "lastName": "George",
+      "role": "user",
+      "email": "maria@tismo.com",
+      "password": "maria345",
       "address": {
-        "Id": 1,
-        "BuildingNo": 23,
-        "Street": "Palmgrove rd",
-        "Area": "Victoria Layout",
-        "City": "Bangalore",
-        "Country": "India",
-        "Pincode": 560010
+        "id": 0,
+        "houseno": "7",
+        "street": "Nangellil Lane",
+        "area": "Kuttumukku Road",
+        "city": "Thrissur",
+        "pincode": "680008",
+        "country": "India"
       },
-      "mobile": 9447416588
+      "date_of_birth": "2001-11-09"
     },
     {
       "id": "2",
-      "first_name": "James",
-      "last_name": "May",
+      "firstName": "Prajith",
+      "lastName": "Shetty",
       "role": "user",
-      "dob": "2/01/2002",
-      "email": "def@xyz.com",
-      "mobile": "8547416578",
-      "password": "01asp01",
+      "email": "prajith@tismo.com",
+      "password": "prajith345",
       "address": {
-        "Id": 2,
-        "BuildingNo": 24,
-        "Street": "HAL rd",
-        "Area": "Indiranagar",
-        "City": "Bangalore",
-        "Country": "India",
-        "Pincode": 560011
-      }
+        "id": 0,
+        "houseno": "3",
+        "street": "Victoria",
+        "area": "Palmgrove",
+        "city": "Banglore",
+        "pincode": "560001",
+        "country": "India"
+      },
+      "date_of_birth": "2024-04-19T08:36:24.759Z"
     },
     {
       "id": "3",
-      "first_name": "Jim",
-      "last_name": "Parson",
-      "role": "admin",
-      "dob": "12/05/2003",
-      "email": "lmn@xyz.com",
-      "mobile": "9007416578",
-      "password": "02asp02",
-      "address": {
-        "Id": 3,
-        "BuildingNo": 26,
-        "Street": "ABC rd",
-        "Area": "Domlur",
-        "City": "Bangalore",
-        "Country": "India",
-        "Pincode": 560012
-      }
-    },
-    {
-      "id": "4",
-      "first_name": "Tom",
-      "last_name": "Jerry1",
+      "firstName": "Praveen",
+      "lastName": "K",
       "role": "user",
-      "dob": "12/05/2003",
-      "email": "jerry@xyz.com",
-      "password": "as",
+      "email": "praveen@tismo.com",
+      "password": "praveen345",
       "address": {
-        "Id": 4,
-        "BuildingNo": 26,
-        "Street": "ABC rd",
-        "Area": "assa",
-        "City": "Bangalore",
-        "Country": "India",
-        "Pincode": "561123"
+        "id": 52,
+        "houseno": "3",
+        "street": "Church Street",
+        "area": "Palmgrove",
+        "city": "Paris",
+        "pincode": "123456",
+        "country": "France"
       },
-      "mobile": 7306076348
+      "date_of_birth": "1999-03-11"
     },
     {
       "id": "5",
-      "first_name": "Miti",
-      "last_name": "aa",
-      "role": "user",
-      "dob": "12/05/2003",
-      "email": "miti@gmail.com",
-      "password": "miti",
+      "firstName": "John",
+      "lastName": "Doe",
+      "role": "admin",
+      "email": "john@tismo.com",
+      "password": "john345",
       "address": {
-        "Id": 5,
-        "BuildingNo": 45,
-        "Street": "Palmgrove rd",
-        "Area": "sfdz",
-        "City": "Bangalore",
-        "Country": "India",
-        "Pincode": "560010"
+        "id": 53,
+        "houseno": "20",
+        "street": "Madras Road",
+        "area": "Thiruvanmiyur",
+        "city": "Chennai",
+        "pincode": "569992",
+        "country": "Chennai"
       },
-      "mobile": 7306076345
-    },
-    {
-      "id": "6",
-      "first_name": "Anirudh",
-      "last_name": "Priyan",
-      "role": "user",
-      "dob": "24-04-01",
-      "email": "abc@xyz.com",
-      "password": "asp",
-      "address": {
-        "Id": 6,
-        "BuildingNo": 1,
-        "Street": "akd",
-        "Area": "Victoria Layout",
-        "City": "Anirudh",
-        "Country": "India",
-        "Pincode": "123456"
-      },
-      "mobile": 7306076345
+      "date_of_birth": "2000-08-10"
     }
   ],
   "orders": [
