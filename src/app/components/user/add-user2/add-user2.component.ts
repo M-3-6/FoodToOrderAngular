@@ -10,8 +10,6 @@ import { UserService } from '../../../services/user.service';
   styleUrl: './add-user2.component.scss'
 })
 export class AddUser2Component {
-  arrUsers:User[]=[]
-  arrAddresses:Address[]=[]
   tempUser:User=new User(0,'','','','','',new Date(),new Address(0,'','','','','',''))
   tempAddr:Address=new Address(0,'','','','','','')
 
@@ -64,10 +62,10 @@ export class AddUser2Component {
   }
 
   onSubmit(addUserFormValue: any): void {
-    console.log('you submitted value: ', addUserFormValue);
-    console.log(addUserFormValue.firstName)
     this.tempAddr=new Address(1,addUserFormValue.houseno,addUserFormValue.street,addUserFormValue.area,addUserFormValue.city,addUserFormValue.pincode,addUserFormValue.country)
     this.tempUser=new User(11,addUserFormValue.firstName,addUserFormValue.lastName,addUserFormValue.email,addUserFormValue.password,"user",addUserFormValue.date_of_birth,this.tempAddr)
-    this.userService.addUser(this.tempUser)
+    this.userService.addUser(this.tempUser).subscribe(data=>{
+      console.log(data) 
+    })
   } 
 }

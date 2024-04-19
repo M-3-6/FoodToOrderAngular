@@ -3,6 +3,7 @@ import { Address } from '../../../models/address';
 import { User } from '../../../models/user';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-update-user2',
@@ -10,7 +11,7 @@ import { UserService } from '../../../services/user.service';
   styleUrl: './update-user2.component.scss'
 })
 export class UpdateUser2Component {
-  arrUsers:User[]=[]
+  arrUsers: Observable<User[]>
   arrAddresses:Address[]=[]
   tempUser:User=new User(0,'','','','','',new Date(),new Address(0,'','','','','',''))
   tempAddr:Address=new Address(0,'','','','','','')
@@ -30,16 +31,11 @@ export class UpdateUser2Component {
  country:AbstractControl;
   
   idUpdated: number=0;
-  user: User=new User(0,'','','','','',new Date(),new Address(0,'','','','','',''));
- // myForm: any;
-  //sku:FormControl
+  idObtained : number = 0;
+
   constructor(fb: FormBuilder,private userService:UserService) {
-
-   
-   
-
-    
     this.arrUsers=userService.getUsers()
+
     /////////////////
     this.updateUserForm = fb.group({ 
     'id':[0]    ,
@@ -70,34 +66,32 @@ export class UpdateUser2Component {
   }
 
   onSubmit(updateUserForm: any): void {
-    console.log('you submitted value: ', updateUserForm);
-    console.log(updateUserForm.firstName)
     this.tempAddr=new Address(0,updateUserForm.houseno,updateUserForm.street,updateUserForm.area,updateUserForm.city,updateUserForm.pincode,updateUserForm.country)
     this.tempUser=new User (this.idUpdated,updateUserForm.firstName,updateUserForm.lastName,updateUserForm.email,updateUserForm.password,"user",updateUserForm.date_of_birth,this.tempAddr)
-    this.userService.updateUser(this.tempUser)
+    this.userService.updateUser(this.tempUser, this.idObtained).subscribe(data=>{
+      console.log(data) 
+    })
   }
 
   onChangeType(evt:any)
   {
     console.log(evt.target.value)
-
-    var idObtained=evt.target.value;
-    this.idUpdated=parseInt(idObtained.split(':')[1].trim()); //['1','1']
-    console.log("this.idUpdated",this.idUpdated)
-    // let user:User=this.userService.getUserById(this.idUpdated)
-
-    this.user=this.userService.getUserById(this.idUpdated);
-     this.updateUserForm.get('firstName')?.setValue(this.user.firstName)
-      this.updateUserForm.get('lastName')?.setValue(this.user.lastName)
-      this.updateUserForm.get('role')?.setValue(this.user.role)
-      this.updateUserForm.get('email')?.setValue(this.user.email)
-      this.updateUserForm.get('password')?.setValue(this.user.password)
-      this.updateUserForm.get('houseno')?.setValue(this.user.address.houseno)
-      this.updateUserForm.get('street')?.setValue(this.user.address.street)
-      this.updateUserForm.get('area')?.setValue(this.user.address.area)
-      this.updateUserForm.get('city')?.setValue(this.user.address.city)
-      this.updateUserForm.get('country')?.setValue(this.user.address.country)
-      this.updateUserForm.get('pincode')?.setValue(this.user.address.pincode)
+    this.idObtained = evt.target.value;
+    this.userService.getUserById(this.idObtained).subscribe(user => {
+      if (user) {
+        this.updateUserForm.get('firstName')?.setValue(user.firstName);
+        this.updateUserForm.get('lastName')?.setValue(user.lastName)
+        this.updateUserForm.get('role')?.setValue(user.role)
+        this.updateUserForm.get('email')?.setValue(user.email)
+        this.updateUserForm.get('password')?.setValue(user.password)
+        this.updateUserForm.get('houseno')?.setValue(user.address.houseno)
+        this.updateUserForm.get('street')?.setValue(user.address.street)
+        this.updateUserForm.get('area')?.setValue(user.address.area)
+        this.updateUserForm.get('city')?.setValue(user.address.city)
+        this.updateUserForm.get('country')?.setValue(user.address.country)
+        this.updateUserForm.get('pincode')?.setValue(user.address.pincode)
+      }
+    });
     
   }
 }

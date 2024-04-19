@@ -2,12 +2,12 @@
 <form [formGroup]="updateUserForm"
         (ngSubmit)="onSubmit(updateUserForm.value)"
         class="ui form" [class.error]="!updateUserForm.valid && updateUserForm.touched">
-        <div class="form-group">
-            <label class="form-label" for="id"> Select a user for Update:</label>
-            <select class="form-select" id="id" formControlName="id" (change)="onChangeType($event)">
-                <option selected>Select a value</option>
-                <option *ngFor="let u of arrUsers" [ngValue]="u.id">{{u.firstName}}</option>
-            </select>
+        <div class="form-group" *ngIf="arrUsers | async as users">
+          <label class="form-label" for="id"> Select a user for Update:</label>
+          <select class="form-select" id="id" formControlName="id" (change)="onChangeType($event)">
+            <option selected>Select a value</option>
+            <option *ngFor="let user of users" [value]="user.id">{{ user.firstName }}</option>
+          </select>
         </div>
 <div class="mb-3"  [class.error]="!updateUserForm.get('firstName')?.valid && updateUserForm.get('firstName')?.touched">
     <label for="firstName" class="form-label">First Name</label>
