@@ -14,11 +14,12 @@ export class UpdateRestaurantComponent {
   isLinear = false;
 
   firstFormGroup = this.formBuilder.group({
-    restCtrl: [[], Validators.required]
+    restCtrl: ['', Validators.required]
    
   });
 
   constructor(private formBuilder:FormBuilder,private restaurantService: RestaurantService){
+  
     this.restaurantService.getRestaurants().subscribe(data=>{
       this.restaurants= data;
       console.log(this.restaurants);
