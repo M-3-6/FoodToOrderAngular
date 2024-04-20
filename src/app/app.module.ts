@@ -37,7 +37,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 
-import{HttpClientModule} from '@angular/common/http'
+import{HttpClientModule} from '@angular/common/http';
+import { AddOrderComponent } from './components/order/add-order/add-order.component';
+import { UpdateOrderComponent } from './components/order/update-order/update-order.component';
+import { ViewOrderComponent } from './components/order/view-order/view-order.component'
 
 import {MatRadioModule} from '@angular/material/radio';
 import { UpdateRestaurantComponent } from './components/AdminRestaurant/update-restaurant/update-restaurant.component';
@@ -65,7 +68,11 @@ import { UpdateRestaurantComponent } from './components/AdminRestaurant/update-r
     UpdateUser2Component,
     AddRestaurantComponent,
     AddDishComponent,
-    UpdateRestaurantComponent,
+    UpdateOrderComponent,
+    ViewOrderComponent,
+    AddOrderComponent,
+    UpdateRestaurantComponent
+
     
   ],
   imports: [

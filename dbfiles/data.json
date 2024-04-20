@@ -266,30 +266,19 @@
   "orders": [
     {
       "id": "1",
-      "userId": 1,
-      "orderDate": "12/02/2001",
-      "orderAmount": 410,
-      "arrDishes": [
+      "order_date" : "18/10/2023",
+      "order_amount" : "400",
+      "user_id": "1",
+      "order_details": [
         {
-          "id": 1,
-          "Name": "Biriyani",
-          "price": 170,
-          "img_path": "",
-          "isAvailable": true
-        },
-        {
-          "id": 2,
-          "Name": "Pastry",
-          "price": 120,
-          "img_path": "",
-          "isAvailable": true
+          "id": "1",
+          "order_id" : "1",
+          "dish_id" : "1",
+          "quantity" : "2"
         }
-      ],
-      "quantity": [
-        1,
-        2
       ]
     },
+    
     {
       "id": "2",
       "userId": 2,

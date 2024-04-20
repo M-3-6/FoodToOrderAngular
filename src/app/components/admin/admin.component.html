@@ -78,8 +78,13 @@
         <!-- <mat-tab label="Add Users"> <app-add-user></app-add-user></mat-tab> -->
         <mat-tab label="Add Users"> <app-add-user2></app-add-user2></mat-tab>
         <!-- <mat-tab label="Update User"><app-update-user></app-update-user></mat-tab> -->
-        <mat-tab label="Update User"><app-update-user2></app-update-user2></mat-tab>
+        <mat-tab label="Update Users"><app-update-user2></app-update-user2></mat-tab>
       </mat-tab-group>
     </mat-tab>
-    <mat-tab label="Orders"> Orders </mat-tab>
+    <mat-tab label="Orders">
+    <mat-tab-group>
+      <mat-tab label="View Orders"><app-view-order></app-view-order></mat-tab>
+      <mat-tab label="Update Orders"><app-update-order></app-update-order></mat-tab>
+    </mat-tab-group>
+  </mat-tab>
   </mat-tab-group>
