@@ -14,7 +14,6 @@ export class DishService {
             new Dish(402,"Fries",149,"../../assets/Images/fries.jfif",101,true),
             new Dish(501,"Dosa",199,"../../assets/Images/dosa.jfif",102,true),
             new Dish(502,"Idli",149,"../../assets/Images/idli.jfif",102,true)
-
     ]
   }
 }
