@@ -17,7 +17,7 @@ export class AddRestaurantComponent {
     // countThirdFormSubmit:number=0;
 
     restaurant:Restaurant;
-    arrAddresses:Address[] = []
+   
     isLinear = false;
     addId:number = 1;
     addDishId:number=1;
@@ -36,9 +36,7 @@ export class AddRestaurantComponent {
       rUserIdCtrl: ['', Validators.required],
     });
   
-    secondFormGroup = this.formBuilder.group({
-      secondCtrl: ['', Validators.required],
-    });
+    secondFormGroup = this.formBuilder.group({});
     
     thirdFormGroup = this.formBuilder.group({});
 
@@ -46,16 +44,16 @@ export class AddRestaurantComponent {
       this.restaurant = new Restaurant(0,"",0,[],[])
 
       this.addressListForm = this.formBuilder.group({
-        addresses:this.formBuilder.array([this.createAddressListFormGroup()])
+        addresses:this.formBuilder.array([this.createAddressFormGroup()])
       })
 
       this.addDishesListForm = this.formBuilder.group({
-        dishFormArray:this.formBuilder.array([this.createDishListFormGroup()])
+        dishFormArray:this.formBuilder.array([this.createDishFormGroup()])
       })
 
     }
 
-    createAddressListFormGroup():FormGroup{
+    createAddressFormGroup():FormGroup{
       this.count++;
       return new FormGroup({
         'houseno':new FormControl('',Validators.required),
@@ -67,13 +65,13 @@ export class AddRestaurantComponent {
       })
     }
 
-    createDishListFormGroup():FormGroup{
+    createDishFormGroup():FormGroup{
       this.dishesCount++;
       return new FormGroup({
         'dishName':new FormControl('',Validators.required),
-        'price':new FormControl('',Validators.required),
+        'price':new FormControl(0,Validators.required),
         'img_path':new FormControl('',Validators.required),
-        'isAvailable':new FormControl(true),
+        'isAvailable':new FormControl(''),
         
       })
     }
@@ -122,22 +120,29 @@ export class AddRestaurantComponent {
       console.log(dishesArr[0])
 
       this.addDishId = 1;
-      
-      dishesArr[0].forEach((add:any)=>{
-        this.restaurant.dishes.push(new Dish(this.addDishId++,add.dishName,add.price,add.img_path,this.restaurant.id,add.isAvailable))
-      })
-      console.log(this.restaurant)
-      
 
       this.restaurantService.getRestaurants().subscribe(data=>{
         const largestId = Math.max(...data.map(item=>item.id))
         console.log(largestId)
         this.restaurant.id = largestId + 1;
-      })
+
+        dishesArr[0].forEach((add:any)=>{
+          this.restaurant.dishes.push(new Dish(this.addDishId++,add.dishName,parseInt(add.price),add.img_path,this.restaurant.id,JSON.parse(add.isAvailable.toLowerCase())))
+        })
+
+
+        this.restaurant.user_id = parseInt(this.restaurant.user_id.toString())
       
+      
+       console.log(this.restaurant)
+      
+
       this.restaurantService.addRestaurant(this.restaurant).subscribe(data=>{
         console.log(data)
       })
+      })
+
+      
     }
 
     addresses():FormArray{
@@ -148,12 +153,12 @@ export class AddRestaurantComponent {
       return this.addDishesListForm.get("dishFormArray") as FormArray
     }
 
-    public addItineryFormGroup() {
+    public addAddressFormGroup() {
       const addresses = this.addressListForm.get('addresses') as FormArray
-      addresses.push(this.createAddressListFormGroup())
+      addresses.push(this.createAddressFormGroup())
     }
     
-    public removeOrClearItinery(i: number) {
+    public removeOrClearAddress(i: number) {
       const addresses = this.addressListForm.get('addresses') as FormArray
       if (addresses.length > 1) {
         addresses.removeAt(i)
@@ -164,7 +169,7 @@ export class AddRestaurantComponent {
   
     public addDishFormGroup() {
       const dishFormArray = this.addDishesListForm.get('dishFormArray') as FormArray
-      dishFormArray.push(this.createDishListFormGroup())
+      dishFormArray.push(this.createDishFormGroup())
     }
     
     public removeOrClearDish(i: number) {
