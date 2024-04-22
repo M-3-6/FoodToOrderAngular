@@ -1,1 +1,30 @@
-<p>cart works!</p>
+<div >
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Dish Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Add/Remove Dish</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dish of cart.arrDishes; let i = index">
+            <th scope="row" >{{i+1}}</th>
+            <td>{{dish.dishName}}</td>
+            <td>{{dish.price}}</td>
+            <td>{{cart.quantity[i]}}</td>
+            <td>{{dish.price * cart.quantity[i]}}</td>
+            <td><button type="button" class="btn btn-primary" (click)="IncreaseQty(i)">Add</button> <button type="button" class="btn btn-danger" (click)="DecreaseQty(i)">Remove</button></td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+
+      Total Amount : {{cart.Amount}}
+
+      <button type="button" class="btn btn-primary" (click)="Checkout()">Checkout</button> 
+</div>

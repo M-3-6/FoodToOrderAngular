@@ -15,7 +15,7 @@
             <label class="form-label" for="id"> Select an order for Update:</label>
             <select class="form-select" id="id" formControlName="id">
               <option selected>Select a value</option>
-              <option *ngFor="let order of orders" [value]="order.id">Order ID: {{ order.id}}, Order Date: {{ order.order_date}}</option>
+              <option *ngFor="let order of orders" [value]="order.id">Order ID: {{ order.id}}, Order Date: {{ order.orderDate}}</option>
             </select>
         </div>
         <div>

@@ -44,7 +44,7 @@ export class OrderService {
   }
 
   getOrdersByUserId(uId:number) : Observable<Order[]> {
-    return this.httpClient.get<Order[]>(this.baseUrl + '/orders?user_id=' + uId).pipe(
+    return this.httpClient.get<Order[]>(this.baseUrl + '/orders?userId=' + uId).pipe(
       catchError(this.httpError)
     );
   }

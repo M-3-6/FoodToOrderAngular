@@ -495,22 +495,24 @@
   ],
   "carts": [
     {
-      "id": "1",
-      "Amount": 550,
+      "id": "2",
+      "Amount": 1150,
       "arrDishes": [
         {
           "id": 3,
-          "Name": "Burger",
+          "dishName": "Burger",
           "price": 250,
           "img_path": "",
-          "isAvailable": true
+          "isAvailable": true,
+          "restaurant_id": 1
         },
         {
           "id": 4,
-          "Name": "Steak",
+          "dishName": "Steak",
           "price": 300,
           "img_path": "",
-          "isAvailable": true
+          "isAvailable": true,
+          "restaurant_id": 1
         }
       ],
       "quantity": [
@@ -520,7 +522,7 @@
     },
     {
       "Amount": 0,
-      "id": "2",
+      "id": "1",
       "arrDishes": [],
       "quantity": []
     },

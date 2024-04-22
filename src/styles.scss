@@ -39,3 +39,8 @@ $BasicProject-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face {
+  font-family: 'Lobster';
+  src: url('./assets/Fonts/Lobster-Regular.ttf');
+}
