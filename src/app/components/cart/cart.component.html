@@ -1,33 +1,35 @@
 <div *ngIf="cart != null && cart.arrDishes.length > 0">
-    <p>Cart Details:</p>
-    <div>Total: {{cart.Amount }}</div>
-    <div *ngFor="let dish of cart.arrDishes; let i=index" [attr.data-index]="i">
-        Dish Name: {{ dish.dishName }}, Price: {{ dish.price }}
-        <button
-            class="float-left"
-            mat-icon-button
-            color="primary"
-            aria-label="Remove/clear" 
-            matTooltip="Remove"
-            (click)="decrementQty(i)"
-        >
-        <mat-icon>remove_circle_outline</mat-icon>
-        </button>
-        {{ cart.quantity[i] }}
-        <button
-            class="float-left"
-            mat-icon-button
-            color="primary"
-            aria-label="Add"  
-            matTooltip="Add"
-            (click)="incrementQty(i)"
-        >
-            <mat-icon>add_circle_outline</mat-icon>
-        </button>
-    </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Dish Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Add/Remove Dish</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dish of cart.arrDishes; let i = index">
+            <th scope="row" >{{i+1}}</th>
+            <td>{{dish.dishName}}</td>
+            <td>{{dish.price}}</td>
+            <td>{{cart.quantity[i]}}</td>
+            <td>{{dish.price * cart.quantity[i]}}</td>
+            <td><button type="button" class="btn btn-primary" (click)="IncreaseQty(i)"><mat-icon>add_circle_outline</mat-icon></button> <button type="button" class="btn btn-danger" (click)="DecreaseQty(i)"><mat-icon>remove_circle_outline</mat-icon></button></td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+
+      Total Amount : {{cart.Amount}}
+
+      <button type="button" class="btn btn-primary" (click)="Checkout()">Checkout</button>
+      <button (click)="onResetCart()">Reset</button>
 </div>
+
 <div *ngIf="cart.arrDishes.length <= 0">
-    <p>Cart is empty!</p>
+  <p>Cart is empty!</p>
 </div>
-<button (click)="onCheckout()">Checkout</button>
-<button (click)="onResetCart()">Reset</button>

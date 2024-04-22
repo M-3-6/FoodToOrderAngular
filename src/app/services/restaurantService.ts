@@ -85,6 +85,16 @@ return this.httpClient.post<Restaurant>(this.baseUrl+'/restaurants/',JSON.string
 }
 
 
+updateRestaurant(restaurant: Restaurant): Observable<Restaurant> {
+  const url = `${this.baseUrl}/restaurants/${restaurant.id}`;
+  return this.httpClient.put<Restaurant>(url, restaurant, this.httpHeader)
+    .pipe(
+      catchError(this.httpError)
+    );
+}
+
+
+
 }
 
 

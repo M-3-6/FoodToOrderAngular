@@ -1,60 +1,95 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+<nav class="navbar navbar-expand-lg sticky-top navbar-light p-3 shadow-sm bg-transparent fixed-top">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/home']"><img src="../assets/Images/FoodToOrderLogo.png" style="height: auto; width: 120px" /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+
+    <!-- <div class="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
+      <div class="input-group">
+        <span class="border-warning input-group-text bg-warning text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" class="form-control border-warning" style="color:#7a7a7a">
+        <button class="btn btn-warning text-white">Search</button>
+      </div>
+    </div> -->
+    <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+      <!-- <div class="ms-auto d-none d-lg-block">
+        <div class="input-group">
+          <span class="border-warning input-group-text bg-warning text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input type="text" class="form-control border-warning" style="color:#7a7a7a">
+          <button class="btn btn-warning text-white">Search</button>
+        </div>
+      </div> -->
+      <ul class="navbar-nav ms-auto ">
+        <li class="nav-item">
+          <a class="nav-link mx-2 text-uppercase active" aria-current="page" [routerLink]="['/home']">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/aboutus']">About Us</a>
+          <a class="nav-link mx-2 text-uppercase" [routerLink]="['/aboutus']">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/restaurants']">Restaurants</a>
+          <a class="nav-link mx-2 text-uppercase" [routerLink]="['/restaurants']">Restaurants</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/admin']">Admin</a>
+          <a class="nav-link mx-2 text-uppercase" [routerLink]="['/admin']">Admin</a>
         </li>
+        
         <li class="nav-item">
           <!-- Button trigger modal -->
-<button *ngIf="!isLoggedIn()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" *ngIf ="!LoggedIn()">
   Login
 </button>
-
-
         </li>
+
         <li class="nav-item">
           <!-- Button trigger modal -->
-<button *ngIf="isLoggedIn()" type="button" class="btn btn-primary" (click)="logoutUser()">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" (click)="Logout()" *ngIf ="LoggedIn()">
   Logout
 </button>
-
-
         </li>
+
         <li>
           <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Register">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Register" *ngIf ="!LoggedIn()" style="margin-left: 20px;">
   Register
 </button>
-
         </li>
         
         <li>
-          <!-- Button trigger modal -->
-<button *ngIf="isLoggedIn()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" *ngIf ="LoggedIn()" style="margin-left: 20px;">
+  <img src="../assets/Images/shopping-cart.png" style="height: 24px; width: 24px;" />
   Cart
 </button>
-
         </li>
 
-       
+
       </ul>
-      
+      <!-- <ul class="navbar-nav ms-auto ">
+        <li class="nav-item">
+          <a class="nav-link mx-2 text-uppercase" data-bs-toggle="modal" data-bs-target="#exampleModal2" *ngIf ="LoggedIn()"><i class="fa-regular fa-cart-shopping"></i>Cart</a>
+        </li>
+        
+      </ul> -->
     </div>
-  </nav>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -100,7 +135,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" >Save changes</button>
       </div>
     </div>
   </div>

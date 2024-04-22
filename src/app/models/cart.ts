@@ -1,17 +1,17 @@
-import { Dish } from "./dish"
+import { Dish } from "./dish";
 
 export class Cart{
-    Id:number
+    id:number
     Amount:number
-    UserId:number
-    arrDishes: Dish[]
-    quantity: number[]
+    
+    arrDishes:Dish[]
+    quantity:number[]
 
-    constructor(Id:number,Amount:number,UserId:number, arrDishes: Dish[], quantity: number[]){
-        this.Id = Id;
+    constructor(Id:number,Amount:number,UserId:number,arrDishes:Dish[],quantity:number[]){
+        this.id = Id;
         this.Amount = Amount;
-        this.UserId = UserId;
-        this.arrDishes = arrDishes
-        this.quantity = quantity
+       
+        this.arrDishes = arrDishes;
+        this.quantity = quantity;
     }
 }

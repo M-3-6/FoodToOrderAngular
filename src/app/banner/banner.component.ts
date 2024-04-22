@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 import {Observable} from "rxjs";
+import { Order } from '../models/order';
 
 
 @Component({
@@ -20,6 +21,8 @@ export class BannerComponent {
       this.arrUsers = this.userservice.getUsers()
     }
     verifyCredentials(email:HTMLInputElement, pwd: HTMLInputElement){
+
+      
       
       this.userservice.getUsers().subscribe(users => {
         const user = users.find(u => u.email === email.value && u.password === pwd.value);
@@ -31,10 +34,12 @@ export class BannerComponent {
             localStorage.setItem('role', 'admin');
             this.router.navigate(['/admin']);
             console.log('Admin is welcome');
+            
 
           } else if (user.role === 'user'){
             localStorage.setItem('role', 'user');
             this.router.navigate(['/home']);
+
           }
         } 
 
@@ -45,16 +50,19 @@ export class BannerComponent {
       });
 
       window.location.reload();
+}
 
+LoggedIn(){
+  if(localStorage.getItem('role')!=null){
+    return true;
   }
+  return false;
+}
 
-  isLoggedIn() {
-    if (localStorage.getItem('role') != null && localStorage.getItem('userId') != null) return true;
-    else return false;
-  }
+Logout(){
+  localStorage.clear()
+  this.router.navigate(['/home']);
+  window.location.reload();
+}
 
-  logoutUser() {
-    localStorage.clear();
-    window.location.reload();
-  }
 }

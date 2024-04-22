@@ -5,15 +5,15 @@ export class Order{
      orderDate : string;
      orderAmount : number
      userId: number;
-     arrDishes: Dish[];
+     arrDishes: Dish[]
      quantity: number[]
 
-     constructor(id:number, date: string, amount:number, uid:number, dishes: Dish[], quantity: number[]){
+     constructor(id:number, date: string, amount:number, uid:number, arrDishes:Dish[],qty:number[]){
         this.id = id;
         this.orderDate = date;
         this.userId = uid;
         this.orderAmount = amount;
-        this.arrDishes = dishes;
-        this.quantity = quantity;
+        this.arrDishes = arrDishes;
+        this.quantity = qty;
      }
 }

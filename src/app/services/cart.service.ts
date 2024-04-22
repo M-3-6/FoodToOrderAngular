@@ -13,24 +13,27 @@ import { Cart } from '../models/cart';
 })
 export class CartService {
 
-  baseUrl: string = 'http://localhost:3000';
+  baseUrl:string="http://localhost:3000"
 
-  httpHeader = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-    }),
-  };
+  httpHeader={
+    headers:new HttpHeaders({
+      'Content-Type':'application/json'
+    })
+  }
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient:HttpClient) {
 
-  httpError(error: HttpErrorResponse) {
-    let msg = '';
-    if (error.error instanceof ErrorEvent) {
-      msg = error.error.message;
-    } else {
-      msg = 'Error code:${error.status}\nMessage:${error.message}';
+  }
+
+  httpError(error:HttpErrorResponse){ 
+    let msg=""
+    if(error.error instanceof ErrorEvent){
+      msg=error.error.message
     }
-    return throwError(msg);
+    else{
+      msg='Error code:${error.status}\nMessage:${error.message}';
+    }
+    return throwError(msg)
   }
 
   getCartId() : string{
@@ -39,9 +42,13 @@ export class CartService {
     return "";
   }
 
-  getCartById(id: string) : Observable<Cart> {
-    return this.httpClient.get<Cart>(this.baseUrl + '/carts/' + id)
-    .pipe(catchError(this.httpError));
+
+  getCartById(cId:number) : Observable<Cart> {
+    console.log(cId)
+    return this.httpClient.get<Cart>(this.baseUrl + '/carts/' + cId).pipe(
+      catchError(this.httpError)
+    );
   }
 
+  
 }

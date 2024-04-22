@@ -21,10 +21,10 @@
           <input matInput placeholder="rUserId" formControlName="rUserIdCtrl" required>
         </mat-form-field>
         <div>
-          <button mat-button matStepperNext type="submit">Save</button>
+          <button mat-button matStepperNext [disabled]="!firstFormGroup.valid" type="submit">Save</button>
         </div>
         <div>
-          <button mat-button matStepperNext >Next</button>
+          <button mat-button matStepperNext [disabled]="!firstFormGroup.valid" >Next</button>
         </div>
       </form>
     </mat-step>
@@ -75,24 +75,24 @@
   
               <div class="col-3">
                 <button class="float-left" mat-icon-button color="primary" aria-label="Remove/clear"
-                    (click)="removeOrClearItinery(i)" matTooltip="Remove" type="button">
+                    (click)="removeOrClearAddress(i)" matTooltip="Remove" type="button">
                   <mat-icon>highlight_off</mat-icon>
                 </button>
 
 
                 <button class="float-left" mat-icon-button color="primary" aria-label="Add"
-                    (click)="addItineryFormGroup()" matTooltip="Add" type="button">
+                    (click)="addAddressFormGroup()" matTooltip="Add" type="button">
                   <mat-icon>add_circle_outline</mat-icon>
                 </button>
               </div>
             </div>
           </div>
           <div>
-            <button mat-button matStepperNext type="submit" >Save</button>
+            <button mat-button matStepperNext [disabled]="!addressListForm.valid" type="submit" >Save</button>
           </div>
           <div>
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperNext [disabled]="!addressListForm.valid">Next</button>
           </div>
         </form>
   
@@ -128,7 +128,8 @@
 
              
                 <!-- mat-radio-group should not be inside mat form field -->
-                <mat-radio-group formControlName="isAvailable" aria-labelledby="Availability">
+                <label id="radio-group-label">Availablility</label>
+                <mat-radio-group formControlName="isAvailable" aria-labelledby="radio-group-label">
                   <mat-radio-button value="true">True</mat-radio-button>
                   <mat-radio-button value="false">False</mat-radio-button>
                 </mat-radio-group>
@@ -158,13 +159,13 @@
 
 
           <div>
-            <button mat-button matStepperNext type="submit">Save</button>
+            <button mat-button matStepperNext [disabled]="!addDishesListForm.valid" type="submit">Save</button>
           </div>
        
   
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperNext [disabled]="!addDishesListForm.valid">Next</button>
         </div>
       </form>
     </mat-step>

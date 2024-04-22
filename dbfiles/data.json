@@ -6,21 +6,21 @@
       "rName": "Truffles2323",
       "arrAddresses": [
         {
-          "houseno": 4046,
+          "houseno": "4046",
           "street": "akd",
           "area": "ads1",
           "city": "Anirudh",
           "country": "India",
-          "pincode": 123456,
+          "pincode": "123456",
           "id": 1
         },
         {
-          "houseno": 324,
+          "houseno": "324",
           "street": "akd",
           "area": "waegfra",
           "city": "Anirudh",
           "country": "India",
-          "pincode": 123455,
+          "pincode": "123455",
           "id": 2
         }
       ],
@@ -73,22 +73,22 @@
       "rName": "Tonique",
       "arrAddresses": [
         {
-          "id": 3,
-          "housenoo": 26,
+          "id": 1,
+          "houseno": "26",
           "street": "ABC rd",
           "area": "Domlur",
           "city": "Bangalore",
-          "country": "India",
-          "pincode": 560012
+          "pincode": "560012",
+          "country": "India"
         },
         {
-          "id": 4,
-          "housenoo": 27,
+          "id": 2,
+          "houseno": "27",
           "street": "Palmgrove rd",
           "area": "Victoria Layout",
           "city": "Bangalore",
-          "country": "India",
-          "pincode": 560013
+          "pincode": "560013",
+          "country": "India"
         }
       ],
       "dishes": [
@@ -97,93 +97,152 @@
           "dishName": "Biriyani",
           "price": 170,
           "img_path": "https://healux.in/wp-content/uploads/2020/11/ChickenBiryani.jpg",
-          "isAvailable": true,
-          "restaurant_id": 2
+          "restaurant_id": 2,
+          "isAvailable": true
         },
         {
           "id": 2,
           "dishName": "Pastry",
           "price": 120,
           "img_path": "https://theobroma.in/cdn/shop/products/RedVelvetPastry1.jpg?v=1632143810",
-          "isAvailable": true,
-          "restaurant_id": 2
+          "restaurant_id": 2,
+          "isAvailable": true
         },
         {
           "id": 3,
           "dishName": "Burger",
           "price": 250,
           "img_path": "https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/1:1/w_2560%2Cc_limit/Smashburger-recipe-120219.jpg",
-          "isAvailable": true,
-          "restaurant_id": 2
+          "restaurant_id": 2,
+          "isAvailable": true
         },
         {
           "id": 4,
           "dishName": "Steak",
           "price": 300,
           "img_path": "https://food-images.files.bbci.co.uk/food/recipes/rib-eye_steak_with_61963_16x9.jpg",
-          "isAvailable": true,
-          "restaurant_id": 2
+          "restaurant_id": 2,
+          "isAvailable": true
         }
       ]
     },
     {
-      "user_id": 1,
+      "user_id": 3,
       "id": "3",
       "rName": "Cafe Jade",
       "arrAddresses": [
         {
-          "houseno": 1,
+          "id": 1,
+          "houseno": "1",
           "street": "akd",
           "area": "area23",
           "city": "Anirudh",
-          "country": "India",
-          "pincode": 123456,
-          "id": 1
+          "pincode": "123456",
+          "country": "India"
         }
       ],
-      "arrDishes": [
+      "dishes": [
         {
+          "id": 1,
           "dishName": "Noodles",
           "price": 456,
           "img_path": "https://www.recipetineats.com/wp-content/uploads/2023/09/Garlic-noodles-with-egg-close-up.jpg",
-          "isAvailable": true,
-          "id": 1,
-          "restaurant_id": 4
+          "restaurant_id": 3,
+          "isAvailable": true
+        },
+        {
+          "id": 2,
+          "dishName": "Biriyani",
+          "price": "150",
+          "img_path": "https://im.whatshot.in/img/2018/Nov/is-image-1-pre-cropped-1542960293.jpg?w=1336&h=890&cc=1",
+          "restaurant_id": 3,
+          "isAvailable": true
         }
       ]
     },
     {
-      "user_id": 1,
+      "user_id": 2,
       "id": "4",
       "rName": "Paradise",
       "arrAddresses": [
         {
-          "houseno": 1,
+          "id": 1,
+          "houseno": "1",
           "street": "akd",
           "area": "23",
           "city": "Anirudh",
-          "country": "India",
-          "pincode": 123456,
-          "id": 1
+          "pincode": "123456",
+          "country": "India"
         },
         {
-          "houseno": 26,
+          "id": 2,
+          "houseno": "26",
           "street": "ABC rd",
           "area": "adf",
           "city": "Bangalore",
-          "country": "India",
-          "pincode": 561123,
-          "id": 2
+          "pincode": "561123",
+          "country": "India"
+        },
+        {
+          "id": 3,
+          "houseno": "23",
+          "street": "vijay road",
+          "area": "victoria",
+          "city": "bangalore",
+          "pincode": "344533",
+          "country": "India"
         }
       ],
-      "arrDishes": [
+      "dishes": [
         {
+          "id": 1,
           "dishName": "Biriyani",
           "price": 330,
           "img_path": "https://bonmasala.com/wp-content/uploads/2022/10/mutton-biriyani-recipe.jpeg",
-          "isAvailable": true,
+          "restaurant_id": 4,
+          "isAvailable": true
+        },
+        {
+          "id": 2,
+          "dishName": "dosa",
+          "price": "150",
+          "img_path": "dfsdfsd",
+          "restaurant_id": 4,
+          "isAvailable": true
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "rName": "Meghana",
+      "user_id": 1,
+      "dishes": [
+        {
           "id": 1,
-          "restaurant_id": 6
+          "dishName": "Dosa",
+          "price": 70,
+          "img_path": "https://www.daringgourmet.com/wp-content/uploads/2023/06/Dosa-Recipe-4.jpg",
+          "restaurant_id": 5,
+          "isAvailable": true
+        },
+        {
+          "id": 2,
+          "dishName": "Idli",
+          "price": 40,
+          "img_path": "https://www.ticklingpalates.com/wp-content/uploads/2020/06/Soft-Spongy-Idli-Recipe.jpg",
+          "restaurant_id": 5,
+          "isAvailable": true
+        }
+      ],
+      "arrAddresses": [
+        {
+          "id": 1,
+          "houseno": "12",
+          "street": "bridge road",
+          "area": "malleshwaram",
+          "city": "bangalore",
+          "pincode": "578047",
+          "country": "India"
         }
       ]
     }
@@ -449,6 +508,22 @@
       ]
     },
     {
+      "id": "1",
+      "Amount": 250,
+      "arrDishes": [
+        {
+          "id": 16,
+          "dishName": "Pizza",
+          "price": 250,
+          "img_path": "",
+          "isAvailable": true
+        }
+      ],
+      "quantity": [
+        1
+      ]
+    },
+    {
       "id": "1001",
       "orderDate": "22/04/2024",
       "userId": 1,
@@ -467,14 +542,16 @@
           "dishName": "Burger",
           "price": 250,
           "img_path": "",
-          "isAvailable": true
+          "isAvailable": true,
+          "restaurant_id": 1
         },
         {
           "id": 4,
-          "dishName": "Steak",
+          "dishdName": "Steak",
           "price": 300,
           "img_path": "",
-          "isAvailable": true
+          "isAvailable": true,
+          "restaurant_id": 1
         }
       ],
       "quantity": [
@@ -500,7 +577,7 @@
     },
     {
       "Amount": 0,
-      "id": "2",
+      "id": "1",
       "arrDishes": [],
       "quantity": []
     },
