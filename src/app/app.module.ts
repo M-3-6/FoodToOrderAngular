@@ -26,7 +26,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddUser2Component } from './components/user/add-user2/add-user2.component';
 import { UpdateUser2Component } from './components/user/update-user2/update-user2.component';
 import { AddRestaurantComponent } from './components/AdminRestaurant/add-restaurant/add-restaurant.component';
-import { AddDishComponent } from './components/AdminDish/add-dish/add-dish.component';
 
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -44,6 +43,7 @@ import { ViewOrderComponent } from './components/order/view-order/view-order.com
 
 import {MatRadioModule} from '@angular/material/radio';
 import { UpdateRestaurantComponent } from './components/AdminRestaurant/update-restaurant/update-restaurant.component';
+import { ViewRestaurantsComponent } from './components/AdminRestaurant/view-restaurants/view-restaurants.component';
 
 
 @NgModule({
@@ -67,11 +67,12 @@ import { UpdateRestaurantComponent } from './components/AdminRestaurant/update-r
     AddUser2Component,
     UpdateUser2Component,
     AddRestaurantComponent,
-    AddDishComponent,
+   
     UpdateOrderComponent,
     ViewOrderComponent,
     AddOrderComponent,
-    UpdateRestaurantComponent
+    UpdateRestaurantComponent,
+    ViewRestaurantsComponent
 
     
   ],
