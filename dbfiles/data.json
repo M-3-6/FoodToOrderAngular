@@ -187,7 +187,6 @@
         }
       ]
     }
-    
   ],
   "users": [
     {
@@ -265,68 +264,55 @@
   ],
   "orders": [
     {
-      "id": "1",
-      "order_date" : "18/10/2023",
-      "order_amount" : "400",
-      "user_id": "1",
-      "order_details": [
-        {
-          "id": "1",
-          "order_id" : "1",
-          "dish_id" : "1",
-          "quantity" : "2"
-        }
-      ]
-    },
-    
-    {
       "id": "2",
       "userId": 2,
       "orderDate": "14/07/1999",
-      "orderAmount": 1500,
+      "orderAmount": 860,
       "arrDishes": [
         {
-          "id": 3,
-          "Name": "Burger",
-          "price": 250,
-          "img_path": "",
+          "id": 1,
+          "dishName": "Burger",
+          "price": "270",
+          "img_path": "\"\"",
+          "restaurant_id": 2,
           "isAvailable": true
         },
         {
-          "id": 4,
-          "Name": "Steak",
-          "price": 300,
-          "img_path": "",
+          "id": 2,
+          "dishName": "Steak",
+          "price": "320",
+          "img_path": "\"\"",
+          "restaurant_id": 2,
           "isAvailable": true
         }
       ],
       "quantity": [
         2,
-        2
+        "1"
       ]
     },
     {
       "id": "3",
-      "userId": 3,
+      "userId": 5,
       "orderDate": "18/10/2023",
       "orderAmount": 1796,
       "arrDishes": [
         {
           "id": 1,
-          "Name": "Biriyani",
+          "dishName": "Biriyani",
           "price": 170,
           "img_path": "",
           "isAvailable": true
         },
         {
           "id": 2,
-          "Name": "Pastry",
+          "dishName": "Pastry",
           "price": 120,
           "img_path": "",
           "isAvailable": true
         },
         {
-          "Name": "Soup",
+          "dishName": "Soup",
           "price": 123,
           "img_path": "",
           "isAvailable": "true",
@@ -341,19 +327,19 @@
     },
     {
       "id": "7",
-      "userId": 3,
+      "userId": 5,
       "orderDate": "18/10/2023",
       "orderAmount": 620,
       "arrDishes": [
         {
-          "Name": "Burger",
+          "dishName": "Burger",
           "price": 250,
           "img_path": "",
           "isAvailable": true,
           "id": 3
         },
         {
-          "Name": "Pastry",
+          "dishName": "Pastry",
           "price": 120,
           "img_path": "",
           "isAvailable": true,
@@ -367,20 +353,20 @@
     },
     {
       "id": "8",
-      "userId": 3,
+      "userId": 5,
       "orderDate": "18/10/2023",
       "orderAmount": 870,
       "arrDishes": [
         {
           "id": 1,
-          "Name": "Biriyani",
+          "dishName": "Biriyani",
           "price": 170,
           "img_path": "",
           "isAvailable": true
         },
         {
           "id": 2,
-          "Name": "Pastry",
+          "dishName": "Pastry",
           "price": 120,
           "img_path": "",
           "isAvailable": true
@@ -395,14 +381,15 @@
       "id": "9",
       "userId": 2,
       "orderDate": "18/10/2023",
-      "orderAmount": 750,
+      "orderAmount": 0,
       "arrDishes": [
         {
-          "Name": "mandhi",
-          "price": 250,
+          "id": 1,
+          "dishName": "mandhi",
+          "price": "270",
           "img_path": "../../assets/Images/pic1.jpg",
-          "isAvailable": "true",
-          "id": 1
+          "restaurant_id": 9,
+          "isAvailable": true
         }
       ],
       "quantity": [
@@ -411,7 +398,7 @@
     },
     {
       "id": "10",
-      "userId": "5",
+      "userId": "3",
       "orderDate": "26/10/2023",
       "orderAmount": 700,
       "arrDishes": [
@@ -434,42 +421,86 @@
         2,
         3
       ]
-    }
-  ],
-  "carts": [
+    },
     {
-      "id": "1",
-      "Amount": 550,
+      "id": "1000",
+      "orderDate": "Mon Apr 22 2024 11:17:15 GMT+0530 (India Standard Time)",
+      "userId": 5,
+      "orderAmount": 800,
       "arrDishes": [
         {
           "id": 3,
-          "Name": "Burger",
+          "dishName": "Burger",
           "price": 250,
           "img_path": "",
           "isAvailable": true
         },
         {
           "id": 4,
-          "Name": "Steak",
+          "dishName": "Steak",
           "price": 300,
           "img_path": "",
           "isAvailable": true
         }
       ],
       "quantity": [
-        1,
+        2,
         3
+      ]
+    },
+    {
+      "id": "1001",
+      "orderDate": "22/04/2024",
+      "userId": 1,
+      "orderAmount": 0,
+      "arrDishes": [],
+      "quantity": []
+    }
+  ],
+  "carts": [
+    {
+      "id": "5",
+      "Amount": 800,
+      "arrDishes": [
+        {
+          "id": 3,
+          "dishName": "Burger",
+          "price": 250,
+          "img_path": "",
+          "isAvailable": true
+        },
+        {
+          "id": 4,
+          "dishName": "Steak",
+          "price": 300,
+          "img_path": "",
+          "isAvailable": true
+        }
+      ],
+      "quantity": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "1",
+      "Amount": 250,
+      "arrDishes": [
+        {
+          "id": 16,
+          "dishName": "Pizza",
+          "price": 250,
+          "img_path": "",
+          "isAvailable": true
+        }
+      ],
+      "quantity": [
+        1
       ]
     },
     {
       "Amount": 0,
       "id": "2",
-      "arrDishes": [],
-      "quantity": []
-    },
-    {
-      "Amount": 0,
-      "id": "3",
       "arrDishes": [],
       "quantity": []
     },

@@ -1,24 +1,143 @@
 <mat-stepper #stepper>
     <mat-step [stepControl]="firstOrderFormGroup">
-      <form [formGroup]="firstOrderFormGroup" (ngSubmit)="saveFirstStepData(firstOrderFormGroup)">
-        <mat-toolbar color="primary">
-            Add Order Details
+      <form
+      [formGroup]="firstOrderFormGroup"
+      (ngSubmit)="saveFirstStepData(firstOrderFormGroup)"
+    >
+      <mat-toolbar color="primary"> Add Order Details </mat-toolbar>
+      <div class="form-group" *ngIf="arrUsers | async as users">
+        <label class="form-label" for="uid"> Select a user for Update:</label>
+        <select
+          class="form-select"
+          id="uid"
+          formControlName="id"
+          (change)="onUserSelected($event)"
+        >
+          <option selected>Select a value</option>
+          <option *ngFor="let user of users" [value]="user.id">
+            {{ user.firstName }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group" *ngIf="arrOrders | async as orders">
+        <label class="form-label" for="oid"> Select an order for Update:</label>
+        <select
+          class="form-select"
+          id="oid"
+          formControlName="oid"
+        >
+          <option selected>Select a value</option>
+          <option *ngFor="let order of orders" [value]="order.id">
+            Order ID: {{ order.id }}, Order Date: {{ order.orderDate }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <button mat-button matStepperNext type="submit">Save</button>
+      </div>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+    </mat-step>
+         
+    <mat-step [stepControl]="thirdFormGroup" label="Edit dishes" >
+      <!-- <form [formGroup]="secondFormGroup" > -->
+  
+        <form class="basic-container" [formGroup]="addDishesListForm" (ngSubmit)="saveThirdStepData(addDishesListForm.value)" >
+          <mat-toolbar color="primary">
+            Add/Remove multiple dishes
           </mat-toolbar>
-        <div class="form-group" *ngIf="arrUsers | async as users">
-            <label class="form-label" for="id"> Select a user for Update:</label>
-            <select class="form-select" id="id" formControlName="id" (change)="onUserSelected($event)">
-              <option selected>Select a value</option>
-              <option *ngFor="let user of users" [value]="user.id">{{ user.firstName }}</option>
-            </select>
-        </div>
-        <div class="form-group" *ngIf="arrOrders | async as orders">
-            <label class="form-label" for="id"> Select an order for Update:</label>
-            <select class="form-select" id="id" formControlName="id">
-              <option selected>Select a value</option>
-              <option *ngFor="let order of orders" [value]="order.id">Order ID: {{ order.id}}, Order Date: {{ order.order_date}}</option>
-            </select>
-        </div>
+          <div formArrayName="dishFormArray">
+            <div class="row" *ngFor="let dish of dishFormArray().controls; let i = index"
+                [formGroupName]="i">            
+  
+              <mat-form-field class="col-4">
+                <mat-label>Dish Name</mat-label>
+                <input matInput formControlName="dishName" placeholder="Dish Name" >  
+              </mat-form-field>
+
+              <mat-form-field class="col-4">
+                <mat-label>Price</mat-label>
+                <input matInput formControlName="price" placeholder="Price" >   
+              </mat-form-field> 
+              
+              <mat-form-field class="col-4">
+                <mat-label>Quantity</mat-label>
+                <input matInput formControlName="quantity" placeholder="Quantity" >   
+              </mat-form-field> 
+              
+              <mat-form-field class="col-4">
+                <mat-label>Image Path</mat-label>
+                <input matInput formControlName="img_path" placeholder="Image Path" > 
+              </mat-form-field>    
+
+             
+                <!-- mat-radio-group should not be inside mat form field -->
+                <label id="radio-group-label">Availablility</label>
+                <mat-radio-group formControlName="isAvailable" aria-labelledby="radio-group-label">
+                  <mat-radio-button value="true">True</mat-radio-button>
+                  <mat-radio-button value="false">False</mat-radio-button>
+                </mat-radio-group>
+             
+                <!-- <mat-radio-group formControlName="isAvailable">
+                  <mat-radio-button *ngFor="let available of availabilityOptions" [value]="available">{{available}}</mat-radio-button>
+                </mat-radio-group> -->
+               
+
+              
+              <div class="col-3">
+                <button class="float-left" mat-icon-button color="primary" aria-label="Remove/clear"
+                    (click)="removeOrClearDish(i)" matTooltip="Remove" type="button">
+                  <mat-icon>highlight_off</mat-icon>
+                </button>
+                <button class="float-left" mat-icon-button color="primary" aria-label="Add"
+                    (click)="addDishFormGroup()" matTooltip="Add" type="button">
+                  <mat-icon>add_circle_outline</mat-icon>
+                </button>
+
+                <!-- add 'type = button' if form is getting submitted if we click add button -->
+              </div>
+
+            </div>
+  
+          </div>
+
+
+          <div>
+            <button mat-button matStepperNext [disabled]="!addDishesListForm.valid" type="submit">Save</button>
+          </div>
+       
+  
         <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext [disabled]="!addDishesListForm.valid">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup" (ngSubmit)="saveSecondStepData(secondFormGroup)">
+      
+        <mat-toolbar color="primary">
+          Edit Order Details
+        </mat-toolbar>
+        <mat-form-field appearance="fill">
+          <mat-label>Order Date</mat-label>
+          <input matInput placeholder="Date" formControlName="oDateCtrl" required>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+          <mat-label>Order Amount</mat-label>
+          <input matInput placeholder="Amount" formControlName="oAmountCtrl" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>User Id</mat-label>
+          <input matInput placeholder="User Id" formControlName="oUserIdCtrl" required>
+        </mat-form-field>
+
+        <div> 
           <button mat-button matStepperNext type="submit">Save</button>
         </div>
         <div>
@@ -26,56 +145,7 @@
         </div>
       </form>
     </mat-step>
-  
-   
-    <!-- <mat-step [stepControl]="secondFormGroup" label="Add the dishes" >
-      
-        <form class="basic-container" [formGroup]="dishForm" (ngSubmit)="saveSecondStepData(dishForm.value)" >
-          <mat-toolbar color="primary">
-            Add/Remove Multiple Dishes
-          </mat-toolbar>
-          <div formArrayName="dishes">
-            <div class="row" *ngFor="let dish of dishes().controls; let i = index"
-                [formGroupName]="i">            
-  
-              <mat-form-field class="col-4">
-                <input matInput formControlName="dNameCtrl" placeholder="Dish Name" >                    
-              </mat-form-field>
 
-              <mat-form-field class="col-4">
-                <input matInput formControlName="priceCtrl" placeholder="Price" >                           
-              </mat-form-field>           
-              
-              <mat-form-field class="col-4">
-                <input matInput formControlName="imageCtrl" placeholder="Image Path" >                           
-              </mat-form-field>           
-  
-              
-              <div class="col-3">
-                <button class="float-left" mat-icon-button color="primary" aria-label="Remove/clear"
-                    (click)="removeOrClearDish(i)" matTooltip="Remove">
-                  <mat-icon>highlight_off</mat-icon>
-                </button>
-                <button class="float-left" mat-icon-button color="primary" aria-label="Add"
-                    (click)="addDishFormGroup()" matTooltip="Add">
-                  <mat-icon>add_circle_outline</mat-icon>
-                </button>
-              </div>
-
-            </div>
-          </div>
-
-          <div>
-            <button mat-button matStepperNext type="submit">Save</button>
-          </div>
-        </form>
-  
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-    </mat-step>
-    
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
       <p>You are now done.</p>
@@ -83,5 +153,8 @@
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
       </div>
-    </mat-step> -->
+    </mat-step>
+
   </mat-stepper>
+
+   

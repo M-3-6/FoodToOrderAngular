@@ -44,5 +44,17 @@ export class BannerComponent {
         }
       });
 
-}
+      window.location.reload();
+
+  }
+
+  isLoggedIn() {
+    if (localStorage.getItem('role') != null && localStorage.getItem('userId') != null) return true;
+    else return false;
+  }
+
+  logoutUser() {
+    localStorage.clear();
+    window.location.reload();
+  }
 }

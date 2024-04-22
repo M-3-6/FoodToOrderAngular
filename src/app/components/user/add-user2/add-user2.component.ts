@@ -67,5 +67,6 @@ export class AddUser2Component {
     this.userService.addUser(this.tempUser).subscribe(data=>{
       console.log(data) 
     })
+
   } 
 }

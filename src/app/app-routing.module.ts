@@ -8,6 +8,7 @@ import { LoginLogoutComponent } from './components/login-logout/login-logout.com
 import { RestaurantDetailsComponent } from './components/restaurant-details/restaurant-details.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AdminGuard } from './guards/adminguard';
+import { AddOrderComponent } from './components/order/add-order/add-order.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'home',component:HomeComponent},
   {path: 'admin',component:AdminComponent,canActivate : [AdminGuard()]},
   {path: 'loginLogout',component:LoginLogoutComponent},
+  {path: 'addorder', component:AddOrderComponent},
   {path:'**' , component:NotFoundComponent}
 ];
 

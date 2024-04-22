@@ -1,1 +1,33 @@
-<p>cart works!</p>
+<div *ngIf="cart != null && cart.arrDishes.length > 0">
+    <p>Cart Details:</p>
+    <div>Total: {{cart.Amount }}</div>
+    <div *ngFor="let dish of cart.arrDishes; let i=index" [attr.data-index]="i">
+        Dish Name: {{ dish.dishName }}, Price: {{ dish.price }}
+        <button
+            class="float-left"
+            mat-icon-button
+            color="primary"
+            aria-label="Remove/clear" 
+            matTooltip="Remove"
+            (click)="decrementQty(i)"
+        >
+        <mat-icon>remove_circle_outline</mat-icon>
+        </button>
+        {{ cart.quantity[i] }}
+        <button
+            class="float-left"
+            mat-icon-button
+            color="primary"
+            aria-label="Add"  
+            matTooltip="Add"
+            (click)="incrementQty(i)"
+        >
+            <mat-icon>add_circle_outline</mat-icon>
+        </button>
+    </div>
+</div>
+<div *ngIf="cart.arrDishes.length <= 0">
+    <p>Cart is empty!</p>
+</div>
+<button (click)="onCheckout()">Checkout</button>
+<button (click)="onResetCart()">Reset</button>

@@ -1,17 +1,19 @@
-import { OrderDetail } from "./orderdetail";
+import { Dish } from "./dish";
 
 export class Order{
      id: number;
-     order_date : string;
-     order_amount : number
-     user_id: number;
-     order_details: OrderDetail[]
+     orderDate : string;
+     orderAmount : number
+     userId: number;
+     arrDishes: Dish[];
+     quantity: number[]
 
-     constructor(id:number, date: string, amount:number, uid:number, orderdet: OrderDetail[]){
+     constructor(id:number, date: string, amount:number, uid:number, dishes: Dish[], quantity: number[]){
         this.id = id;
-        this.order_date = date;
-        this.user_id = uid;
-        this.order_amount = amount;
-        this.order_details = orderdet
+        this.orderDate = date;
+        this.userId = uid;
+        this.orderAmount = amount;
+        this.arrDishes = dishes;
+        this.quantity = quantity;
      }
 }
