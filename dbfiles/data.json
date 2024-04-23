@@ -494,10 +494,38 @@
       ]
     },
     {
-      "id": 11,
+      "id": "11",
       "orderDate": "4/22/2024",
       "userId": "2",
       "orderAmount": 1950,
+      "arrDishes": [
+        {
+          "id": 1,
+          "dishName": "Burger",
+          "price": 250,
+          "img_path": "dfgd",
+          "restaurant_id": 11,
+          "isAvailable": true
+        },
+        {
+          "id": 2,
+          "dishName": "Steak",
+          "price": 300,
+          "img_path": "fgd",
+          "restaurant_id": 11,
+          "isAvailable": true
+        }
+      ],
+      "quantity": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": 12,
+      "orderDate": "4/23/2024",
+      "userId": "2",
+      "orderAmount": 1150,
       "arrDishes": [
         {
           "id": 3,
@@ -517,8 +545,54 @@
         }
       ],
       "quantity": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": 13,
+      "orderDate": "4/23/2024",
+      "userId": "2",
+      "orderAmount": 1150,
+      "arrDishes": [
+        {
+          "id": 3,
+          "dishName": "Burger",
+          "price": 250,
+          "img_path": "",
+          "isAvailable": true,
+          "restaurant_id": 1
+        },
+        {
+          "id": 4,
+          "dishName": "Steak",
+          "price": 300,
+          "img_path": "",
+          "isAvailable": true,
+          "restaurant_id": 1
+        },
+        {
+          "id": 3,
+          "dishName": "Burger",
+          "price": 250,
+          "img_path": "",
+          "isAvailable": true,
+          "restaurant_id": 1
+        },
+        {
+          "id": 4,
+          "dishName": "Steak",
+          "price": 300,
+          "img_path": "",
+          "isAvailable": true,
+          "restaurant_id": 1
+        }
+      ],
+      "quantity": [
+        1,
         3,
-        4
+        1,
+        3
       ]
     }
   ],
