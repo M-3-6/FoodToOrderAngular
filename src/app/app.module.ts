@@ -45,6 +45,11 @@ import {MatRadioModule} from '@angular/material/radio';
 import { UpdateRestaurantComponent } from './components/AdminRestaurant/update-restaurant/update-restaurant.component';
 import { ViewRestaurantsComponent } from './components/AdminRestaurant/view-restaurants/view-restaurants.component';
 
+import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { RippleModule } from 'primeng/ripple';
+import { MessageService } from 'primeng/api';
+
 
 @NgModule({
   declarations: [
@@ -94,9 +99,12 @@ import { ViewRestaurantsComponent } from './components/AdminRestaurant/view-rest
 
     HttpClientModule,
 
-    MatRadioModule
+    MatRadioModule,
+    ToastModule,
+    ButtonModule,
+    RippleModule,
   ],
-  providers: [RestaurantService,DishService,UserService, provideAnimationsAsync()],
+  providers: [RestaurantService,DishService,UserService, provideAnimationsAsync(),MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

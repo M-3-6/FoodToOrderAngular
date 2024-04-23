@@ -10,10 +10,18 @@
         </div>
       </div>
     </div> -->
+    <p-toast position="top-center"
+    key="tc">
+</p-toast>
 
-    <b>{{restaurant.id}} {{restaurant.rName}} {{restaurant.user_id}} </b>
+
+
+    <!-- <b>{{restaurant.id}} {{restaurant.rName}} {{restaurant.user_id}} </b>
     <br> Dishes:
-
+    <button type="button" pButton pRipple 
+    (click)="showTopCenter()" 
+    label="Top Center"
+class="p-button-warning"> -->
     
   <div class="container" [ngStyle]="{'marginTop':'20px'}">
     <div class="row">
@@ -25,7 +33,7 @@
             <h5 class="card-title">{{dish.dishName}}</h5>
             <h6 class="card-title">Rs. {{dish.price}}</h6>
             <p class="card-text flex-grow-1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a class="btn btn-primary" (click)="displayDish(dish.dishName)" >Add To Cart</a>
+            <a class="btn btn-primary" (click)="addToCart(dish)" >Add To Cart</a>
           </div>
         </div>
       </div>
