@@ -4,6 +4,7 @@ import { User } from '../../../models/user';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
 import { Observable } from "rxjs";
+import { dobValidator } from '../../../helpers/customValidation';
 
 @Component({
   selector: 'app-update-user2',
@@ -43,7 +44,7 @@ export class UpdateUser2Component {
     'lastName':['',Validators.required],
     'email':['',Validators.required],
     'password':['',Validators.required],
-    'date_of_birth':[new Date(),Validators.required],
+    'date_of_birth':['',Validators.compose([Validators.required, dobValidator])],
     'houseno':['',Validators.required],
     'street':['',Validators.required],
     'area':['',Validators.required],
@@ -66,11 +67,13 @@ export class UpdateUser2Component {
   }
 
   onSubmit(updateUserForm: any): void {
-    this.tempAddr=new Address(0,updateUserForm.houseno,updateUserForm.street,updateUserForm.area,updateUserForm.city,updateUserForm.pincode,updateUserForm.country)
-    this.tempUser=new User (this.idUpdated,updateUserForm.firstName,updateUserForm.lastName,updateUserForm.email,updateUserForm.password,"user",updateUserForm.date_of_birth,this.tempAddr)
-    this.userService.updateUser(this.tempUser, this.idObtained).subscribe(data=>{
-      console.log(data) 
-    })
+    if (updateUserForm.valid) {
+      this.tempAddr=new Address(0,updateUserForm.houseno,updateUserForm.street,updateUserForm.area,updateUserForm.city,updateUserForm.pincode,updateUserForm.country)
+      this.tempUser=new User (this.idUpdated,updateUserForm.firstName,updateUserForm.lastName,updateUserForm.email,updateUserForm.password,"user",updateUserForm.date_of_birth,this.tempAddr)
+      this.userService.updateUser(this.tempUser, this.idObtained).subscribe(data=>{
+        console.log(data) 
+      })
+    } else console.log("Form is invalid!");
   }
 
   onChangeType(evt:any)

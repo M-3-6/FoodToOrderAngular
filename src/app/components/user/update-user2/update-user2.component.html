@@ -40,6 +40,9 @@
     <label for="date_of_birth" class="form-label">Date Of Birth</label>
     <input type="date" class="form-control" id="date_of_birth" formControlName="date_of_birth" placeholder="date_of_birth">
     <div *ngIf="updateUserForm.controls['date_of_birth'].hasError('required') && updateUserForm.get('date_of_birth')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Date of birth is required</div>
+    <div style="color: red;" *ngIf="updateUserForm.controls['date_of_birth'].hasError('invalidDOB')">
+      You should be atleast 18 years old!
+  </div>
   </div>
   <div class="mb-3">
     <label for="houseno" class="form-label">House Number</label>
