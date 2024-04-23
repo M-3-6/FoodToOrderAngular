@@ -19,6 +19,7 @@ import { UserService } from './services/user.service';
 import { CartComponent } from './components/cart/cart.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
 
 import { ViewUserComponent } from './components/user/view-user/view-user.component';
 
@@ -85,6 +86,7 @@ import { MessageService } from 'primeng/api';
     BrowserModule,
     AppRoutingModule,
     MatTabsModule,
+    MatTableModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,

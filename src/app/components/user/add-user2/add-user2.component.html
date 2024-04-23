@@ -5,8 +5,6 @@
         <div class="mb-3"  [class.error]="!addUserForm.get('firstName')?.valid && addUserForm.get('firstName')?.touched">
           <label for="firstName" class="form-label">First Name</label>
           <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="firstName">
-          <!-- <div *ngIf="!addUserForm.controls['firstName'].valid"
-          style="color: red;" class="form_error">First Name is not valid</div> -->
           <div *ngIf="addUserForm.controls['firstName'].hasError('required') && addUserForm.get('firstName')?.touched" class="invalid-feedback" style="color: red;" class="form_error">First Name is required</div>
         </div>  
         <div class="mb-3">
@@ -24,15 +22,19 @@
           <input type="password" class="form-control" id="password" formControlName="password" placeholder="password">
           <div *ngIf="addUserForm.controls['password'].hasError('required') && addUserForm.get('password')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Password is required</div>
         </div>
-        <!-- <div class="mb-3">
-          <label for="role" class="form-label">Role</label>
-          <input type="text" class="form-control" id="role" formControlName="role" placeholder="role">
-          <div *ngIf="addUserForm.controls['role'].hasError('required') && addUserForm.get('role')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Role is required</div>
-        </div> -->
+        <div class="mb-3">
+          <label for="con_password" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="con_password" formControlName="con_password" placeholder="confirm password">
+          <div *ngIf="addUserForm.controls['con_password'].hasError('required') && addUserForm.get('con_password')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Confirm password is required</div>
+          <div *ngIf="addUserForm.controls['con_password'].hasError('passwordsNotMatched')" class="invalid-feedback"  style="color: red;" class="form_error">Passwords do not match</div>
+        </div>
         <div class="mb-3">
           <label for="date_of_birth" class="form-label">Date Of Birth</label>
           <input type="date" class="form-control" id="date_of_birth" formControlName="date_of_birth" placeholder="date_of_birth">
           <div *ngIf="addUserForm.controls['date_of_birth'].hasError('required') && addUserForm.get('date_of_birth')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Date of birth is required</div>
+          <div style="color: red;" *ngIf="addUserForm.controls['date_of_birth'].hasError('invalidDOB')">
+            You should be atleast 18 years old!
+        </div>
         </div>
         <div class="mb-3">
           <label for="houseno" class="form-label">House Number</label>

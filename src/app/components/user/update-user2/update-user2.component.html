@@ -12,8 +12,6 @@
 <div class="mb-3"  [class.error]="!updateUserForm.get('firstName')?.valid && updateUserForm.get('firstName')?.touched">
     <label for="firstName" class="form-label">First Name</label>
     <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="firstName">
-    <!-- <div *ngIf="!updateUserForm.controls['firstName'].valid"
-    style="color: red;" class="form_error">First Name is not valid</div> -->
     <div *ngIf="updateUserForm.controls['firstName'].hasError('required') && updateUserForm.get('firstName')?.touched" class="invalid-feedback" style="color: red;" class="form_error">First Name is required</div>
   </div>  
   <div class="mb-3">
@@ -31,15 +29,13 @@
     <input type="password" class="form-control" id="password" formControlName="password" placeholder="password">
     <div *ngIf="updateUserForm.controls['password'].hasError('required') && updateUserForm.get('password')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Password is required</div>
   </div>
-  <!-- <div class="mb-3">
-    <label for="role" class="form-label">Role</label>
-    <input type="text" class="form-control" id="role" formControlName="role" placeholder="role">
-    <div *ngIf="updateUserForm.controls['role'].hasError('required') && updateUserForm.get('role')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Role is required</div>
-  </div> -->
   <div class="mb-3">
     <label for="date_of_birth" class="form-label">Date Of Birth</label>
     <input type="date" class="form-control" id="date_of_birth" formControlName="date_of_birth" placeholder="date_of_birth">
     <div *ngIf="updateUserForm.controls['date_of_birth'].hasError('required') && updateUserForm.get('date_of_birth')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Date of birth is required</div>
+    <div style="color: red;" *ngIf="updateUserForm.controls['date_of_birth'].hasError('invalidDOB')">
+      You should be atleast 18 years old!
+  </div>
   </div>
   <div class="mb-3">
     <label for="houseno" class="form-label">House Number</label>
