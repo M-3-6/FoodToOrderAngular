@@ -31,11 +31,8 @@ export class AddUser2Component {
  pincode:AbstractControl;
  country:AbstractControl;
 
-
-  //sku:FormControl
   constructor(fb: FormBuilder,private userService:UserService) {
-    //this.sku=new FormControl()
-    /////////////////
+    
     this.addUserForm = fb.group({     
       
       'firstName':['',Validators.required],

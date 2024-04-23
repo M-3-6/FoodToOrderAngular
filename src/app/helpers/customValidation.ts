@@ -10,19 +10,6 @@ export function dobValidator(control: AbstractControl): ValidationErrors | null 
     return null;
 }
 
-// export function dobValidator() : ValidatorFn {
-//   const eighteenYearsInMillis = 5.67648e11;
-//   console.log("inside")
-//   return(control: AbstractControl): ValidationErrors | null => {
-//     console.log("inside")
-//     if(new Date(control.value).getTime() - new Date().getTime() < eighteenYearsInMillis) {
-//       console.log("less")
-//       return {inValidDOB:true}
-//     }
-//     return null
-//   }
-// }
-
 export function passwordValidator(password: AbstractControl) : ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     console.log(password.value, control.value);
