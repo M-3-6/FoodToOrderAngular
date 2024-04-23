@@ -13,12 +13,6 @@ import {
   TemplatePortal
 } from "./chunk-7FUO3BQH.js";
 import {
-  FormGroupDirective,
-  NgControl,
-  NgForm,
-  Validators
-} from "./chunk-MVPNF6FW.js";
-import {
   MAT_FORM_FIELD,
   MatError,
   MatFormField,
@@ -71,6 +65,12 @@ import {
   removeAriaReferencedId,
   supportsScrollBehavior
 } from "./chunk-WHOV4VRK.js";
+import {
+  FormGroupDirective,
+  NgControl,
+  NgForm,
+  Validators
+} from "./chunk-MVPNF6FW.js";
 import {
   CommonModule,
   DOCUMENT,

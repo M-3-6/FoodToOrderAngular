@@ -9,10 +9,12 @@ import { RestaurantDetailsComponent } from './components/restaurant-details/rest
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AdminGuard } from './guards/adminguard';
 import { AddOrderComponent } from './components/order/add-order/add-order.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 
 const routes: Routes = [
   {path: 'aboutus',component:AboutUsComponent},
+  { path: 'contactus', component: ContactUsComponent },
   {path: 'restaurants',component:RestaurantComponent},
   {path: 'restaurantdetails/:id',component:RestaurantDetailsComponent},
   {path: 'home',component:HomeComponent},
