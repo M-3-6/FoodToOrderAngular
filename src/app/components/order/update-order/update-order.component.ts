@@ -82,6 +82,7 @@ export class UpdateOrderComponent {
   }
 
   onUserSelected(evt: any) {
+    console.log("user selected: ", evt.target.value)
     this.arrOrders = this.orderService.getOrdersByUserId(evt.target.value);
     console.log('user id selected:', evt.target.value);
   }

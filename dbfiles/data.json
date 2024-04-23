@@ -282,7 +282,7 @@
         "pincode": "560001",
         "country": "India"
       },
-      "date_of_birth": "2024-04-19T08:36:24.759Z"
+      "date_of_birth": "2001-01-09"
     },
     {
       "id": "3",
@@ -319,6 +319,42 @@
         "country": "Chennai"
       },
       "date_of_birth": "2000-08-10"
+    },
+    {
+      "id": "6",
+      "firstName": "George",
+      "lastName": "M",
+      "role": "user",
+      "email": "george@tismo.com",
+      "password": "george345",
+      "address": {
+        "id": 0,
+        "houseno": "1",
+        "street": "Mahadevapura",
+        "area": "Bagmane",
+        "city": "Banglore",
+        "pincode": "560001",
+        "country": "India"
+      },
+      "date_of_birth": "2005-02-22"
+    },
+    {
+      "id": 7,
+      "firstName": "Mary",
+      "lastName": "V",
+      "role": "user",
+      "email": "mary@tismo.com",
+      "password": "mary",
+      "address": {
+        "id": 1,
+        "houseno": "1",
+        "street": "4 Lane",
+        "area": "Bagmane",
+        "city": "Banglore",
+        "pincode": "560004",
+        "country": "India"
+      },
+      "date_of_birth": "2003-12-12"
     }
   ],
   "orders": [
@@ -522,7 +558,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": "12",
       "orderDate": "4/23/2024",
       "userId": "2",
       "orderAmount": 1150,
@@ -550,7 +586,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": "13",
       "orderDate": "4/23/2024",
       "userId": "2",
       "orderAmount": 1150,

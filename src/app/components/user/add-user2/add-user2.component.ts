@@ -32,7 +32,7 @@ export class AddUser2Component {
  country:AbstractControl;
 
   constructor(fb: FormBuilder,private userService:UserService) {
-    
+
     this.addUserForm = fb.group({     
       
       'firstName':['',Validators.required],
@@ -68,22 +68,19 @@ export class AddUser2Component {
     });
   }
 
-  getId() {
-    this.userService.getUsers().subscribe(data => {
-      const largestId = Math.max(...data.map(item=>item.id))
-      console.log(largestId)
-      this.idUpdated = largestId + 1;
-    })   
-  }
-
   onSubmit(addUserFormValue: any): void {
     if (this.addUserForm.valid) {
-      this.tempAddr=new Address(1,addUserFormValue.houseno,addUserFormValue.street,addUserFormValue.area,addUserFormValue.city,addUserFormValue.pincode,addUserFormValue.country)
-      this.tempUser=new User(this.idUpdated,addUserFormValue.firstName,addUserFormValue.lastName,addUserFormValue.email,addUserFormValue.password,"user",addUserFormValue.date_of_birth,this.tempAddr)
-      this.userService.addUser(this.tempUser).subscribe(data=>{
-        console.log(data) 
+      this.userService.getUsers().subscribe(data => {
+        const largestId = Math.max(...data.map(item=>item.id))
+        console.log(largestId)
+        this.idUpdated = largestId + 1;
+        this.tempAddr=new Address(1,addUserFormValue.houseno,addUserFormValue.street,addUserFormValue.area,addUserFormValue.city,addUserFormValue.pincode,addUserFormValue.country)
+        this.tempUser=new User(this.idUpdated,addUserFormValue.firstName,addUserFormValue.lastName,addUserFormValue.email,addUserFormValue.password,"user",addUserFormValue.date_of_birth,this.tempAddr)
+        this.userService.addUser(this.tempUser).subscribe(data=>{
+          console.log(data) 
+        })
+        window.location.reload();
       })
     } else console.log("Invalid form!")
-
   } 
 }

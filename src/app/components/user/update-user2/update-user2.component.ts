@@ -37,9 +37,8 @@ export class UpdateUser2Component {
   constructor(fb: FormBuilder,private userService:UserService) {
     this.arrUsers=userService.getUsers()
 
-    /////////////////
     this.updateUserForm = fb.group({ 
-    'id':[0]    ,
+    'id':['', Validators.required]    ,
     'firstName':['',Validators.required],
     'lastName':['',Validators.required],
     'email':['',Validators.required],
@@ -67,12 +66,13 @@ export class UpdateUser2Component {
   }
 
   onSubmit(updateUserForm: any): void {
-    if (updateUserForm.valid) {
+    if (this.updateUserForm.valid) {
       this.tempAddr=new Address(0,updateUserForm.houseno,updateUserForm.street,updateUserForm.area,updateUserForm.city,updateUserForm.pincode,updateUserForm.country)
-      this.tempUser=new User (this.idUpdated,updateUserForm.firstName,updateUserForm.lastName,updateUserForm.email,updateUserForm.password,"user",updateUserForm.date_of_birth,this.tempAddr)
+      this.tempUser=new User (this.idObtained,updateUserForm.firstName,updateUserForm.lastName,updateUserForm.email,updateUserForm.password,"user",updateUserForm.date_of_birth,this.tempAddr)
       this.userService.updateUser(this.tempUser, this.idObtained).subscribe(data=>{
         console.log(data) 
       })
+      window.location.reload();
     } else console.log("Form is invalid!");
   }
 
