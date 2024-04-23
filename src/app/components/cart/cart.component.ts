@@ -12,7 +12,7 @@ import { Order } from '../../models/order';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent  {
- cart:Cart = new Cart(0,0,0,[],[])
+ cart:Cart = new Cart(0,0,[],[])
  cartId:number=0
  order:Order=new Order(0,'',0,0,[],[]);
 
