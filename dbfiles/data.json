@@ -340,7 +340,7 @@
       "id": "2",
       "userId": 2,
       "orderDate": "14/07/1999",
-      "orderAmount": 1500,
+      "orderAmount": 840,
       "arrDishes": [
         {
           "id": 3,
@@ -350,10 +350,11 @@
           "isAvailable": true
         },
         {
-          "id": 4,
-          "Name": "Steak",
-          "price": 300,
-          "img_path": "",
+          "id": 2,
+          "dishName": "Steak",
+          "price": "300",
+          "img_path": "\"\"",
+          "restaurant_id": 2,
           "isAvailable": true
         }
       ],
