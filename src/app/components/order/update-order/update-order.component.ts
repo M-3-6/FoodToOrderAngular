@@ -12,7 +12,6 @@ import { User } from '../../../models/user';
 import { Order } from '../../../models/order';
 import { OrderService } from '../../../services/order.service';
 import { Dish } from '../../../models/dish';
-import { DishService } from '../../../services/dish.service';
 import { Address } from '../../../models/address';
 
 @Component({
@@ -60,6 +59,7 @@ export class UpdateOrderComponent {
   loadDishesIntoFormArray(Dishes: Dish[]) {
     
     const dishFormArray = this.addDishesListForm.get('dishFormArray') as FormArray;
+    dishFormArray.clear();
     if( !Array.isArray(Dishes) || Dishes.length==0){
       dishFormArray.push(this.createDishFormGroup());
     }
