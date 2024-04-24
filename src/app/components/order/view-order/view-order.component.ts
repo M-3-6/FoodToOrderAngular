@@ -14,6 +14,7 @@ import { Address } from '../../../models/address';
   styleUrl: './view-order.component.scss',
 })
 export class ViewOrderComponent {
+  currencyCode: string = 'INR'
   user: User = new User(
     0,
     '',

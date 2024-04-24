@@ -60,6 +60,7 @@ export class UpdateOrderComponent {
   loadDishesIntoFormArray(Dishes: Dish[]) {
     
     const dishFormArray = this.addDishesListForm.get('dishFormArray') as FormArray;
+    dishFormArray.clear();
     if( !Array.isArray(Dishes) || Dishes.length==0){
       dishFormArray.push(this.createDishFormGroup());
     }

@@ -4,6 +4,7 @@ import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 import {Observable} from "rxjs";
 import { Order } from '../models/order';
+import { OrderService } from '../services/order.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class BannerComponent {
 
   arrUsers:Observable<User[]>
 
-    constructor(private userservice:UserService,private router:Router){
+    constructor(private userservice:UserService,private router:Router, private orderService: OrderService){
       this.arrUsers = this.userservice.getUsers()
     }
     verifyCredentials(email:HTMLInputElement, pwd: HTMLInputElement){

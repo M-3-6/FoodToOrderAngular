@@ -27,7 +27,7 @@
       Total Amount : {{cart.Amount}}
 
       <button type="button" class="btn btn-primary" (click)="Checkout()">Checkout</button>
-      <button (click)="onResetCart()">Reset</button>
+      <button type="button" class="btn btn-primary" (click)="onResetCart()">Reset</button>
 </div>
 
 <div *ngIf="cart.arrDishes.length <= 0">
