@@ -442,7 +442,7 @@
           "id": 1,
           "dishName": "Chicken pizza",
           "price": 250,
-          "img_path": "../../../../assets/Images/pizza.jpg",
+          "img_path": "../../../../assets/Images/pizza.jfif",
           "restaurant_id": 7,
           "isAvailable": true
         }
@@ -513,7 +513,7 @@
           "id": 2,
           "Name": "Pastry",
           "price": 120,
-          "img_path": "https://theobroma.in/cdn/shop/products/RedVelvetPastry1.jpg?v=1632143810",
+          "img_path": "../../../../assets/Images/pastry.jpg",
           "isAvailable": true
         }
       ],
@@ -558,7 +558,7 @@
       "arrDishes": [
         {
           "id": 1,
-          "dishName": "Dosa",
+          "dishName": "Masala Dosa",
           "price": "70",
           "img_path": "../../../../assets/Images/dosa.jfif",
           "restaurant_id": 12,
@@ -586,7 +586,7 @@
       "arrDishes": [
         {
           "id": 1,
-          "dishName": "Fried Rice",
+          "dishName": "Veg Fried Rice",
           "price": "250",
           "img_path": "../../../../assets/Images/friedrice.jpg",
           "restaurant_id": 13,
@@ -596,14 +596,44 @@
       "quantity": [
         "1"
       ]
+    },
+    {
+      "id": 14,
+      "orderDate": "24/04/2024",
+      "userId": "1",
+      "orderAmount": 170,
+      "arrDishes": [
+        {
+          "dishName": "Biriyani",
+          "price": 170,
+          "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
+          "isAvailable": true,
+          "id": 1,
+          "restaurant_id": 1
+        }
+      ],
+      "quantity": [
+        1
+      ]
     }
   ],
   "carts": [
     {
       "id": "1",
-      "Amount": 0,
-      "arrDishes": [],
-      "quantity": []
+      "Amount": 170,
+      "arrDishes": [
+        {
+          "dishName": "Biriyani",
+          "price": 170,
+          "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
+          "isAvailable": true,
+          "id": 1,
+          "restaurant_id": 1
+        }
+      ],
+      "quantity": [
+        1
+      ]
     },
     {
       "id": "2",
