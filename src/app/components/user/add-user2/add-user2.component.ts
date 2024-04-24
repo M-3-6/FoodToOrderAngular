@@ -4,6 +4,8 @@ import { Address } from '../../../models/address';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
 import { dobValidator, passwordValidator } from '../../../helpers/customValidation';
+import { CartService } from '../../../services/cart.service';
+import { Cart } from '../../../models/cart';
 
 @Component({
   selector: 'app-add-user2',
@@ -18,6 +20,8 @@ export class AddUser2Component {
   
  addUserForm: FormGroup;
 
+ cart: Cart = new Cart(0,0,[],[]);
+
  firstName:AbstractControl;
  lastName:AbstractControl;
  email:AbstractControl;
@@ -31,8 +35,7 @@ export class AddUser2Component {
  pincode:AbstractControl;
  country:AbstractControl;
 
-  constructor(fb: FormBuilder,private userService:UserService) {
-
+  constructor(fb: FormBuilder,private userService:UserService, private cartService: CartService) {    
     this.addUserForm = fb.group({     
       
       'firstName':['',Validators.required],
@@ -76,11 +79,18 @@ export class AddUser2Component {
         this.idUpdated = largestId + 1;
         this.tempAddr=new Address(1,addUserFormValue.houseno,addUserFormValue.street,addUserFormValue.area,addUserFormValue.city,addUserFormValue.pincode,addUserFormValue.country)
         this.tempUser=new User(this.idUpdated,addUserFormValue.firstName,addUserFormValue.lastName,addUserFormValue.email,addUserFormValue.password,"user",addUserFormValue.date_of_birth,this.tempAddr)
+        this.cart.id = this.idUpdated;
+        this.cartService.addCart(new Cart(this.idUpdated, 0,[],[])).subscribe(
+          data => {
+            console.log("Created cart for user:", this.tempUser.firstName, data)
+          }
+        );
         this.userService.addUser(this.tempUser).subscribe(data=>{
           console.log(data) 
         })
         window.location.reload();
       })
+      
     } else console.log("Invalid form!")
   } 
 }
