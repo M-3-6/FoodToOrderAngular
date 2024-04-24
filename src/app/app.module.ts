@@ -51,6 +51,7 @@ import { ToastModule } from 'primeng/toast';
 import { RippleModule } from 'primeng/ripple';
 import { MessageService } from 'primeng/api';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { NumberValidationDirective } from './directives/number-validation.directive';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     ViewOrderComponent,
     AddOrderComponent,
     UpdateRestaurantComponent,
-    ViewRestaurantsComponent
+    ViewRestaurantsComponent,
+    NumberValidationDirective
 
     
   ],

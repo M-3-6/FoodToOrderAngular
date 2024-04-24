@@ -59,7 +59,7 @@
         </div>
         <div class="mb-3">
           <label for="pincode" class="form-label">Pincode</label>
-          <input type="text" class="form-control" id="pincode" formControlName="pincode" placeholder="pincode">
+          <input type="text" class="form-control" id="pincode" formControlName="pincode" placeholder="pincode" [appNumberValidation]>
           <div *ngIf="addUserForm.controls['pincode'].hasError('required') && addUserForm.get('pincode')?.touched" class="invalid-feedback"  style="color: red;" class="form_error">Pincode is required</div>
         </div>
         <div class="mb-3">
