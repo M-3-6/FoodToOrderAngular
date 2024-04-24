@@ -50,6 +50,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { RippleModule } from 'primeng/ripple';
 import { MessageService } from 'primeng/api';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 
 @NgModule({
@@ -67,7 +68,7 @@ import { MessageService } from 'primeng/api';
     SecondComponent,
     NotFoundComponent,
     CartComponent,
-  
+    ContactUsComponent,
     ViewUserComponent,
   
     AddUser2Component,

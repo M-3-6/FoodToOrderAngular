@@ -77,7 +77,7 @@ this.restaurantService.getRestaurantById(rid).subscribe(data=>{
           this.cart.quantity.push(1)
           this.cart.Amount+=dish.price;
         }
-        window.location.reload();
+        //window.location.reload();
         this.cartService.updateCart(this.cart).subscribe(data=>{
           console.log(data)
           this.messageService.add({

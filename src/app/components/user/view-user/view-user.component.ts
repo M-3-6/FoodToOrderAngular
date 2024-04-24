@@ -9,7 +9,7 @@ import { User } from '../../../models/user';
 })
 export class ViewUserComponent {
   arrUsers: User[] = []
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'role', 'email', 'password', 'address','date_of_birth'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'role', 'email', 'password', 'date_of_birth', 'address'];
   constructor(private userService: UserService) {
       this.userService.getUsers().subscribe(
         data => {
