@@ -5,6 +5,8 @@ export function AdminGuard():CanActivateFn{
 
     let role = localStorage.getItem("role");
 
+    console.log(role)
+
     return ()=>{
         if(role=="admin"){
             return true;
