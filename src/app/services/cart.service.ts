@@ -75,10 +75,7 @@ export class CartService {
       catchError(this.httpError)
     );
   }
-  
-
-
-
+ 
 getCartByUserId(userId: string): Observable<Cart> {
   return this.httpClient.get<Cart>(`${this.baseUrl}/carts?userId=${userId}`).pipe(
     catchError(this.httpError)

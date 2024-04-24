@@ -12,7 +12,6 @@ import { User } from '../../../models/user';
 import { Order } from '../../../models/order';
 import { OrderService } from '../../../services/order.service';
 import { Dish } from '../../../models/dish';
-import { DishService } from '../../../services/dish.service';
 import { Address } from '../../../models/address';
 
 @Component({

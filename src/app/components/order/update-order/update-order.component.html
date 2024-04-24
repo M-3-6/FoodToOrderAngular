@@ -1,5 +1,5 @@
 <mat-stepper #stepper>
-    <mat-step [stepControl]="firstOrderFormGroup">
+    <mat-step [stepControl]="firstOrderFormGroup" label="Order Details">
       <form
       [formGroup]="firstOrderFormGroup"
       (ngSubmit)="saveFirstStepData(firstOrderFormGroup)"
@@ -33,10 +33,7 @@
         </select>
       </div>
       <div>
-        <button mat-button matStepperNext type="submit">Save</button>
-      </div>
-      <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext type="submit">Next</button>
       </div>
     </form>
     </mat-step>
@@ -116,11 +113,11 @@
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="secondFormGroup">
+    <mat-step [stepControl]="secondFormGroup" label="Amount">
       <form [formGroup]="secondFormGroup" (ngSubmit)="saveSecondStepData(secondFormGroup)">
       
         <mat-toolbar color="primary">
-          Edit Order Details
+          Displaying Order Details
         </mat-toolbar>
         <mat-form-field appearance="fill">
           <mat-label>Order Date</mat-label>
@@ -137,11 +134,9 @@
           <input matInput placeholder="User Id" formControlName="oUserIdCtrl" required>
         </mat-form-field>
 
-        <div> 
-          <button mat-button matStepperNext type="submit">Save</button>
-        </div>
         <div>
-          <button mat-button matStepperNext >Next</button>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext type="submit">Next</button>
         </div>
       </form>
     </mat-step>
