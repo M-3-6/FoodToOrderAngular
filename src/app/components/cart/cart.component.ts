@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
       var cartId = localStorage.getItem('userId')?localStorage.getItem('userId'):"0"
       this.cartId = parseInt(cartId?cartId:"0");
       
-      this.cartService.getCartById(this.cartId).subscribe(data=>{
+      this.cartService.getCartById(this.cartId.toString()).subscribe(data=>{
         this.cart = data;
         console.log(this.cart)
        })

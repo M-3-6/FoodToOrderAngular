@@ -355,6 +355,24 @@
         "country": "India"
       },
       "date_of_birth": "2003-12-12"
+    },
+    {
+      "id": 8,
+      "firstName": "Susan",
+      "lastName": "B",
+      "role": "user",
+      "email": "susan@tismo.com",
+      "password": "susan345",
+      "address": {
+        "id": 1,
+        "houseno": "1",
+        "street": "Church Street",
+        "area": "Brigade",
+        "city": "Paris",
+        "pincode": "123456",
+        "country": "France"
+      },
+      "date_of_birth": "1973-10-03"
     }
   ],
   "orders": [
@@ -584,7 +602,7 @@
     {
       "id": "1",
       "Amount": 0,
-      "arrDishes":[],
+      "arrDishes": [],
       "quantity": []
     },
     {
@@ -651,25 +669,31 @@
     {
       "id": "4",
       "Amount": 0,
-      "arrDishes":[],
+      "arrDishes": [],
       "quantity": []
     },
     {
       "id": "5",
       "Amount": 0,
-      "arrDishes":[],
+      "arrDishes": [],
       "quantity": []
     },
     {
       "id": "6",
       "Amount": 0,
-      "arrDishes":[],
+      "arrDishes": [],
       "quantity": []
     },
     {
       "id": "7",
       "Amount": 0,
-      "arrDishes":[],
+      "arrDishes": [],
+      "quantity": []
+    },
+    {
+      "id": 8,
+      "Amount": 0,
+      "arrDishes": [],
       "quantity": []
     }
   ]

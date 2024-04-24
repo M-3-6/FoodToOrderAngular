@@ -38,43 +38,12 @@ export class CartService {
     return throwError(msg)
   }
 
-  getCartId() : string{
-    let cartId = localStorage.getItem('userId')
-    if (cartId != null )  return cartId;
-    return "";
-  }
-
-
-  // getCartById(cId:number) : Observable<Cart> {
-  //   console.log(cId)
-  //   return this.httpClient.get<Cart>(this.baseUrl + '/carts/' + cId).pipe(
-  //     catchError(this.httpError)
-  //   );
-  // }
-
-  getCartById(cId: number): Observable<Cart> {
+  getCartById(cId: string): Observable<Cart> {
     return this.httpClient.get<Cart>(`${this.baseUrl}/carts/${cId}`).pipe(
-      catchError(error => {
-        if (error.status === 404) {
-          // If cart not found, create a new cart
-          return this.createCartForUser(cId).pipe(
-            switchMap(() => this.getCartById(cId))
-          );
-        }
-        return throwError(error);
-      })
-    );
-  }
-  
-  createCartForUser(cId: number): Observable<Cart> {
-    return this.httpClient.post<Cart>(
-      `${this.baseUrl}/carts`,
-      JSON.stringify(new Cart(cId,0,[],[])),
-      this.httpHeader
-    ).pipe(
       catchError(this.httpError)
     );
   }
+  
  
 getCartByUserId(userId: string): Observable<Cart> {
   return this.httpClient.get<Cart>(`${this.baseUrl}/carts?userId=${userId}`).pipe(
@@ -85,6 +54,16 @@ getCartByUserId(userId: string): Observable<Cart> {
 updateCart(cart: Cart): Observable<Cart> {
   return this.httpClient.put<Cart>(
     `${this.baseUrl}/carts/${cart.id}`,
+    cart,
+    this.httpHeader
+  ).pipe(
+    catchError(this.httpError)
+  );
+}
+
+addCart(cart: Cart): Observable<Cart> {
+  return this.httpClient.post<Cart>(
+    `${this.baseUrl}/carts/`,
     cart,
     this.httpHeader
   ).pipe(
