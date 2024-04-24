@@ -67,7 +67,7 @@ export class UpdateUser2Component {
 
   onSubmit(updateUserForm: any): void {
     if (this.updateUserForm.valid) {
-      this.tempAddr=new Address(0,updateUserForm.houseno,updateUserForm.street,updateUserForm.area,updateUserForm.city,updateUserForm.pincode,updateUserForm.country)
+      this.tempAddr=new Address(1,updateUserForm.houseno,updateUserForm.street,updateUserForm.area,updateUserForm.city,updateUserForm.pincode,updateUserForm.country)
       this.tempUser=new User (this.idObtained,updateUserForm.firstName,updateUserForm.lastName,updateUserForm.email,updateUserForm.password,"user",updateUserForm.date_of_birth,this.tempAddr)
       this.userService.updateUser(this.tempUser, this.idObtained).subscribe(data=>{
         console.log(data) 
