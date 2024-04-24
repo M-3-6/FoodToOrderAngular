@@ -24,8 +24,10 @@ export class RestaurantDetailsComponent implements OnInit{
 
 
 
- constructor(private restaurantService: RestaurantService,private cartService:CartService,private activatedRoute:ActivatedRoute,private messageService: MessageService,
-  private primengConfig: PrimeNGConfig){
+
+
+ constructor(private restaurantService: RestaurantService,private cartService:CartService,private activatedRoute:ActivatedRoute,
+  private messageService: MessageService,private primengConfig: PrimeNGConfig){
    
 
   this.activatedRoute.params.subscribe((params:Params)=>{
