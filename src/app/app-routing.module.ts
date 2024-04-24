@@ -21,6 +21,7 @@ const routes: Routes = [
   {path: 'admin',component:AdminComponent,canActivate : [AdminGuard()]},
   {path: 'loginLogout',component:LoginLogoutComponent},
   {path: 'addorder', component:AddOrderComponent},
+  {path: '',component:HomeComponent},
   {path:'**' , component:NotFoundComponent}
 ];
 
