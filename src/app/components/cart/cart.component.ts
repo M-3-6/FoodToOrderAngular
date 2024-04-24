@@ -77,11 +77,15 @@ export class CartComponent implements OnInit {
       this.orderService.addOrder(this.order).subscribe(data=>{
         console.log(data)
       })
+      
+      this.onResetCart();
   }
 )}
 
 onResetCart() {
   this.cart.quantity = []
   this.cart.arrDishes = []
+  this.cart.Amount = 0;
+  this.cartService.updateCart(this.cart);
 }
 }

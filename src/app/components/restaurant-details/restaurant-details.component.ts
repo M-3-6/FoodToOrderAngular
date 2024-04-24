@@ -49,7 +49,10 @@ this.restaurantService.getRestaurantById(rid).subscribe(data=>{
   this.primengConfig.ripple = true;
 }
 
-
+  isAdmin() {
+    if (localStorage.getItem('role') == "admin") return true;
+    else return false;
+  }
 
   addToCart(dish:Dish){
     if(localStorage.getItem('userId')==null){
