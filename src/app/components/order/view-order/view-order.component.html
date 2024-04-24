@@ -24,7 +24,7 @@
     <div *ngFor="let order of orders; let j = index">
         <p>Order ID: {{ order.id }}, Order Date: {{ order.orderDate }}</p>
     <div *ngFor="let dish of order.arrDishes; let i = index" class="card">
-        <img [src]="dish.img_path || '../../../../assets/Images/dosa.jfif'" class="card-img-top" alt="Dish Image">
+        <img [src]="dish.img_path || '../../../../assets/Images/default_img.jpg'" class="card-img-top" alt="Dish Image">
         <div class="card-body">
           <h5 class="card-title">{{ dish.dishName }}</h5>
           <p class="card-text">Price: {{ dish.price | currency : currencyCode }}</p>

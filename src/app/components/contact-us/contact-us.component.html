@@ -1,4 +1,50 @@
 <div class="container">
+  <div class="mg-3 text-center">
+    <img style="opacity: 0.6;" height="600" width="100%" [src]="'../../../../assets/Images/contact-us-page1.jpg'" />
+  </div>
+    <div class="mt-3 division container-fluid" >
+      <h3 class="text-center">OFFICE LOCATIONS</h3>
+      <div class="row text-center">
+      <div class="card row-lg-4 " style="width: 19rem;">
+        <img class="card-img-top" [src]="'../../../../assets/Images/office1.jpg'" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-title">USA</p>
+          <p class="card-text">1600 Amphitheatre Parkway Mountain View, CA 94043, USA</p>
+          <p class="card-text">+1 9823476534</p>
+        </div>
+      </div>
+      <div class="card row-lg-4 " style="width: 19rem;">
+        <img class="card-img-top ml-auto" [src]="'../../../../assets/Images/office2.jpg'" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-title">India</p>
+          <p class="card-text">Palmgrove Rd, Bengaluru, Karnataka 560047</p>
+          <p class="card-text">+91 7923406524</p></div>
+      </div>
+      <div class="card row-lg-4 " style="width: 19rem;">
+        <img class="card-img-top" [src]="'../../../../assets/Images/office3.jpg'" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-title">Germany</p>
+          <p class="card-text">Beiersdorfstrae 3 22529,Hamburg Germany</p>
+          <p class="card-text">+49 1023490563</p></div>
+      </div>
+      <div class="card row-lg-4 " style="width: 19rem;">
+        <img class="card-img-top" [src]="'../../../../assets/Images/office4.jpg'" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-title">Japan</p>
+          <p class="card-text">26-1 Sakuragaoka-cho,Shibuya-ku,Tokyo</p>
+          <p class="card-text">+81 3019324567</p></div>
+      </div>
+    </div>
+    </div>
+    
+    <div class="mt-3 division">
+      <iframe
+        height="300"
+        src="https://maps.google.com/maps?q=Tismo%20Technology%20Solutions&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        class=" w-100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div class="container-fluid mt-3 division">
+    <h3 class="text-center">CONTACT US</h3>
     <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
       <div class="form-group">
         <label for="name">Name:</label>
@@ -81,10 +127,12 @@
   
       <button
         type="submit"
-        class="btn btn-primary"
+        class="btn btn-primary mt-3"
         [disabled]="contactForm.invalid"
       >
-        Submit
+        Send
       </button>
     </form>
+  </div>
+    
   </div>
