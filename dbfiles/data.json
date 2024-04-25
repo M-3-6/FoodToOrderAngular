@@ -4,6 +4,7 @@
       "user_id": 1,
       "id": "1",
       "rName": "Truffles2323",
+      "isOpen": true,
       "arrAddresses": [
         {
           "houseno": "4046",
@@ -71,6 +72,7 @@
       "user_id": 2,
       "id": "2",
       "rName": "Tonique",
+      "isOpen": true,
       "arrAddresses": [
         {
           "id": 1,
@@ -78,7 +80,7 @@
           "street": "ABC rd",
           "area": "Domlur",
           "city": "Bangalore",
-          "pincode": "560012",
+          "pincode": "560013",
           "country": "India"
         },
         {
@@ -130,6 +132,7 @@
       "user_id": 3,
       "id": "3",
       "rName": "Cafe Jade",
+      "isOpen": true,
       "arrAddresses": [
         {
           "id": 1,
@@ -164,6 +167,7 @@
       "user_id": 2,
       "id": "4",
       "rName": "Paradise",
+      "isOpen": true,
       "arrAddresses": [
         {
           "id": 1,
@@ -215,6 +219,7 @@
     {
       "id": "5",
       "rName": "Meghana",
+      "isOpen": true,
       "user_id": 1,
       "dishes": [
         {
@@ -408,7 +413,7 @@
       "id": "3",
       "userId": 3,
       "orderDate": "18/10/2023",
-      "orderAmount": 1400,
+      "orderAmount": 1403,
       "arrDishes": [
         {
           "id": 1,
@@ -421,7 +426,7 @@
         {
           "id": 2,
           "dishName": "Steak",
-          "price": "420",
+          "price": "421",
           "img_path": "../../../../assets/Images/friedrice.jpg",
           "restaurant_id": 3,
           "isAvailable": true

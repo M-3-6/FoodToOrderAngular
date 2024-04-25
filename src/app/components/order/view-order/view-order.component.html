@@ -3,7 +3,7 @@
       <mat-toolbar color="primary"> Order Details </mat-toolbar>
       <div class="form-group" *ngIf="arrUsers | async as users">
         <label class="form-label" for="userid"> Select a user:</label>
-        <select class="form-select" id="userid" (change)="onUserSelected($event)">
+        <select class="form-select" id="userid" (change)="onUserSelected($event);resetFlag()">
           <option selected>Select a value</option>
           <option *ngFor="let user of users" [value]="user.id">
             {{ user.firstName }}
@@ -12,8 +12,11 @@
       </div>
     </form>
     <div *ngIf="arrOrders | async as orders">
-      <h5  class="text-center">ORDERS</h5>
-    <div class="container-fluid" *ngFor="let order of orders; let j = index">
+      <div *ngIf="orders.length == 0 && flag == 0">
+          {{onNoOrdersPrompted()}}          
+      </div>
+      <h5 *ngIf="orders.length > 0" class="text-center">ORDERS</h5>
+    <div class="container-fluid" *ngFor="let order of orders; let j = index">    
         <h6>ORDER ID: {{ order.id }} | ORDER DATE: {{ order.orderDate }}</h6>
 
       <div class="row ">
@@ -29,3 +32,7 @@
   </div>
   </div>
   </div>
+
+  <p-toast position="top-right"
+    key="tr">
+  </p-toast>  
