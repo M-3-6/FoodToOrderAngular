@@ -91,6 +91,16 @@ export class AddUser2Component {
         window.location.reload();
       })
       
-    } else console.log("Invalid form!")
-  } 
+    } else this.markFormGroupTouched(this.addUserForm);
+  }
+
+markFormGroupTouched(formGroup: FormGroup) {
+  Object.values(formGroup.controls).forEach((control) => {
+    control.markAsTouched();
+
+    if (control instanceof FormGroup) {
+      this.markFormGroupTouched(control);
+    }
+  });
+}
 }

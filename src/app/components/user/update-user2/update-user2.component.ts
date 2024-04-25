@@ -73,8 +73,18 @@ export class UpdateUser2Component {
         console.log(data) 
       })
       window.location.reload();
-    } else console.log("Form is invalid!");
+    } else this.markFormGroupTouched(this.updateUserForm);
   }
+
+markFormGroupTouched(formGroup: FormGroup) {
+  Object.values(formGroup.controls).forEach((control) => {
+    control.markAsTouched();
+
+    if (control instanceof FormGroup) {
+      this.markFormGroupTouched(control);
+    }
+  });
+}
 
   onChangeType(evt:any)
   {
