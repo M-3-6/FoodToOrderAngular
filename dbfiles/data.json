@@ -4,6 +4,7 @@
       "user_id": 1,
       "id": "1",
       "rName": "Truffles2323",
+      "isOpen": true,
       "arrAddresses": [
         {
           "houseno": "4046",
@@ -71,6 +72,7 @@
       "user_id": 2,
       "id": "2",
       "rName": "Tonique",
+      "isOpen": true,
       "arrAddresses": [
         {
           "id": 1,
@@ -130,6 +132,7 @@
       "user_id": 3,
       "id": "3",
       "rName": "Cafe Jade",
+      "isOpen": true,
       "arrAddresses": [
         {
           "id": 1,
@@ -164,6 +167,7 @@
       "user_id": 2,
       "id": "4",
       "rName": "Paradise",
+      "isOpen": true,
       "arrAddresses": [
         {
           "id": 1,
@@ -215,6 +219,7 @@
     {
       "id": "5",
       "rName": "Meghana",
+      "isOpen": true,
       "user_id": 1,
       "dishes": [
         {
@@ -357,7 +362,7 @@
       "date_of_birth": "2003-12-12"
     },
     {
-      "id": 8,
+      "id": "8",
       "firstName": "Susan",
       "lastName": "B",
       "role": "user",
@@ -598,7 +603,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": "14",
       "orderDate": "24/04/2024",
       "userId": "1",
       "orderAmount": 170,
@@ -721,7 +726,7 @@
       "quantity": []
     },
     {
-      "id": 8,
+      "id": "8",
       "Amount": 0,
       "arrDishes": [],
       "quantity": []

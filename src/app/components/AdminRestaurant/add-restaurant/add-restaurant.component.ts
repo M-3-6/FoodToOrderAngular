@@ -34,6 +34,7 @@ export class AddRestaurantComponent {
       rNameCtrl: ['', Validators.required],
       // rLocationCtrl: ['', Validators.required],
       rUserIdCtrl: ['', Validators.required],
+      isOpenCtrl: ['',Validators.required]
     });
   
     secondFormGroup = this.formBuilder.group({});
@@ -41,7 +42,7 @@ export class AddRestaurantComponent {
     thirdFormGroup = this.formBuilder.group({});
 
     constructor(private formBuilder:FormBuilder, private restaurantService:RestaurantService){
-      this.restaurant = new Restaurant(0,"",0,[],[])
+      this.restaurant = new Restaurant(0,"",0,true,[],[])
 
       this.addressListForm = this.formBuilder.group({
         addresses:this.formBuilder.array([this.createAddressFormGroup()])
@@ -71,7 +72,7 @@ export class AddRestaurantComponent {
         'dishName':new FormControl('',Validators.required),
         'price':new FormControl(0,Validators.required),
         'img_path':new FormControl('',Validators.required),
-        'isAvailable':new FormControl(''),
+        'isAvailable':new FormControl('',Validators.required),
         
       })
     }
@@ -82,6 +83,7 @@ export class AddRestaurantComponent {
       this.restaurant.rName = formData.value.rNameCtrl;
       //this.restaurant.location = formData.value.rLocationCtrl;
       this.restaurant.user_id = formData.value.rUserIdCtrl;
+      this.restaurant.isOpen = JSON.parse(formData.value.isOpenCtrl.toLowerCase())
     }
 
     saveSecondStepData(formdata:FormGroup){

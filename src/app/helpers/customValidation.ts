@@ -17,3 +17,8 @@ export function passwordValidator(password: AbstractControl) : ValidatorFn {
     return null;
   }
 }
+
+
+// export function passwordValidatorPJ(password:AbstractControl) : ValidationErrors | null{
+
+// }

@@ -15,7 +15,7 @@ import { Cart } from '../../models/cart';
 })
 export class RestaurantDetailsComponent implements OnInit{
  //arrRestaurants:Restaurant[]=[]
- restaurant:Restaurant = new Restaurant(0,'',0,[],[])
+ restaurant:Restaurant = new Restaurant(0,'',0,true,[],[])
  //restaurantService:RestaurantService = new RestaurantService()
 
  cartId:number=0;

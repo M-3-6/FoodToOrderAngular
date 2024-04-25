@@ -12,7 +12,7 @@ import { Dish } from '../../../models/dish';
 })
 export class UpdateRestaurantComponent {
 
-  rest:Restaurant = new Restaurant(0,'',0,[],[])
+  rest:Restaurant = new Restaurant(0,'',0,true,[],[])
   restaurants:Restaurant[]=[]
   isLinear = false;
   addId:number = 1;
@@ -31,6 +31,7 @@ export class UpdateRestaurantComponent {
     rNameCtrl: ['', Validators.required],
     // rLocationCtrl: ['', Validators.required],
     rUserIdCtrl: [0, Validators.required],
+    isOpenCtrl: ['',Validators.required]
   });
 
   thirdFormGroup = this.formBuilder.group({});
@@ -112,7 +113,8 @@ export class UpdateRestaurantComponent {
 
       this.secondFormGroup.patchValue({
         rNameCtrl: this.rest.rName,
-        rUserIdCtrl: this.rest.user_id
+        rUserIdCtrl: this.rest.user_id,
+        isOpenCtrl:this.rest.isOpen.valueOf().toString()
         // Update other form controls as needed
       });
 
@@ -131,6 +133,7 @@ export class UpdateRestaurantComponent {
     this.rest.rName = formData.value.rNameCtrl;
     //this.restaurant.location = formData.value.rLocationCtrl;
     this.rest.user_id = parseInt(formData.value.rUserIdCtrl);
+    this.rest.isOpen = JSON.parse(formData.value.isOpenCtrl.toLowerCase())
   }
 
 
