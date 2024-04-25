@@ -4,6 +4,7 @@
       "user_id": 1,
       "id": "1",
       "rName": "Truffles2323",
+      "isOpen":true,
       "arrAddresses": [
         {
           "houseno": "4046",
@@ -71,6 +72,7 @@
       "user_id": 2,
       "id": "2",
       "rName": "Tonique",
+      "isOpen":true,
       "arrAddresses": [
         {
           "id": 1,
@@ -130,6 +132,7 @@
       "user_id": 3,
       "id": "3",
       "rName": "Cafe Jade",
+      "isOpen":true,
       "arrAddresses": [
         {
           "id": 1,
@@ -164,6 +167,7 @@
       "user_id": 2,
       "id": "4",
       "rName": "Paradise",
+      "isOpen":true,
       "arrAddresses": [
         {
           "id": 1,
@@ -216,6 +220,7 @@
       "id": "5",
       "rName": "Meghana",
       "user_id": 1,
+      "isOpen":true,
       "dishes": [
         {
           "id": 1,
