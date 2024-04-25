@@ -52,6 +52,8 @@ import { RippleModule } from 'primeng/ripple';
 import { MessageService } from 'primeng/api';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { NumberValidationDirective } from './directives/number-validation.directive';
+import { BlurEffectDirective } from './directives/blur-effect.directive';
+import { OpenRestFilterPipe } from './pipes/open-rest-filter.pipe';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 
@@ -83,6 +85,8 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
     UpdateRestaurantComponent,
     ViewRestaurantsComponent,
     NumberValidationDirective,
+    BlurEffectDirective,
+    OpenRestFilterPipe,
     ContactFormComponent
 
     

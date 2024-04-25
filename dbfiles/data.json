@@ -106,7 +106,7 @@
           "price": 120,
           "img_path": "https://theobroma.in/cdn/shop/products/RedVelvetPastry1.jpg?v=1632143810",
           "restaurant_id": 2,
-          "isAvailable": true
+          "isAvailable": false
         },
         {
           "id": 3,
@@ -114,7 +114,7 @@
           "price": 250,
           "img_path": "https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/1:1/w_2560%2Cc_limit/Smashburger-recipe-120219.jpg",
           "restaurant_id": 2,
-          "isAvailable": true
+          "isAvailable": false
         },
         {
           "id": 4,
