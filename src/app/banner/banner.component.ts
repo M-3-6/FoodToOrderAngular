@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
@@ -6,6 +6,8 @@ import {Observable} from "rxjs";
 import { Order } from '../models/order';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CartService } from '../services/cart.service';
+import { Cart } from '../models/cart';
 
 
 @Component({
@@ -24,8 +26,8 @@ export class BannerComponent {
   arrUsers:User[]=[]
 
 
-
     constructor(private fb:FormBuilder,private userservice:UserService,private router:Router,private messageService: MessageService,private primengConfig: PrimeNGConfig){
+
       this.userservice.getUsers().subscribe(
         data=>{
             this.arrUsers = data;
@@ -123,4 +125,8 @@ Logout(){
   window.location.reload();
 }
 
+isAdmin() {
+  if (localStorage.getItem('role') == "admin") return true;
+  else return false;
+}
 }

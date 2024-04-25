@@ -52,6 +52,7 @@ import { RippleModule } from 'primeng/ripple';
 import { MessageService } from 'primeng/api';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { NumberValidationDirective } from './directives/number-validation.directive';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { NumberValidationDirective } from './directives/number-validation.direct
     AddOrderComponent,
     UpdateRestaurantComponent,
     ViewRestaurantsComponent,
-    NumberValidationDirective
+    NumberValidationDirective,
+    ContactFormComponent
 
     
   ],

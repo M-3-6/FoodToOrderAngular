@@ -1,4 +1,4 @@
-
+<div class="container-fluid">
 <form [formGroup]="updateUserForm"
         (ngSubmit)="onSubmit(updateUserForm.value)"
         class="ui form" [class.error]="!updateUserForm.valid && updateUserForm.touched">
@@ -72,4 +72,4 @@
   <div *ngIf="!updateUserForm.valid" style="color: red;" class="form_error">Form is invalid</div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
+</div>

@@ -5,6 +5,7 @@ import { Dish } from '../../models/dish';
 import { Cart } from '../../models/cart';
 import { OrderService } from '../../services/order.service';
 import { Order } from '../../models/order';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-cart',
@@ -30,7 +31,7 @@ export class CartComponent implements OnInit {
       
       this.cartService.getCartById(this.cartId.toString()).subscribe(data=>{
         this.cart = data;
-        console.log(this.cart)
+        console.log("cart details:", this.cart)
        })
 
     }
@@ -88,4 +89,13 @@ onResetCart() {
   this.cart.Amount = 0;
   this.cartService.updateCart(this.cart);
 }
+
+onSaveCart() { 
+  this.cartService.updateCart(this.cart).subscribe(
+    () => {
+      console.log("current cart: ", this.cart);
+    }
+  );
+}
+
 }

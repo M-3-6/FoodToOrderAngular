@@ -36,37 +36,36 @@
         <li class="nav-item">
           <a class="nav-link mx-2 text-uppercase" [routerLink]="['/restaurants']">Restaurants</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="isAdmin()" class="nav-item">
           <a class="nav-link mx-2 text-uppercase" [routerLink]="['/admin']">Admin</a>
         </li>
+        <li class="nav-item">
+          <a href="" class="nav-link mx-2 icon" data-bs-toggle="modal" data-bs-target="#contactModal" *ngIf ="LoggedIn() && !isAdmin()"
+            ><img src="../assets/Images/support.png" style="height: 24px; width: 24px;" /></a
+          >
+        </li>
+
+        <li>
+          <a href="" class="nav-link mx-2 icon" data-bs-toggle="modal" data-bs-target="#exampleModal2" *ngIf ="LoggedIn() && !isAdmin()" style="margin-left: 20px;">
+            <img src="../assets/Images/shopping-cart.png" style="height: 24px; width: 24px;" />
+            
+          </a>
+        </li>
         
         <li class="nav-item">
           <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" *ngIf ="!LoggedIn()">
-  Login
-</button>
+<a href="" class="nav-link mx-2 icon" data-bs-toggle="modal" data-bs-target="#exampleModal" *ngIf ="!LoggedIn()">
+  <img src="../assets/Images/login.png" style="height: 24px; width: 24px;" />
+</a>
         </li>
 
         <li class="nav-item">
           <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" (click)="Logout()" *ngIf ="LoggedIn()">
-  Logout
-</button>
-        </li>
-
-        <li>
-          <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Register" *ngIf ="!LoggedIn()" style="margin-left: 20px;">
-  Register
-</button>
+<a href="" class="nav-link mx-2 icon" data-bs-toggle="modal" (click)="Logout()" *ngIf ="LoggedIn()">
+  <img src="../assets/Images/logout.png" style="height: 24px; width: 24px;" />
+</a>
         </li>
         
-        <li>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" *ngIf ="LoggedIn()" style="margin-left: 20px;">
-  <img src="../assets/Images/shopping-cart.png" style="height: 24px; width: 24px;" />
-  Cart
-</button>
-        </li>
 
 
       </ul>
@@ -154,6 +153,9 @@
           >
             Login
           </button>
+          <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#Register" *ngIf ="!LoggedIn()" style="margin-left: 20px;">
+            Register
+          </button>
         </form>
 
         <div *ngIf="!validUser" style="color: red;">
@@ -184,6 +186,21 @@
       <div class="modal-body">
         <app-cart></app-cart>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Support</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-contact-form></app-contact-form>
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
       </div>
@@ -202,9 +219,6 @@
       </div>
       <div class="modal-body">
         <app-add-user2></app-add-user2>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import {
   HttpClient,
   HttpErrorResponse,
@@ -22,6 +22,8 @@ export class CartService {
       'Content-Type':'application/json'
     })
   }
+
+  cartUpdated: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private httpClient:HttpClient) {
 
@@ -52,6 +54,7 @@ getCartByUserId(userId: string): Observable<Cart> {
 }
 
 updateCart(cart: Cart): Observable<Cart> {
+  this.cartUpdated.emit();
   return this.httpClient.put<Cart>(
     `${this.baseUrl}/carts/${cart.id}`,
     cart,
