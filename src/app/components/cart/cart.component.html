@@ -17,7 +17,11 @@
             <td>{{dish.price}}</td>
             <td>{{cart.quantity[i]}}</td>
             <td>{{dish.price * cart.quantity[i]}}</td>
-            <td><button type="button" class="btn btn-primary" (click)="IncreaseQty(i)"><mat-icon>add_circle_outline</mat-icon></button> <button type="button" class="btn btn-danger" (click)="DecreaseQty(i)"><mat-icon>remove_circle_outline</mat-icon></button></td>
+            <td>
+              <div style="display: flex; flex-direction: row;" >
+              <button type="button" class="btn btn-primary" (click)="IncreaseQty(i)"><mat-icon>add_circle_outline</mat-icon></button> <button type="button" class="btn btn-danger" (click)="DecreaseQty(i)"><mat-icon>remove_circle_outline</mat-icon></button>
+              </div>
+            </td>
             
           </tr>
           
