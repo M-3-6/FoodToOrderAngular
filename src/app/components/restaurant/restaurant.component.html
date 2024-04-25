@@ -34,7 +34,7 @@
 
   <div class="container" [ngStyle]="{'marginTop':'20px'}">
     <div class="row">
-      <div class="col-md-4" *ngFor="let restaurant of arrRestaurants">
+      <div class="col-md-4" *ngFor="let restaurant of arrRestaurants | openRestFilter">
         <div class="container-fluid">
           <a (click)="displayDetails(restaurant.id)" style="cursor: pointer;">
         <div class="card h-100 border-0" style="margin-top: 20px;">
