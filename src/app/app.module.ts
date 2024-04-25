@@ -52,6 +52,8 @@ import { RippleModule } from 'primeng/ripple';
 import { MessageService } from 'primeng/api';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { NumberValidationDirective } from './directives/number-validation.directive';
+import { BlurEffectDirective } from './directives/blur-effect.directive';
+import { OpenRestFilterPipe } from './pipes/open-rest-filter.pipe';
 
 
 @NgModule({
@@ -81,7 +83,9 @@ import { NumberValidationDirective } from './directives/number-validation.direct
     AddOrderComponent,
     UpdateRestaurantComponent,
     ViewRestaurantsComponent,
-    NumberValidationDirective
+    NumberValidationDirective,
+    BlurEffectDirective,
+    OpenRestFilterPipe
 
     
   ],

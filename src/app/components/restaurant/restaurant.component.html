@@ -36,7 +36,7 @@
     <div class="row">
       <div class="col-md-4" *ngFor="let restaurant of arrRestaurants">
         <div class="container-fluid">
-          <a (click)="displayDetails(restaurant.id)">
+          <a (click)="displayDetails(restaurant.id)" style="cursor: pointer;">
         <div class="card h-100 border-0" style="margin-top: 20px;">
           <img class="card-img-top" [src]="restaurant.dishes[0].img_path?restaurant.dishes[0].img_path : '../../assets/Images/hamburger.jfif'" alt="dish image" style="height: 100px; object-fit: cover;">
           <div class="card-body d-flex flex-column">
