@@ -16,10 +16,10 @@
 
 <div class="container" [ngStyle]="{ marginTop: '20px' }">
   <div class="row">
-    <div class="col-md-4" *ngFor="let dish of arrDishes">
-      <div class="card h-100" [ngStyle]="{ marginTop: '20px' }">
+    <div class="col-md-4 mb-3" *ngFor="let dish of arrDishes">
+      <div class="card h-100">
         <img
-          class="card-img-top"
+          class="card-img-top rounded"
           [src]="dish.img_path"
           alt="dish image"
           style="height: 200px; object-fit: cover"

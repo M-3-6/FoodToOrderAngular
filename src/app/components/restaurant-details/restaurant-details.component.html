@@ -20,27 +20,56 @@
     label="Top Center"
 class="p-button-warning"> -->
 
-<div style="display: flex; justify-content: center">
-  <img
+<!-- <div style=" display: flex; justify-content: center">
+  <div style="position: relative; width: 60%; height: 5rem;">
+    <img
     src="../../assets/Images/restdetailsImage.jpg"
-    style="width: 60%; height: 300px; object-fit: cover"
+    style="height: 5rem; object-fit: cover;"
   />
-</div>
+  <div class="overlay">
+  
+  </div>
 
-<div class="container" [ngStyle]="{ marginTop: '20px' }">
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; ">
+    <span class="RestNameBanner">{{restaurant.rName}}</span>
+  </div>
+  </div>
+  </div> -->
+
+
+  <div style="position: relative;">
+    <div class="overlay"></div>
+    <div class="RestNameBanner" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; ">
+      {{restaurant.rName}}
+    </div>
+    <div style="display: flex; justify-content: center;">
+      <img
+        src="../../assets/Images/restdetailsImage.jpg"
+        style="width: 60%; height: 5rem; object-fit: cover"
+      />
+    </div>
+  </div>
+  
+  
+
+
+
+<div class="container" [ngStyle]="{ marginTop: '20px'}">
+
   <div class="row">
-    <div class="col-md-4" *ngFor="let dish of restaurant.dishes">
+    <div class="col-md-4 mb-3" *ngFor="let dish of restaurant.dishes">
       <div
-        class="card h-100"
+        class="card h-80 card-dish"
         [ngStyle]="{ marginTop: '20px' }"
-        [appBlurEffect]="dish.isAvailable ? 1 : 0.5"
+        [appBlurEffect]="dish.isAvailable ? 0 : 2"
       >
         <img
-          class="card-img-top"
+          class="card-img-top rounded"
           [src]="dish.img_path"
           alt="dish image"
-          style="height: 200px; object-fit: cover"
+          style="height: 160px; object-fit: cover"
         />
+        <div class="overlay2" *ngIf="!dish.isAvailable"></div>
 
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">{{ dish.dishName }}</h5>
@@ -51,7 +80,7 @@ class="p-button-warning"> -->
           </p>
           <a
             *ngIf="!isAdmin() && dish.isAvailable"
-            class="btn btn-danger"
+            class="btn btn-danger btn-add-to-cart"
             (click)="addToCart(dish)"
             >Add To Cart</a
           >
