@@ -87,10 +87,13 @@
             *ngIf="LoggedIn() && !isAdmin()"
             style="margin-left: 20px"
           >
+            <!-- <div class="col"> -->
             <img
               src="../assets/Images/shopping-cart.png"
               style="height: 24px; width: 24px"
             />
+            <p>{{ count }}</p>
+            <!-- </div> -->
           </a>
         </li>
 
@@ -119,10 +122,13 @@
             (click)="Logout()"
             *ngIf="LoggedIn()"
           >
-            <img
-              src="../assets/Images/logout.png"
-              style="height: 24px; width: 24px"
-            />
+            <div class="col">
+              <img
+                src="../assets/Images/logout.png"
+                style="height: 24px; width: 24px"
+              />
+              <p>{{ username }}</p>
+            </div>
           </a>
         </li>
       </ul>
@@ -196,11 +202,6 @@
             class="form-control"
             aria-describedby="passwordHelpBlock"
           />
-          <div id="passwordHelpBlock" class="form-text">
-            Your password must be 8-20 characters long, contain letters and
-            numbers or some special characters, and must not contain spaces, or
-            emoji.
-          </div>
           <div
             *ngIf="
               loginForm.get('password')?.invalid &&
