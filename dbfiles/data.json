@@ -52,7 +52,7 @@
         },
         {
           "dishName": "Steak",
-          "price": 7000,
+          "price": 700,
           "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
           "isAvailable": true,
           "id": 4,
@@ -156,7 +156,7 @@
         {
           "id": 2,
           "dishName": "Biriyani",
-          "price": "150",
+          "price": 150,
           "img_path": "https://im.whatshot.in/img/2018/Nov/is-image-1-pre-cropped-1542960293.jpg?w=1336&h=890&cc=1",
           "restaurant_id": 3,
           "isAvailable": true
@@ -209,7 +209,7 @@
         {
           "id": 2,
           "dishName": "dosa",
-          "price": "150",
+          "price": 150,
           "img_path": "dfsdfsd",
           "restaurant_id": 4,
           "isAvailable": true
@@ -261,11 +261,11 @@
       "email": "maria@tismo.com",
       "password": "maria345",
       "address": {
-        "id": 0,
+        "id": 1,
         "houseno": "7",
         "street": "Nangellil Lane",
         "area": "Kuttumukku Road",
-        "city": "Thrissur",
+        "city": "Palakkad",
         "pincode": "680008",
         "country": "India"
       },
@@ -398,7 +398,7 @@
         {
           "id": 2,
           "dishName": "Steak",
-          "price": "300",
+          "price": 300,
           "img_path": "../../../../assets/Images/steak.jpg",
           "restaurant_id": 2,
           "isAvailable": true
@@ -418,7 +418,7 @@
         {
           "id": 1,
           "dishName": "Biriyani",
-          "price": "140",
+          "price": 140,
           "img_path": "../../../../assets/Images/biriyani.jpg",
           "restaurant_id": 3,
           "isAvailable": true
@@ -426,7 +426,7 @@
         {
           "id": 2,
           "dishName": "Steak",
-          "price": "421",
+          "price": 421,
           "img_path": "../../../../assets/Images/friedrice.jpg",
           "restaurant_id": 3,
           "isAvailable": true
@@ -491,7 +491,7 @@
         {
           "id": 1,
           "dishName": "Pastry",
-          "price": "900",
+          "price": 900,
           "img_path": "../../../../assets/Images/pastry.jpg",
           "restaurant_id": 9,
           "isAvailable": true
@@ -536,7 +536,7 @@
         {
           "id": 1,
           "dishName": "Burger",
-          "price": "200",
+          "price": 200,
           "img_path": "../../../../assets/Images/burger.jpg",
           "restaurant_id": 11,
           "isAvailable": true
@@ -564,7 +564,7 @@
         {
           "id": 1,
           "dishName": "Masala Dosa",
-          "price": "70",
+          "price": 70,
           "img_path": "../../../../assets/Images/dosa.jfif",
           "restaurant_id": 12,
           "isAvailable": true
@@ -572,7 +572,7 @@
         {
           "id": 2,
           "dishName": "Coffee",
-          "price": "15",
+          "price": 15,
           "img_path": "../../../../assets/Images/coffee.jpg",
           "restaurant_id": 12,
           "isAvailable": true
@@ -592,7 +592,7 @@
         {
           "id": 1,
           "dishName": "Veg Fried Rice",
-          "price": "250",
+          "price": 250,
           "img_path": "../../../../assets/Images/friedrice.jpg",
           "restaurant_id": 13,
           "isAvailable": true
@@ -620,12 +620,12 @@
       "quantity": [
         1
       ]
-    }
-  ],
-  "carts": [
+    },
     {
-      "id": "1",
-      "Amount": "473150150",
+      "id": 15,
+      "orderDate": "4/27/2024",
+      "userId": "1",
+      "orderAmount": 170,
       "arrDishes": [
         {
           "dishName": "Biriyani",
@@ -634,29 +634,19 @@
           "isAvailable": true,
           "id": 1,
           "restaurant_id": 1
-        },
-        {
-          "dishName": "Soup",
-          "price": 123,
-          "img_path": "https://www.seriouseats.com/thmb/2nouHHsjM0bN1vwXMOZGUkLFsJ8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__12__20171115-chicken-soup-vicky-wasik-11-80db1a04d84a43a089e0559efdddd517.jpg",
-          "isAvailable": false,
-          "id": 5,
-          "restaurant_id": 1
-        },
-        {
-          "id": 2,
-          "dishName": "Idli",
-          "price": 40,
-          "img_path": "https://www.ticklingpalates.com/wp-content/uploads/2020/06/Soft-Spongy-Idli-Recipe.jpg",
-          "restaurant_id": 5,
-          "isAvailable": true
         }
       ],
       "quantity": [
-        3,
-        1,
-        3
+        1
       ]
+    }
+  ],
+  "carts": [
+    {
+      "id": "1",
+      "Amount": 0,
+      "arrDishes": [],
+      "quantity": []
     },
     {
       "id": "2",
