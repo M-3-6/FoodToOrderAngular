@@ -11,90 +11,85 @@ import { Cart } from '../../models/cart';
   selector: 'app-restaurant-details',
   templateUrl: './restaurant-details.component.html',
   styleUrl: './restaurant-details.component.scss',
-  providers: [MessageService]
+  providers: [MessageService],
 })
-export class RestaurantDetailsComponent implements OnInit{
- //arrRestaurants:Restaurant[]=[]
- restaurant:Restaurant = new Restaurant(0,'',0,true,[],[])
- //restaurantService:RestaurantService = new RestaurantService()
+export class RestaurantDetailsComponent implements OnInit {
+  //arrRestaurants:Restaurant[]=[]
+  restaurant: Restaurant = new Restaurant(0, '', 0, true, [], []);
+  //restaurantService:RestaurantService = new RestaurantService()
 
- cartId:number=0;
- cart:Cart = new Cart(0,0,[],[])
- dishFound:boolean = false;
+  cartId: number = 0;
+  cart: Cart = new Cart(0, 0, [], []);
+  dishFound: boolean = false;
 
+  constructor(
+    private restaurantService: RestaurantService,
+    private cartService: CartService,
+    private activatedRoute: ActivatedRoute,
+    private messageService: MessageService,
+    private primengConfig: PrimeNGConfig
+  ) {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      var rid = params['id'];
+      console.log('id obtained from params ', rid);
 
+      this.restaurantService.getRestaurantById(rid).subscribe((data) => {
+        this.restaurant = data;
+        console.log(this.restaurant);
+      });
+    });
+    // this.arrRestaurants=this.restaurantService.getRestaurants()
+  }
 
-
-
- constructor(private restaurantService: RestaurantService,private cartService:CartService,private activatedRoute:ActivatedRoute,
-  private messageService: MessageService,private primengConfig: PrimeNGConfig){
-   
-
-  this.activatedRoute.params.subscribe((params:Params)=>{
-    var rid = params['id']
-    console.log('id obtained from params ',rid)
-    
-
-this.restaurantService.getRestaurantById(rid).subscribe(data=>{
-  this.restaurant = data;
-  console.log(this.restaurant)
-})
-
-     
-  })
- // this.arrRestaurants=this.restaurantService.getRestaurants()
- }
-
- ngOnInit() {
-  this.primengConfig.ripple = true;
-}
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+  }
 
   isAdmin() {
-    if (localStorage.getItem('role') == "admin") return true;
+    if (localStorage.getItem('role') == 'admin') return true;
     else return false;
   }
 
-  addToCart(dish:Dish){
-    if(localStorage.getItem('userId')==null){
+  addToCart(dish: Dish) {
+    if (localStorage.getItem('userId') == null) {
       this.messageService.add({
         key: 'tc',
         severity: 'warn',
         summary: 'Info',
         detail: 'Please Login!',
-    });
-    }
-    else{
-      var cartId = localStorage.getItem('userId')?localStorage.getItem('userId'):"0"
-      this.cartId = parseInt(cartId?cartId:"0");
-      this.cartService.getCartById(this.cartId.toString()).subscribe(data=>{
+      });
+    } else {
+      var cartId = localStorage.getItem('userId')
+        ? localStorage.getItem('userId')
+        : '0';
+      this.cartId = parseInt(cartId ? cartId : '0');
+      this.cartService.getCartById(this.cartId.toString()).subscribe((data) => {
         this.cart = data;
-        console.log(this.cart)
+        console.log('cart:', this.cart);
         this.dishFound = false;
-        for(var i=0;i<this.cart.arrDishes.length;i++){
-          if(this.cart.arrDishes[i].id==dish.id){
+        for (var i = 0; i < this.cart.arrDishes.length; i++) {
+          if (this.cart.arrDishes[i].id == dish.id) {
             this.cart.quantity[i]++;
             this.dishFound = true;
             this.cart.Amount += dish.price;
           }
         }
-        if(!this.dishFound){
-          this.cart.arrDishes.push(dish)
-          this.cart.quantity.push(1)
-          this.cart.Amount+=dish.price;
+        if (!this.dishFound) {
+          this.cart.arrDishes.push(dish);
+          this.cart.quantity.push(1);
+          this.cart.Amount += dish.price;
         }
         //window.location.reload();
-        this.cartService.updateCart(this.cart).subscribe(data=>{
-          console.log(data)
+        this.cartService.updateCart(this.cart).subscribe((data) => {
+          console.log(data);
           this.messageService.add({
             key: 'tr',
             severity: 'success',
             summary: 'Success',
             detail: 'Dish added to cart!',
-            
+          });
         });
-        
-        })
-      })
+      });
     }
   }
 }
