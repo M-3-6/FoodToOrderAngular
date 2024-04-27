@@ -644,9 +644,20 @@
   "carts": [
     {
       "id": "1",
-      "Amount": 0,
-      "arrDishes": [],
-      "quantity": []
+      "Amount": 340,
+      "arrDishes": [
+        {
+          "id": 1,
+          "dishName": "Biriyani",
+          "price": 170,
+          "img_path": "https://healux.in/wp-content/uploads/2020/11/ChickenBiryani.jpg",
+          "restaurant_id": 2,
+          "isAvailable": true
+        }
+      ],
+      "quantity": [
+        2
+      ]
     },
     {
       "id": "2",
