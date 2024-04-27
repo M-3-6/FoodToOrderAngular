@@ -4,7 +4,7 @@
       "user_id": 1,
       "id": "1",
       "rName": "Truffles2323",
-      "isOpen":true,
+      "isOpen": true,
       "arrAddresses": [
         {
           "houseno": "4046",
@@ -72,7 +72,7 @@
       "user_id": 2,
       "id": "2",
       "rName": "Tonique",
-      "isOpen":true,
+      "isOpen": true,
       "arrAddresses": [
         {
           "id": 1,
@@ -167,7 +167,7 @@
       "user_id": 2,
       "id": "4",
       "rName": "Paradise",
-      "isOpen":true,
+      "isOpen": true,
       "arrAddresses": [
         {
           "id": 1,
@@ -220,7 +220,7 @@
       "id": "5",
       "rName": "Meghana",
       "user_id": 1,
-      "isOpen":true,
+      "isOpen": true,
       "dishes": [
         {
           "id": 1,
@@ -625,7 +625,7 @@
   "carts": [
     {
       "id": "1",
-      "Amount": 7293,
+      "Amount": "473150150",
       "arrDishes": [
         {
           "dishName": "Biriyani",
@@ -636,26 +636,26 @@
           "restaurant_id": 1
         },
         {
-          "dishName": "Steak",
-          "price": 7000,
-          "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
-          "isAvailable": true,
-          "id": 4,
-          "restaurant_id": 1
-        },
-        {
           "dishName": "Soup",
           "price": 123,
           "img_path": "https://www.seriouseats.com/thmb/2nouHHsjM0bN1vwXMOZGUkLFsJ8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__12__20171115-chicken-soup-vicky-wasik-11-80db1a04d84a43a089e0559efdddd517.jpg",
           "isAvailable": false,
           "id": 5,
           "restaurant_id": 1
+        },
+        {
+          "id": 2,
+          "dishName": "Idli",
+          "price": 40,
+          "img_path": "https://www.ticklingpalates.com/wp-content/uploads/2020/06/Soft-Spongy-Idli-Recipe.jpg",
+          "restaurant_id": 5,
+          "isAvailable": true
         }
       ],
       "quantity": [
+        3,
         1,
-        1,
-        1
+        3
       ]
     },
     {
