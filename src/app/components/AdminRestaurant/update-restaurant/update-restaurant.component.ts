@@ -168,7 +168,7 @@ export class UpdateRestaurantComponent {
    
    
     dishesArr[0].forEach((add:any)=>{
-      this.rest.dishes.push(new Dish(this.addDishId++,add.dishName,add.price,add.img_path,parseInt(this.rest.id.toString()),JSON.parse(add.isAvailable.toLowerCase())))
+      this.rest.dishes.push(new Dish(this.addDishId++,add.dishName,parseInt(add.price),add.img_path,parseInt(this.rest.id.toString()),JSON.parse(add.isAvailable.toLowerCase())))
     })
     console.log(this.rest)
 

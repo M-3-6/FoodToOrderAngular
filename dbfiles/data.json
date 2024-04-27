@@ -3,14 +3,14 @@
     {
       "user_id": 1,
       "id": "1",
-      "rName": "Truffles2323",
+      "rName": "Truffles",
       "isOpen": true,
       "arrAddresses": [
         {
           "houseno": "4046",
           "street": "akd",
-          "area": "ads1",
-          "city": "Anirudh",
+          "area": "Malleshwaram",
+          "city": "Bangalore",
           "country": "India",
           "pincode": "123456",
           "id": 1
@@ -18,8 +18,8 @@
         {
           "houseno": "324",
           "street": "akd",
-          "area": "waegfra",
-          "city": "Anirudh",
+          "area": "Brigade Road",
+          "city": "Bengaluru",
           "country": "India",
           "pincode": "123455",
           "id": 2
@@ -29,7 +29,7 @@
         {
           "dishName": "Biriyani",
           "price": 170,
-          "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
+          "img_path": "https://static.toiimg.com/thumb/53094793.cms?imgsize=178546&width=800&height=800",
           "isAvailable": true,
           "id": 1,
           "restaurant_id": 1
@@ -37,7 +37,7 @@
         {
           "dishName": "Pastry",
           "price": 120,
-          "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
+          "img_path": "https://ocakes.in/storage/app/public/images/item/item-642f5b5885a38.jpg",
           "isAvailable": true,
           "id": 2,
           "restaurant_id": 1
@@ -45,7 +45,7 @@
         {
           "dishName": "Burger",
           "price": 250,
-          "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
+          "img_path": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsMM4lIAwmTBTRzvxwbg02DR_BRZs6_l3eEwKh9tombQ&s",
           "isAvailable": true,
           "id": 3,
           "restaurant_id": 1
@@ -53,7 +53,7 @@
         {
           "dishName": "Steak",
           "price": 700,
-          "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
+          "img_path": "https://mojo.generalmills.com/api/public/content/LASaPpVD5E6LGty8lf97zA_gmi_hi_res_jpeg.jpeg?v=7059e7bf&t=466b54bb264e48b199fc8e83ef1136b4",
           "isAvailable": true,
           "id": 4,
           "restaurant_id": 1
@@ -61,7 +61,7 @@
         {
           "dishName": "Soup",
           "price": 123,
-          "img_path": "https://www.seriouseats.com/thmb/2nouHHsjM0bN1vwXMOZGUkLFsJ8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__12__20171115-chicken-soup-vicky-wasik-11-80db1a04d84a43a089e0559efdddd517.jpg",
+          "img_path": "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2023/09/Vegetable-Soup-main.jpg",
           "isAvailable": false,
           "id": 5,
           "restaurant_id": 1
