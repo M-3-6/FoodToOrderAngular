@@ -1,4 +1,4 @@
-import { Component, EventEmitter, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
@@ -24,6 +24,7 @@ export class BannerComponent {
   username: string = '';
 
   count: number = 0;
+  userId: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -41,6 +42,18 @@ export class BannerComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
+  }
+
+  retrieveUserData(): void {
+    // Retrieve user ID and cart count from local storage
+    this.userId = localStorage.getItem('userId') || '';
+    const storedCount = localStorage.getItem('cartCount');
+
+    if (this.userId && storedCount) {
+      // If both user ID and cart count are available, assign them to the corresponding component properties
+      this.count = parseInt(storedCount, 10);
+      this.username = localStorage.getItem('username') || '';
+    }
   }
 
   verifyCredentials(email: HTMLInputElement, pwd: HTMLInputElement) {
@@ -80,11 +93,8 @@ export class BannerComponent {
               summary: 'Success',
               detail: 'Login successful!',
             });
-            this.cartService
-              .getCartById(user.id.toString())
-              .subscribe((data) => {
-                this.count = data.arrDishes.length;
-              });
+
+            this.retrieveUserData();
           }
           //  window.location.reload();
           if (isAdmin) {
@@ -129,5 +139,15 @@ export class BannerComponent {
   isAdmin() {
     if (localStorage.getItem('role') == 'admin') return true;
     else return false;
+  }
+
+  getCartCount(): void {
+    let userId = localStorage.getItem('userId');
+    if (userId) {
+      this.cartService.getCartById(userId.toString()).subscribe((data) => {
+        this.count = data.arrDishes.length;
+        localStorage.setItem('cartCount', this.count.toString());
+      });
+    }
   }
 }

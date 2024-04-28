@@ -89,6 +89,7 @@ export class CartComponent implements OnInit {
     this.cart.Amount = 0;
     this.cartService.updateCart(this.cart).subscribe(() => {
       console.log('new cart: ', this.cart);
+      localStorage.setItem('restaurantSelected', '');
     });
   }
 

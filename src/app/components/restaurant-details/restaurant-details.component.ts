@@ -21,6 +21,7 @@ export class RestaurantDetailsComponent implements OnInit {
   cartId: number = 0;
   cart: Cart = new Cart(0, 0, [], []);
   dishFound: boolean = false;
+  flag: number = 2;
 
   constructor(
     private restaurantService: RestaurantService,
@@ -36,6 +37,20 @@ export class RestaurantDetailsComponent implements OnInit {
       this.restaurantService.getRestaurantById(rid).subscribe((data) => {
         this.restaurant = data;
         console.log(this.restaurant);
+        console.log(localStorage.getItem('restaurantSelected'));
+        if (
+          localStorage.getItem('restaurantSelected') == null ||
+          this.restaurant.rName == localStorage.getItem('restaurantSelected') ||
+          localStorage.getItem('restaurantSelected') == ''
+        )
+          this.flag = 0;
+        else this.flag = 1;
+        console.log(
+          'restaurant: ',
+          localStorage.getItem('restaurantSelected'),
+          this.restaurant.rName,
+          this.flag
+        );
       });
     });
     // this.arrRestaurants=this.restaurantService.getRestaurants()
@@ -58,7 +73,7 @@ export class RestaurantDetailsComponent implements OnInit {
         summary: 'Info',
         detail: 'Please Login!',
       });
-    } else {
+    } else if (this.flag == 0) {
       var cartId = localStorage.getItem('userId')
         ? localStorage.getItem('userId')
         : '0';
@@ -88,7 +103,15 @@ export class RestaurantDetailsComponent implements OnInit {
             summary: 'Success',
             detail: 'Dish added to cart!',
           });
+          localStorage.setItem('restaurantSelected', this.restaurant.rName);
         });
+      });
+    } else {
+      this.messageService.add({
+        key: 'tc',
+        severity: 'warn',
+        summary: 'Info',
+        detail: 'Cannot add dishes from multiple restaurants!',
       });
     }
   }

@@ -630,7 +630,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": "15",
       "orderDate": "4/27/2024",
       "userId": "1",
       "orderAmount": 170,
@@ -652,7 +652,7 @@
   "carts": [
     {
       "id": "1",
-      "Amount": 340,
+      "Amount": 290,
       "arrDishes": [
         {
           "id": 1,
@@ -661,10 +661,19 @@
           "img_path": "https://healux.in/wp-content/uploads/2020/11/ChickenBiryani.jpg",
           "restaurant_id": 2,
           "isAvailable": true
+        },
+        {
+          "id": 5,
+          "dishName": "Fried Rice",
+          "price": 120,
+          "img_path": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwQi6EBfcvd1tEOXF4XQfrBSiG7qJycHm9DMOvL0iGjA&s",
+          "restaurant_id": 2,
+          "isAvailable": true
         }
       ],
       "quantity": [
-        2
+        1,
+        1
       ]
     },
     {
