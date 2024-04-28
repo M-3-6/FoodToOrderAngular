@@ -669,19 +669,28 @@
     },
     {
       "id": "2",
-      "Amount": 170,
+      "Amount": 640,
       "arrDishes": [
         {
+          "id": 4,
+          "dishName": "Steak",
+          "price": 300,
+          "img_path": "https://food-images.files.bbci.co.uk/food/recipes/rib-eye_steak_with_61963_16x9.jpg",
+          "restaurant_id": 2,
+          "isAvailable": true
+        },
+        {
+          "id": 1,
           "dishName": "Biriyani",
           "price": 170,
-          "img_path": "https://static.toiimg.com/thumb/53094793.cms?imgsize=178546&width=800&height=800",
-          "isAvailable": true,
-          "id": 1,
-          "restaurant_id": 1
+          "img_path": "https://healux.in/wp-content/uploads/2020/11/ChickenBiryani.jpg",
+          "restaurant_id": 2,
+          "isAvailable": true
         }
       ],
       "quantity": [
-        1
+        1,
+        2
       ]
     },
     {
