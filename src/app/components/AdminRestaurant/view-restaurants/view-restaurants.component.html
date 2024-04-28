@@ -1,4 +1,4 @@
-<div class="container" [ngStyle]="{ marginTop: '20px' }">
+<!-- <div class="container" [ngStyle]="{ marginTop: '20px' }">
   <div class="row">
     <div class="col-md-4" *ngFor="let restaurant of arrRestaurants">
       <div class="card h-100" style="margin-top: 20px">
@@ -22,4 +22,83 @@
       </div>
     </div>
   </div>
+</div> -->
+
+
+<div>
+  <form>
+    <mat-toolbar color="primary"> Restaurant Details </mat-toolbar>
+    <div class="form-group" *ngIf="arrRestaurants">
+      <label class="form-label" for="restId"> Select a restaurant:</label>
+      <select class="form-select" id="restId" (change)="onRestSelected($event);">
+        <option selected>Select a value</option>
+        <option *ngFor="let restaurant of arrRestaurants" [value]="restaurant.id">
+          {{ restaurant.rName }}
+        </option>
+      </select>
+    </div>
+  </form>
+
+  <div style="display: block; margin: 4rem 0 2rem 0;" *ngIf="flag==1">
+    <span style="font-size: 1.5rem; font-weight: 500; margin: 0 4rem;">Restaurant Name: {{rest.rName}}</span>
+    <a (click)="deleteRest(rest.id)">
+    <img src="../../../../assets/Images/delete.png" style="height: 32px; width: 32px; cursor: pointer;"/></a>
+  </div>
+
+  <h6 *ngIf="flag==1" style="margin-left: 4rem; margin-bottom: 2rem;">Open/Closed: <span *ngIf="rest.isOpen">Open</span> <span *ngIf="!rest.isOpen">Close</span></h6>
+
+  <h4 *ngIf="flag==1" style="margin-left: 4rem;">Addresses:</h4>
+
+  <div class="container"  >
+    <div class="row">
+      <div class="col-md-4 mb-3" *ngFor="let add of rest.arrAddresses">
+        <div
+          class="card h-80 card-dish"
+          [ngStyle]="{ marginTop: '20px' }"   
+        >
+        
+          <div class="card-body d-flex flex-column">
+            
+            <p class="card-text flex-grow-1"><b>
+              #{{add.houseno}}, {{add.street}}, {{add.area}} <br>
+              {{add.city}}, {{add.country}} - {{add.pincode}}</b>
+            </p>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 *ngIf="flag==1" style="margin-left: 4rem; margin-top: 2rem;">Dishes:</h4>
+
+  <div class="container" >
+    <div class="row">
+      <div class="col-md-4 mb-3" *ngFor="let dish of rest.dishes">
+        <div
+          class="card h-80 card-dish"
+          [ngStyle]="{ marginTop: '20px' }"   
+        >
+          <img
+            class="card-img-top rounded"
+            [src]="dish.img_path"
+            alt="dish image"
+            style="height: 160px; object-fit: cover"
+          />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ dish.dishName }}</h5>
+            <h6 class="card-title">{{ dish.price | currency : "INR" }}</h6>
+            <p class="card-text flex-grow-1">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 </div>

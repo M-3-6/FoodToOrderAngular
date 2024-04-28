@@ -94,6 +94,15 @@ updateRestaurant(restaurant: Restaurant): Observable<Restaurant> {
 }
 
 
+deleteRestaurant(restId: number): Observable<Restaurant> {
+  const url = `${this.baseUrl}/restaurants/${restId}`;
+  return this.httpClient.delete<Restaurant>(url, this.httpHeader)
+    .pipe(
+      catchError(this.httpError)
+    );
+}
+
+
 
 }
 
