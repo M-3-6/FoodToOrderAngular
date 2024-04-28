@@ -21,7 +21,7 @@ export class BannerComponent {
 
   arrUsers: User[] = [];
 
-  username: string = '';
+  username: string;
 
   count: number = 0;
   userId: string = '';
@@ -38,22 +38,21 @@ export class BannerComponent {
       this.arrUsers = data;
     });
 
+    const storedUsername = localStorage.getItem('username');
+    this.username = storedUsername ? storedUsername : '';
+
+    let userId = localStorage.getItem('userId');
+    if (userId) {
+      this.cartService.getCartById(userId.toString()).subscribe((data) => {
+        this.count = data.arrDishes.length;
+        localStorage.setItem('cartCount', this.count.toString());
+      });
+    }
+
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
-  }
-
-  retrieveUserData(): void {
-    // Retrieve user ID and cart count from local storage
-    this.userId = localStorage.getItem('userId') || '';
-    const storedCount = localStorage.getItem('cartCount');
-
-    if (this.userId && storedCount) {
-      // If both user ID and cart count are available, assign them to the corresponding component properties
-      this.count = parseInt(storedCount, 10);
-      this.username = localStorage.getItem('username') || '';
-    }
   }
 
   verifyCredentials(email: HTMLInputElement, pwd: HTMLInputElement) {
@@ -70,31 +69,27 @@ export class BannerComponent {
           var isUser = false;
           if (user.role === 'admin') {
             localStorage.setItem('role', 'admin');
-            localStorage.setItem('username', user.firstName);
-            const storedUsername = localStorage.getItem('username');
-            // If a username is stored, set it to this.username, otherwise, initialize it to undefined
-            this.username = storedUsername ? storedUsername : 'Welcome';
             // window.location.reload();
             isAdmin = true;
             console.log('Admin is welcome');
             loginSuccess = true;
           } else if (user.role === 'user') {
             localStorage.setItem('role', 'user');
-            this.username = user.firstName;
             // window.location.reload();
             isUser = true;
             console.log('User is welcome');
             loginSuccess = true;
           }
           if (loginSuccess) {
+            localStorage.setItem('username', user.firstName);
+            const storedUsername = localStorage.getItem('username');
+            this.username = storedUsername ? storedUsername : '';
             this.messageService.add({
               key: 'tr',
               severity: 'success',
               summary: 'Success',
               detail: 'Login successful!',
             });
-
-            this.retrieveUserData();
           }
           //  window.location.reload();
           if (isAdmin) {
@@ -139,15 +134,5 @@ export class BannerComponent {
   isAdmin() {
     if (localStorage.getItem('role') == 'admin') return true;
     else return false;
-  }
-
-  getCartCount(): void {
-    let userId = localStorage.getItem('userId');
-    if (userId) {
-      this.cartService.getCartById(userId.toString()).subscribe((data) => {
-        this.count = data.arrDishes.length;
-        localStorage.setItem('cartCount', this.count.toString());
-      });
-    }
   }
 }
