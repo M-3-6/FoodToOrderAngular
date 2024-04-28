@@ -75,4 +75,7 @@
   <div class="text-center">
     <button type="submit" class="btn btn-danger mt-3">Send</button>
   </div>
+  <div *ngIf="validMsg" class="text-success text-center">
+    Message sent successfully!
+  </div>
 </form>
