@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
 })
 export class ViewRestaurantsComponent {
   arrRestaurants:Restaurant[]=[]
+  rest:Restaurant = new Restaurant(0,'',0,true,[],[])
+
+  flag: number = 0;
+
   //restaurantService:RestaurantService = new RestaurantService()
   constructor(private restaurantService: RestaurantService,private router:Router){
    
@@ -19,9 +23,28 @@ export class ViewRestaurantsComponent {
    })
   }
  
+  onRestSelected(evt: any) {
+    console.log('restaurant selected: ', evt.target.value);
+    //this.arrOrders = this.orderService.getOrdersByUserId(evt.target.value);
 
-   displayDetails(rid:number){
-     this.router.navigate(['/restaurantdetails/'+rid])
-     console.log(rid)
-   }
+    this.restaurantService.getRestaurantById(parseInt(evt.target.value)).subscribe(data=>{
+      this.rest = data;
+      console.log(this.rest)
+    })
+    this.flag=1;
+  }
+
+  deleteRest(restId:number){
+    this.restaurantService.deleteRestaurant(restId).subscribe(data=>{
+      this.rest = data;
+      console.log(this.rest)
+    })
+  }
+
+  
+
+  //  displayDetails(rid:number){
+  //    this.router.navigate(['/restaurantdetails/'+rid])
+  //    console.log(rid)
+  //  }
 }

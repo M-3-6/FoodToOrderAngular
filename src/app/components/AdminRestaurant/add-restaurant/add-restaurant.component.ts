@@ -126,16 +126,13 @@ export class AddRestaurantComponent {
       this.restaurantService.getRestaurants().subscribe(data=>{
         const largestId = Math.max(...data.map(item=>item.id))
         console.log(largestId)
-        this.restaurant.id = largestId + 1;
+        this.restaurant.id = (largestId + 1);
 
         dishesArr[0].forEach((add:any)=>{
           this.restaurant.dishes.push(new Dish(this.addDishId++,add.dishName,parseInt(add.price),add.img_path,this.restaurant.id,JSON.parse(add.isAvailable.toLowerCase())))
         })
 
 
-        this.restaurant.user_id = parseInt(this.restaurant.user_id.toString())
-      
-      
        console.log(this.restaurant)
       
 
