@@ -412,7 +412,10 @@
           "isAvailable": true
         }
       ],
-      "quantity": [2, "1"]
+      "quantity": [
+        2,
+        "1"
+      ]
     },
     {
       "id": "3",
@@ -437,7 +440,10 @@
           "isAvailable": true
         }
       ],
-      "quantity": [1, 3]
+      "quantity": [
+        1,
+        3
+      ]
     },
     {
       "id": "7",
@@ -454,7 +460,9 @@
           "isAvailable": true
         }
       ],
-      "quantity": [1]
+      "quantity": [
+        1
+      ]
     },
     {
       "id": "8",
@@ -477,7 +485,10 @@
           "isAvailable": true
         }
       ],
-      "quantity": [3, 3]
+      "quantity": [
+        3,
+        3
+      ]
     },
     {
       "id": "9",
@@ -494,7 +505,9 @@
           "isAvailable": true
         }
       ],
-      "quantity": ["1"]
+      "quantity": [
+        "1"
+      ]
     },
     {
       "id": "10",
@@ -517,7 +530,10 @@
           "isAvailable": true
         }
       ],
-      "quantity": [2, 3]
+      "quantity": [
+        2,
+        3
+      ]
     },
     {
       "id": "11",
@@ -542,7 +558,10 @@
           "isAvailable": true
         }
       ],
-      "quantity": [3, 4]
+      "quantity": [
+        3,
+        4
+      ]
     },
     {
       "id": "12",
@@ -567,7 +586,10 @@
           "isAvailable": true
         }
       ],
-      "quantity": ["1", "1"]
+      "quantity": [
+        "1",
+        "1"
+      ]
     },
     {
       "id": "13",
@@ -584,7 +606,9 @@
           "isAvailable": true
         }
       ],
-      "quantity": ["1"]
+      "quantity": [
+        "1"
+      ]
     },
     {
       "id": "14",
@@ -601,7 +625,9 @@
           "restaurant_id": 1
         }
       ],
-      "quantity": [1]
+      "quantity": [
+        1
+      ]
     },
     {
       "id": "15",
@@ -618,22 +644,16 @@
           "restaurant_id": 1
         }
       ],
-      "quantity": [1]
+      "quantity": [
+        1
+      ]
     }
   ],
   "carts": [
     {
       "id": "1",
-      "Amount": 290,
+      "Amount": 120,
       "arrDishes": [
-        {
-          "id": 1,
-          "dishName": "Biriyani",
-          "price": 170,
-          "img_path": "https://healux.in/wp-content/uploads/2020/11/ChickenBiryani.jpg",
-          "restaurant_id": 2,
-          "isAvailable": true
-        },
         {
           "id": 5,
           "dishName": "Fried Rice",
@@ -643,7 +663,9 @@
           "isAvailable": true
         }
       ],
-      "quantity": [1, 1]
+      "quantity": [
+        1
+      ]
     },
     {
       "id": "2",
@@ -658,7 +680,9 @@
           "restaurant_id": 1
         }
       ],
-      "quantity": [1]
+      "quantity": [
+        1
+      ]
     },
     {
       "Amount": 0,
@@ -697,7 +721,7 @@
       "quantity": []
     },
     {
-      "id": 9,
+      "id": "9",
       "Amount": 0,
       "arrDishes": [],
       "quantity": []
