@@ -678,82 +678,26 @@
     },
     {
       "id": "2",
-      "Amount": 2160,
+      "Amount": 170,
       "arrDishes": [
-        {
-          "id": 3,
-          "dishName": "Burger",
-          "price": 250,
-          "img_path": "",
-          "isAvailable": true,
-          "restaurant_id": 1
-        },
-        {
-          "id": 4,
-          "dishName": "Steak",
-          "price": 300,
-          "img_path": "",
-          "isAvailable": true,
-          "restaurant_id": 1
-        },
         {
           "dishName": "Biriyani",
           "price": 170,
-          "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
+          "img_path": "https://static.toiimg.com/thumb/53094793.cms?imgsize=178546&width=800&height=800",
           "isAvailable": true,
           "id": 1,
           "restaurant_id": 1
-        },
-        {
-          "id": 2,
-          "dishName": "Pastry",
-          "price": 120,
-          "img_path": "https://theobroma.in/cdn/shop/products/RedVelvetPastry1.jpg?v=1632143810",
-          "restaurant_id": 2,
-          "isAvailable": true
         }
       ],
       "quantity": [
-        2,
-        4,
-        2,
         1
       ]
     },
     {
-      "Amount": 540,
+      "Amount": 0,
       "id": "3",
-      "arrDishes": [
-        {
-          "id": 1,
-          "dishName": "Biriyani",
-          "price": 170,
-          "img_path": "https://healux.in/wp-content/uploads/2020/11/ChickenBiryani.jpg",
-          "restaurant_id": 2,
-          "isAvailable": true
-        },
-        {
-          "id": 2,
-          "dishName": "Pastry",
-          "price": 120,
-          "img_path": "https://theobroma.in/cdn/shop/products/RedVelvetPastry1.jpg?v=1632143810",
-          "restaurant_id": 2,
-          "isAvailable": true
-        },
-        {
-          "id": 3,
-          "dishName": "Burger",
-          "price": 250,
-          "img_path": "https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/1:1/w_2560%2Cc_limit/Smashburger-recipe-120219.jpg",
-          "restaurant_id": 2,
-          "isAvailable": true
-        }
-      ],
-      "quantity": [
-        2,
-        1,
-        1
-      ]
+      "arrDishes": [],
+      "quantity": []
     },
     {
       "id": "4",
