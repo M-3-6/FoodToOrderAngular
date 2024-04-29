@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Restaurant } from '../../../models/restaurant';
 import { RestaurantService } from '../../../services/restaurantService';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-view-restaurants',
@@ -15,7 +16,7 @@ export class ViewRestaurantsComponent {
   flag: number = 0;
 
   //restaurantService:RestaurantService = new RestaurantService()
-  constructor(private restaurantService: RestaurantService,private router:Router){
+  constructor(private restaurantService: RestaurantService,private router:Router,private messageService: MessageService,){
    
    this.restaurantService.getRestaurants().subscribe(data=>{
      this.arrRestaurants = data;
@@ -38,6 +39,12 @@ export class ViewRestaurantsComponent {
     this.restaurantService.deleteRestaurant(restId).subscribe(data=>{
       this.rest = data;
       console.log(this.rest)
+      this.messageService.add({
+        key: 'tr',
+        severity: 'success',
+        summary: 'Success',
+        detail: 'Restaurant Deleted!',
+      });
     })
   }
 
