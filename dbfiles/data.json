@@ -231,15 +231,15 @@
       "isOpen": true,
       "dishes": [
         {
-          "id": "15",
+          "id": "1",
           "dishName": "Dosa",
-          "price": 70,
+          "price": 170,
           "img_path": "https://www.daringgourmet.com/wp-content/uploads/2023/06/Dosa-Recipe-4.jpg",
           "restaurant_id": "5",
           "isAvailable": true
         },
         {
-          "id": "16",
+          "id": "2",
           "dishName": "Idli",
           "price": 40,
           "img_path": "https://www.ticklingpalates.com/wp-content/uploads/2020/06/Soft-Spongy-Idli-Recipe.jpg",
@@ -249,7 +249,7 @@
       ],
       "arrAddresses": [
         {
-          "id": "9",
+          "id": "1",
           "houseno": "12",
           "street": "Bridge road",
           "area": "Malleshwaram",
@@ -404,6 +404,24 @@
         "country": "India"
       },
       "date_of_birth": "2000-12-03"
+    },
+    {
+      "id": "10",
+      "firstName": "ramesh",
+      "lastName": "shettigar",
+      "role": "user",
+      "email": "ramesh@tismo.com",
+      "password": "ramesh@12",
+      "address": {
+        "id": "1",
+        "houseno": "8/9",
+        "street": "VJ Road",
+        "area": "Church street",
+        "city": "Udupi",
+        "pincode": "576",
+        "country": "India"
+      },
+      "date_of_birth": "2005-05-04"
     }
   ],
   "orders": [
@@ -512,12 +530,12 @@
       "id": "9",
       "userId": "2",
       "orderDate": "18/10/2023",
-      "orderAmount": 900,
+      "orderAmount": 950,
       "arrDishes": [
         {
           "id": "1",
           "dishName": "Pastry",
-          "price": 900,
+          "price": 950,
           "img_path": "../../../../assets/Images/pastry.jpg",
           "restaurant_id": "9",
           "isAvailable": true
@@ -709,6 +727,12 @@
     },
     {
       "id": "9",
+      "Amount": 0,
+      "arrDishes": [],
+      "quantity": []
+    },
+    {
+      "id": "10",
       "Amount": 0,
       "arrDishes": [],
       "quantity": []

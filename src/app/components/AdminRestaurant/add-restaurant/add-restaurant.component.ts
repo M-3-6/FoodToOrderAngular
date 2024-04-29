@@ -129,7 +129,7 @@ export class AddRestaurantComponent {
         this.restaurant.id = (largestId + 1).toString();
 
         dishesArr[0].forEach((add:any)=>{
-          this.restaurant.dishes.push(new Dish((this.addDishId++).toString(),add.dishName,parseInt(add.price),add.img_path,this.restaurant.id,JSON.parse(add.isAvailable.toLowerCase())))
+          this.restaurant.dishes.push(new Dish((this.addDishId++).toString(),add.dishName,parseFloat(add.price),add.img_path,this.restaurant.id,JSON.parse(add.isAvailable.toLowerCase())))
         })
 
 
