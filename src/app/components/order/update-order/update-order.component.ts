@@ -140,7 +140,7 @@ export class UpdateOrderComponent {
         new Dish(
           (this.addDishId++).toString(),
           add.dishName,
-          add.price,
+          parseFloat(add.price),
           add.img_path,
           this.order.id.toString(),
           JSON.parse(add.isAvailable.toLowerCase())
