@@ -39,7 +39,7 @@ export class UserService {
     );
   }
 
-  getUserById(uId:number) : Observable<User> {
+  getUserById(uId:string) : Observable<User> {
     return this.httpClient.get<User>(this.baseUrl + '/users/' + uId).pipe(
       catchError(this.httpError)
     );
@@ -51,7 +51,7 @@ export class UserService {
     )
   }
 
-  updateUser(u:User, uId: number) : Observable<User> {
+  updateUser(u:User, uId: string) : Observable<User> {
     return this.httpClient.put<User>(this.baseUrl + '/users/' + uId, JSON.stringify(u), this.httpHeader).pipe(
       catchError(this.httpError)
     )

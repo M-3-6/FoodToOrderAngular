@@ -14,7 +14,7 @@ import { dobValidator } from '../../../helpers/customValidation';
 export class UpdateUser2Component {
   arrUsers: Observable<User[]>
   arrAddresses:Address[]=[]
-  tempUser:User=new User(0,'','','','','',new Date(),new Address('','','','','','',''))
+  tempUser:User=new User('','','','','','',new Date(),new Address('','','','','','',''))
   tempAddr:Address=new Address('','','','','','','')
 
  updateUserForm: FormGroup;
@@ -68,8 +68,8 @@ export class UpdateUser2Component {
   onSubmit(updateUserForm: any): void {
     if (this.updateUserForm.valid) {
       this.tempAddr=new Address("1",updateUserForm.houseno,updateUserForm.street,updateUserForm.area,updateUserForm.city,updateUserForm.pincode,updateUserForm.country)
-      this.tempUser=new User (this.idObtained,updateUserForm.firstName,updateUserForm.lastName,updateUserForm.email,updateUserForm.password,"user",updateUserForm.date_of_birth,this.tempAddr)
-      this.userService.updateUser(this.tempUser, this.idObtained).subscribe(data=>{
+      this.tempUser=new User (this.idObtained.toString(),updateUserForm.firstName,updateUserForm.lastName,updateUserForm.email,updateUserForm.password,"user",updateUserForm.date_of_birth,this.tempAddr)
+      this.userService.updateUser(this.tempUser, this.idObtained.toString()).subscribe(data=>{
         console.log(data) 
       })
       window.location.reload();
@@ -90,7 +90,7 @@ markFormGroupTouched(formGroup: FormGroup) {
   {
     console.log(evt.target.value)
     this.idObtained = evt.target.value;
-    this.userService.getUserById(this.idObtained).subscribe(user => {
+    this.userService.getUserById(this.idObtained.toString()).subscribe(user => {
       if (user) {
         this.updateUserForm.get('firstName')?.setValue(user.firstName);
         this.updateUserForm.get('lastName')?.setValue(user.lastName)

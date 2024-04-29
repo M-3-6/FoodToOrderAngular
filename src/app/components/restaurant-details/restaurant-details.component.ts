@@ -19,7 +19,7 @@ export class RestaurantDetailsComponent implements OnInit {
   //restaurantService:RestaurantService = new RestaurantService()
 
   cartId: number = 0;
-  cart: Cart = new Cart(0, 0, [], []);
+  cart: Cart = new Cart('', 0, [], []);
   dishFound: boolean = false;
   flag: number = 2;
 

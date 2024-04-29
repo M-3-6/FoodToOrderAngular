@@ -21,7 +21,7 @@ import { Address } from '../../../models/address';
 })
 export class UpdateOrderComponent {
   user: User = new User(
-    0,
+    '',
     '',
     '',
     '',
@@ -32,7 +32,7 @@ export class UpdateOrderComponent {
   );
   arrUsers: Observable<User[]>;
 
-  order: Order = new Order(0, '', 0, 0, [], []);
+  order: Order = new Order('', '', 0, '', [], []);
   arrOrders: Observable<Order[]> = new Observable<Order[]>();
 
   addId: number = 1;
@@ -48,7 +48,7 @@ export class UpdateOrderComponent {
   secondFormGroup = this.formBuilder.group({
     oDateCtrl: ['', Validators.required],
     oAmountCtrl: [0, Validators.required],
-    oUserIdCtrl: [0, Validators.required],
+    oUserIdCtrl: ['', Validators.required],
   });
 
   thirdFormGroup = this.formBuilder.group({});
@@ -110,7 +110,7 @@ export class UpdateOrderComponent {
       this.secondFormGroup.patchValue({
         oDateCtrl: this.order.orderDate,
         oAmountCtrl: this.order.orderAmount,
-        oUserIdCtrl: this.order.userId,
+        oUserIdCtrl: this.order.userId.toString(),
       });
 
       this.secondFormGroup.disable();

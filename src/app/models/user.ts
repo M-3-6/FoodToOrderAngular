@@ -1,7 +1,7 @@
 import { Address } from "./address"
 
 export class User{
-    id:number
+    id:string
     firstName:string
     lastName:string
     role:string
@@ -10,7 +10,7 @@ export class User{
     address:Address
     date_of_birth:Date
 
-    constructor(Id:number,Fname:string, Lname:string, email:string,pwd:string,role:string,dob:Date,address:Address){
+    constructor(Id:string,Fname:string, Lname:string, email:string,pwd:string,role:string,dob:Date,address:Address){
         this.id = Id;
         this.firstName = Fname;
         this.lastName = Lname;
