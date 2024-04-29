@@ -1,7 +1,7 @@
 {
   "restaurants": [
     {
-      "user_id": 1,
+      "user_id": "1",
       "id": "1",
       "rName": "Truffles",
       "isOpen": true,
@@ -13,7 +13,7 @@
           "city": "Bangalore",
           "country": "India",
           "pincode": "123456",
-          "id": 1
+          "id": "1"
         },
         {
           "houseno": "324",
@@ -22,7 +22,7 @@
           "city": "Bengaluru",
           "country": "India",
           "pincode": "123455",
-          "id": 2
+          "id": "2"
         }
       ],
       "dishes": [
@@ -31,51 +31,51 @@
           "price": 170,
           "img_path": "https://static.toiimg.com/thumb/53094793.cms?imgsize=178546&width=800&height=800",
           "isAvailable": true,
-          "id": 1,
-          "restaurant_id": 1
+          "id": "1",
+          "restaurant_id": "1"
         },
         {
           "dishName": "Pastry",
           "price": 120,
           "img_path": "https://ocakes.in/storage/app/public/images/item/item-642f5b5885a38.jpg",
           "isAvailable": true,
-          "id": 2,
-          "restaurant_id": 1
+          "id": "2",
+          "restaurant_id": "1"
         },
         {
           "dishName": "Burger",
           "price": 250,
           "img_path": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsMM4lIAwmTBTRzvxwbg02DR_BRZs6_l3eEwKh9tombQ&s",
           "isAvailable": true,
-          "id": 3,
-          "restaurant_id": 1
+          "id": "3",
+          "restaurant_id": "1"
         },
         {
           "dishName": "Steak",
           "price": 700,
           "img_path": "https://mojo.generalmills.com/api/public/content/LASaPpVD5E6LGty8lf97zA_gmi_hi_res_jpeg.jpeg?v=7059e7bf&t=466b54bb264e48b199fc8e83ef1136b4",
           "isAvailable": true,
-          "id": 4,
-          "restaurant_id": 1
+          "id": "4",
+          "restaurant_id": "1"
         },
         {
           "dishName": "Soup",
           "price": 123,
           "img_path": "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2023/09/Vegetable-Soup-main.jpg",
           "isAvailable": false,
-          "id": 5,
-          "restaurant_id": 1
+          "id": "5",
+          "restaurant_id": "1"
         }
       ]
     },
     {
-      "user_id": 2,
+      "user_id": "2",
       "id": "2",
       "rName": "Tonique",
       "isOpen": true,
       "arrAddresses": [
         {
-          "id": 3,
+          "id": "3",
           "houseno": "26",
           "street": "ABC rd",
           "area": "Domlur",
@@ -84,7 +84,7 @@
           "country": "India"
         },
         {
-          "id": 4,
+          "id": "4",
           "houseno": "27",
           "street": "Palmgrove rd",
           "area": "Victoria Layout",
@@ -95,55 +95,55 @@
       ],
       "dishes": [
         {
-          "id": 6,
+          "id": "6",
           "dishName": "Biriyani",
           "price": 170,
           "img_path": "https://healux.in/wp-content/uploads/2020/11/ChickenBiryani.jpg",
-          "restaurant_id": 2,
+          "restaurant_id": "2",
           "isAvailable": true
         },
         {
-          "id": 7,
+          "id": "7",
           "dishName": "Pastry",
           "price": 120,
           "img_path": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtebl82L9-x_UbKoVV0f2bFpOivv9O35NonEKuuYkz1w&s",
-          "restaurant_id": 2,
+          "restaurant_id": "2",
           "isAvailable": false
         },
         {
-          "id": 8,
+          "id": "8",
           "dishName": "Burger",
           "price": 250,
           "img_path": "https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/1:1/w_2560%2Cc_limit/Smashburger-recipe-120219.jpg",
-          "restaurant_id": 2,
+          "restaurant_id": "2",
           "isAvailable": false
         },
         {
-          "id": 9,
+          "id": "9",
           "dishName": "Steak",
           "price": 300,
           "img_path": "https://food-images.files.bbci.co.uk/food/recipes/rib-eye_steak_with_61963_16x9.jpg",
-          "restaurant_id": 2,
+          "restaurant_id": "2",
           "isAvailable": true
         },
         {
-          "id": 10,
+          "id": "10",
           "dishName": "Fried Rice",
           "price": 120,
           "img_path": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwQi6EBfcvd1tEOXF4XQfrBSiG7qJycHm9DMOvL0iGjA&s",
-          "restaurant_id": 2,
+          "restaurant_id": "2",
           "isAvailable": true
         }
       ]
     },
     {
-      "user_id": 3,
+      "user_id": "3",
       "id": "3",
       "rName": "Cafe Jade",
       "isOpen": true,
       "arrAddresses": [
         {
-          "id": 5,
+          "id": "5",
           "houseno": "1",
           "street": "anjaneya temple",
           "area": "Austin Towm",
@@ -154,31 +154,31 @@
       ],
       "dishes": [
         {
-          "id": 11,
+          "id": "11",
           "dishName": "Noodles",
           "price": 456,
           "img_path": "https://www.recipetineats.com/wp-content/uploads/2023/09/Garlic-noodles-with-egg-close-up.jpg",
-          "restaurant_id": 3,
+          "restaurant_id": "3",
           "isAvailable": true
         },
         {
-          "id": 12,
+          "id": "12",
           "dishName": "Biriyani",
           "price": 150,
           "img_path": "https://im.whatshot.in/img/2018/Nov/is-image-1-pre-cropped-1542960293.jpg?w=1336&h=890&cc=1",
-          "restaurant_id": 3,
+          "restaurant_id": "3",
           "isAvailable": true
         }
       ]
     },
     {
-      "user_id": 2,
+      "user_id": "2",
       "id": "4",
       "rName": "Paradise",
       "isOpen": true,
       "arrAddresses": [
         {
-          "id": 6,
+          "id": "6",
           "houseno": "1",
           "street": "Maruthi Street",
           "area": "Koramangala",
@@ -187,7 +187,7 @@
           "country": "India"
         },
         {
-          "id": 7,
+          "id": "7",
           "houseno": "26",
           "street": "Mk",
           "area": "Madiwala",
@@ -196,7 +196,7 @@
           "country": "India"
         },
         {
-          "id": 8,
+          "id": "8",
           "houseno": "23",
           "street": "vijay road",
           "area": "victoria",
@@ -207,19 +207,19 @@
       ],
       "dishes": [
         {
-          "id": 13,
+          "id": "13",
           "dishName": "Biriyani",
           "price": 330,
           "img_path": "https://bonmasala.com/wp-content/uploads/2022/10/mutton-biriyani-recipe.jpeg",
-          "restaurant_id": 4,
+          "restaurant_id": "4",
           "isAvailable": true
         },
         {
-          "id": 14,
+          "id": "14",
           "dishName": "dosa",
           "price": 150,
           "img_path": "https://5.imimg.com/data5/QU/KO/MY-26933826/masala-dosa-500x500.png",
-          "restaurant_id": 4,
+          "restaurant_id": "4",
           "isAvailable": true
         }
       ]
@@ -227,29 +227,29 @@
     {
       "id": "5",
       "rName": "Meghana",
-      "user_id": 1,
+      "user_id": "1",
       "isOpen": true,
       "dishes": [
         {
-          "id": 15,
+          "id": "15",
           "dishName": "Dosa",
           "price": 70,
           "img_path": "https://www.daringgourmet.com/wp-content/uploads/2023/06/Dosa-Recipe-4.jpg",
-          "restaurant_id": 5,
+          "restaurant_id": "5",
           "isAvailable": true
         },
         {
-          "id": 16,
+          "id": "16",
           "dishName": "Idli",
           "price": 40,
           "img_path": "https://www.ticklingpalates.com/wp-content/uploads/2020/06/Soft-Spongy-Idli-Recipe.jpg",
-          "restaurant_id": 5,
+          "restaurant_id": "5",
           "isAvailable": true
         }
       ],
       "arrAddresses": [
         {
-          "id": 9,
+          "id": "9",
           "houseno": "12",
           "street": "Bridge road",
           "area": "Malleshwaram",
