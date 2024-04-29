@@ -2,14 +2,14 @@ import { Address } from "./address";
 import { Dish } from "./dish";
 
 export class Restaurant{
-     id: number;
+     id: string;
      rName: string; 
-     user_id: number;
+     user_id: string;
      isOpen:boolean;
      dishes: Dish[];
      arrAddresses:Address[]
 
-     constructor(id:number, rName: string,  uid:number,isOpen:boolean, dishes:Dish[],arrAddresses:Address[]){
+     constructor(id:string, rName: string,  uid:string,isOpen:boolean, dishes:Dish[],arrAddresses:Address[]){
         this.id = id;
         this.rName = rName;
         this.user_id  =uid;

@@ -58,7 +58,7 @@ export class RestaurantService{
           catchError(this.httpError)
         )
     }
-    getRestaurantById(rid:number):Observable<Restaurant>{
+    getRestaurantById(rid:string):Observable<Restaurant>{
       //   console.log("Id obtained in service = "+rid)
       //  for(var i=0;i<this.arrRestaurants.length;i++){
       //       if(this.arrRestaurants[i].id==rid){
@@ -80,7 +80,7 @@ export class RestaurantService{
   // }
 
 addRestaurant(r:Restaurant):Observable<Restaurant>{
-return this.httpClient.post<Restaurant>(this.baseUrl+'/restaurants/',JSON.stringify(r),this.httpHeader).pipe(
+return this.httpClient.post<any>(this.baseUrl+'/restaurants/',JSON.stringify(r),this.httpHeader).pipe(
   catchError(this.httpError))
 }
 
@@ -94,7 +94,7 @@ updateRestaurant(restaurant: Restaurant): Observable<Restaurant> {
 }
 
 
-deleteRestaurant(restId: number): Observable<Restaurant> {
+deleteRestaurant(restId: string): Observable<Restaurant> {
   const url = `${this.baseUrl}/restaurants/${restId}`;
   return this.httpClient.delete<Restaurant>(url, this.httpHeader)
     .pipe(

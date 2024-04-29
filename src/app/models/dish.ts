@@ -1,13 +1,13 @@
 export class Dish{
-    id: number;
+    id: string;
     dishName: string;
     
     price: number;
    img_path:string
-   restaurant_id:number
+   restaurant_id:string
    isAvailable:boolean
 
-    constructor(id:number, dishName: string, price:number,img_path:string, restaurant_id:number, isAvailable:boolean){
+    constructor(id:string, dishName: string, price:number,img_path:string, restaurant_id:string, isAvailable:boolean){
        this.id = id;
        this.dishName = dishName;
        this.price  =price;

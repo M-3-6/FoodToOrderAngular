@@ -28,7 +28,7 @@ export class UpdateOrderComponent {
     '',
     '',
     new Date(),
-    new Address(0, '', '', '', '', '', '')
+    new Address('', '', '', '', '', '', '')
   );
   arrUsers: Observable<User[]>;
 
@@ -138,11 +138,11 @@ export class UpdateOrderComponent {
     dishesArr[0].forEach((add: any) => {
       this.order.arrDishes.push(
         new Dish(
-          this.addDishId++,
+          (this.addDishId++).toString(),
           add.dishName,
           add.price,
           add.img_path,
-          parseInt(this.order.id.toString()),
+          this.order.id.toString(),
           JSON.parse(add.isAvailable.toLowerCase())
         )
       );

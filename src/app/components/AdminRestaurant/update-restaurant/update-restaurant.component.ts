@@ -12,7 +12,7 @@ import { Dish } from '../../../models/dish';
 })
 export class UpdateRestaurantComponent {
 
-  rest:Restaurant = new Restaurant(0,'',0,true,[],[])
+  rest:Restaurant = new Restaurant('','','',true,[],[])
   restaurants:Restaurant[]=[]
   isLinear = false;
   addId:number = 1;
@@ -30,7 +30,7 @@ export class UpdateRestaurantComponent {
   secondFormGroup = this.formBuilder.group({
     rNameCtrl: ['', Validators.required],
     // rLocationCtrl: ['', Validators.required],
-    rUserIdCtrl: [0, Validators.required],
+    rUserIdCtrl: ['', Validators.required],
     isOpenCtrl: ['',Validators.required]
   });
 
@@ -107,7 +107,7 @@ export class UpdateRestaurantComponent {
     console.log("first stepper submit button clicked");
     console.log(formData.value.restCtrl)
     
-    this.restaurantService.getRestaurantById(parseInt(formData.value.restCtrl)).subscribe(data=>{
+    this.restaurantService.getRestaurantById(formData.value.restCtrl).subscribe(data=>{
       this.rest = data;
       console.log(this.rest)
 
@@ -132,7 +132,7 @@ export class UpdateRestaurantComponent {
 
     this.rest.rName = formData.value.rNameCtrl;
     //this.restaurant.location = formData.value.rLocationCtrl;
-    this.rest.user_id = parseInt(formData.value.rUserIdCtrl);
+    this.rest.user_id = formData.value.rUserIdCtrl;
     this.rest.isOpen = JSON.parse(formData.value.isOpenCtrl.toLowerCase())
   }
 
@@ -149,7 +149,7 @@ export class UpdateRestaurantComponent {
     
     this.rest.arrAddresses = []
     addressArr[0].forEach((add:any)=>{
-      this.rest.arrAddresses.push(new Address(this.addId++,add.houseno,add.street,add.area,add.city,add.pincode,add.country))
+      this.rest.arrAddresses.push(new Address((this.addId++).toString(),add.houseno,add.street,add.area,add.city,add.pincode,add.country))
     })
     console.log(this.rest)
   }
@@ -168,7 +168,7 @@ export class UpdateRestaurantComponent {
    
    
     dishesArr[0].forEach((add:any)=>{
-      this.rest.dishes.push(new Dish(this.addDishId++,add.dishName,parseInt(add.price),add.img_path,parseInt(this.rest.id.toString()),JSON.parse(add.isAvailable.toLowerCase())))
+      this.rest.dishes.push(new Dish((this.addDishId++).toString(),add.dishName,parseInt(add.price),add.img_path,this.rest.id,JSON.parse(add.isAvailable.toLowerCase())))
     })
     console.log(this.rest)
 

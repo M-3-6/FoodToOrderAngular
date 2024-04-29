@@ -33,7 +33,7 @@ export class AddRestaurantComponent {
     firstFormGroup = this.formBuilder.group({
       rNameCtrl: ['', Validators.required],
       // rLocationCtrl: ['', Validators.required],
-      rUserIdCtrl: ['', Validators.required],
+      rUserIdCtrl: [0, Validators.required],
       isOpenCtrl: ['',Validators.required]
     });
   
@@ -42,7 +42,7 @@ export class AddRestaurantComponent {
     thirdFormGroup = this.formBuilder.group({});
 
     constructor(private formBuilder:FormBuilder, private restaurantService:RestaurantService){
-      this.restaurant = new Restaurant(0,"",0,true,[],[])
+      this.restaurant = new Restaurant("","","",true,[],[])
 
       this.addressListForm = this.formBuilder.group({
         addresses:this.formBuilder.array([this.createAddressFormGroup()])
@@ -104,7 +104,7 @@ export class AddRestaurantComponent {
       
       
       addressArr[0].forEach((add:any)=>{
-        this.restaurant.arrAddresses.push(new Address(this.addId++,add.houseno,add.street,add.area,add.city,add.pincode,add.country))
+        this.restaurant.arrAddresses.push(new Address((this.addId++).toString(),add.houseno,add.street,add.area,add.city,add.pincode,add.country))
       })
       console.log(this.restaurant)
       
@@ -124,12 +124,12 @@ export class AddRestaurantComponent {
       this.addDishId = 1;
 
       this.restaurantService.getRestaurants().subscribe(data=>{
-        const largestId = Math.max(...data.map(item=>item.id))
+        const largestId = Math.max(...data.map(item=>parseInt(item.id)))
         console.log(largestId)
-        this.restaurant.id = (largestId + 1);
+        this.restaurant.id = (largestId + 1).toString();
 
         dishesArr[0].forEach((add:any)=>{
-          this.restaurant.dishes.push(new Dish(this.addDishId++,add.dishName,parseInt(add.price),add.img_path,this.restaurant.id,JSON.parse(add.isAvailable.toLowerCase())))
+          this.restaurant.dishes.push(new Dish((this.addDishId++).toString(),add.dishName,parseInt(add.price),add.img_path,this.restaurant.id,JSON.parse(add.isAvailable.toLowerCase())))
         })
 
 

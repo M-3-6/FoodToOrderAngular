@@ -34,7 +34,7 @@ export class RestaurantComponent {
 
   // }
 
-  displayDetails(rid:number){
+  displayDetails(rid:string){
     this.router.navigate(['/restaurantdetails/'+rid])
     console.log(rid)
   }

@@ -29,9 +29,9 @@ export class AddUser2Component {
     '',
     '',
     new Date(),
-    new Address(0, '', '', '', '', '', '')
+    new Address('', '', '', '', '', '', '')
   );
-  tempAddr: Address = new Address(0, '', '', '', '', '', '');
+  tempAddr: Address = new Address('', '', '', '', '', '', '');
 
   idUpdated: number = 0;
 
@@ -104,7 +104,7 @@ export class AddUser2Component {
         console.log(largestId);
         this.idUpdated = largestId + 1;
         this.tempAddr = new Address(
-          1,
+          "1",
           addUserFormValue.houseno,
           addUserFormValue.street,
           addUserFormValue.area,
