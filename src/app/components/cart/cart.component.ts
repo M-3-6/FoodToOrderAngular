@@ -13,9 +13,9 @@ import { UserService } from '../../services/user.service';
   styleUrl: './cart.component.scss',
 })
 export class CartComponent implements OnInit {
-  cart: Cart = new Cart(0, 0, [], []);
+  cart: Cart = new Cart('', 0, [], []);
   cartId: number = 0;
-  order: Order = new Order(0, '', 0, 0, [], []);
+  order: Order = new Order('', '', 0, '', [], []);
 
   constructor(
     private cartService: CartService,
@@ -60,9 +60,9 @@ export class CartComponent implements OnInit {
 
   Checkout() {
     this.orderService.getOrders().subscribe((data) => {
-      const largestId = Math.max(...data.map((item) => item.id));
+      const largestId = Math.max(...data.map((item) => parseInt(item.id)));
       console.log(largestId);
-      this.order.id = largestId + 1;
+      this.order.id = (largestId + 1).toString();
 
       this.order.orderDate = new Date().toLocaleDateString();
       this.order.userId = this.cart.id;

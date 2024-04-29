@@ -22,7 +22,7 @@ import { Cart } from '../../../models/cart';
 })
 export class AddUser2Component {
   tempUser: User = new User(
-    0,
+    '',
     '',
     '',
     '',
@@ -37,7 +37,7 @@ export class AddUser2Component {
 
   addUserForm: FormGroup;
 
-  cart: Cart = new Cart(0, 0, [], []);
+  cart: Cart = new Cart('', 0, [], []);
 
   firstName: AbstractControl;
   lastName: AbstractControl;
@@ -100,7 +100,7 @@ export class AddUser2Component {
   onSubmit(addUserFormValue: any): void {
     if (this.addUserForm.valid) {
       this.userService.getUsers().subscribe((data) => {
-        const largestId = Math.max(...data.map((item) => item.id));
+        const largestId = Math.max(...data.map((item) => parseInt(item.id)));
         console.log(largestId);
         this.idUpdated = largestId + 1;
         this.tempAddr = new Address(
@@ -113,7 +113,7 @@ export class AddUser2Component {
           addUserFormValue.country
         );
         this.tempUser = new User(
-          this.idUpdated,
+          this.idUpdated.toString(),
           addUserFormValue.firstName,
           addUserFormValue.lastName,
           addUserFormValue.email,
@@ -122,10 +122,10 @@ export class AddUser2Component {
           addUserFormValue.date_of_birth,
           this.tempAddr
         );
-        this.cart.id = this.idUpdated;
+        this.cart.id = this.idUpdated.toString();
         localStorage.setItem('restaurantSelected', '');
         this.cartService
-          .addCart(new Cart(this.idUpdated, 0, [], []))
+          .addCart(new Cart(this.idUpdated.toString(), 0, [], []))
           .subscribe((data) => {
             console.log(
               'Created cart for user:',

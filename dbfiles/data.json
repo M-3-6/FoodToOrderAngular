@@ -269,7 +269,7 @@
       "email": "maria@tismo.com",
       "password": "maria345",
       "address": {
-        "id": 10,
+        "id": "10",
         "houseno": "7",
         "street": "Nangellil Lane",
         "area": "Kuttumukku Road",
@@ -287,7 +287,7 @@
       "email": "prajith@tismo.com",
       "password": "prajith345",
       "address": {
-        "id": 11,
+        "id": "11",
         "houseno": "3",
         "street": "Victoria",
         "area": "Palmgrove",
@@ -305,7 +305,7 @@
       "email": "praveen@tismo.com",
       "password": "praveen345",
       "address": {
-        "id": 12,
+        "id": "12",
         "houseno": "3",
         "street": "Church Street",
         "area": "Palmgrove",
@@ -323,7 +323,7 @@
       "email": "john@tismo.com",
       "password": "john345",
       "address": {
-        "id": 13,
+        "id": "13",
         "houseno": "20",
         "street": "Madras Road",
         "area": "Thiruvanmiyur",
@@ -341,7 +341,7 @@
       "email": "george@tismo.com",
       "password": "george345",
       "address": {
-        "id": 14,
+        "id": "14",
         "houseno": "1",
         "street": "Mahadevapura",
         "area": "Bagmane",
@@ -359,7 +359,7 @@
       "email": "mary@tismo.com",
       "password": "mary",
       "address": {
-        "id": 15,
+        "id": "15",
         "houseno": "1",
         "street": "4 Lane",
         "area": "Bagmane",
@@ -377,7 +377,7 @@
       "email": "susan@tismo.com",
       "password": "susan345",
       "address": {
-        "id": 16,
+        "id": "16",
         "houseno": "1",
         "street": "Church Street",
         "area": "Brigade",
@@ -386,29 +386,47 @@
         "country": "France"
       },
       "date_of_birth": "1973-10-03"
+    },
+    {
+      "id": "9",
+      "firstName": "Sara",
+      "lastName": "Sneha",
+      "role": "user",
+      "email": "sara@tismo.com",
+      "password": "sara345",
+      "address": {
+        "id": "1",
+        "houseno": "4",
+        "street": "Mahadevapura",
+        "area": "Phoenix",
+        "city": "Chennai",
+        "pincode": "345632",
+        "country": "India"
+      },
+      "date_of_birth": "2000-12-03"
     }
   ],
   "orders": [
     {
       "id": "2",
-      "userId": 2,
+      "userId": "2",
       "orderDate": "14/07/2023",
       "orderAmount": 800,
       "arrDishes": [
         {
-          "id": 1,
+          "id": "1",
           "dishName": "Biriyani",
           "price": 250,
           "img_path": "../../../../assets/Images/biriyani.jpg",
-          "restaurant_id": 2,
+          "restaurant_id": "2",
           "isAvailable": true
         },
         {
-          "id": 2,
+          "id": "2",
           "dishName": "Steak",
           "price": 300,
           "img_path": "../../../../assets/Images/steak.jpg",
-          "restaurant_id": 2,
+          "restaurant_id": "2",
           "isAvailable": true
         }
       ],
@@ -419,44 +437,44 @@
     },
     {
       "id": "3",
-      "userId": 3,
+      "userId": "3",
       "orderDate": "18/10/2023",
-      "orderAmount": 660,
+      "orderAmount": 1050,
       "arrDishes": [
         {
-          "id": 9,
+          "id": "1",
           "dishName": "Steak",
           "price": 300,
           "img_path": "https://food-images.files.bbci.co.uk/food/recipes/rib-eye_steak_with_61963_16x9.jpg",
-          "restaurant_id": 2,
+          "restaurant_id": "3",
           "isAvailable": true
         },
         {
-          "id": 10,
+          "id": "2",
           "dishName": "Fried Rice",
-          "price": 120,
+          "price": 150,
           "img_path": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwQi6EBfcvd1tEOXF4XQfrBSiG7qJycHm9DMOvL0iGjA&s",
-          "restaurant_id": 2,
+          "restaurant_id": "3",
           "isAvailable": true
         }
       ],
       "quantity": [
-        1,
+        2,
         3
       ]
     },
     {
       "id": "7",
-      "userId": 3,
+      "userId": "3",
       "orderDate": "18/10/2023",
       "orderAmount": 250,
       "arrDishes": [
         {
-          "id": 8,
+          "id": "8",
           "dishName": "Burger",
           "price": 250,
           "img_path": "https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/1:1/w_2560%2Cc_limit/Smashburger-recipe-120219.jpg",
-          "restaurant_id": 2,
+          "restaurant_id": "2",
           "isAvailable": false
         }
       ],
@@ -466,19 +484,19 @@
     },
     {
       "id": "8",
-      "userId": 3,
+      "userId": "3",
       "orderDate": "18/10/2023",
       "orderAmount": 870,
       "arrDishes": [
         {
-          "id": 1,
+          "id": "1",
           "Name": "Biriyani",
           "price": 170,
           "img_path": "../../../../assets/Images/biriyani.jpg",
           "isAvailable": true
         },
         {
-          "id": 2,
+          "id": "2",
           "Name": "Pastry",
           "price": 120,
           "img_path": "../../../../assets/Images/pastry.jpg",
@@ -492,16 +510,16 @@
     },
     {
       "id": "9",
-      "userId": 2,
+      "userId": "2",
       "orderDate": "18/10/2023",
       "orderAmount": 900,
       "arrDishes": [
         {
-          "id": 1,
+          "id": "1",
           "dishName": "Pastry",
           "price": 900,
           "img_path": "../../../../assets/Images/pastry.jpg",
-          "restaurant_id": 9,
+          "restaurant_id": "9",
           "isAvailable": true
         }
       ],
@@ -511,19 +529,19 @@
     },
     {
       "id": "10",
-      "userId": 5,
+      "userId": "5",
       "orderDate": "26/10/2023",
       "orderAmount": 700,
       "arrDishes": [
         {
-          "id": 1,
+          "id": "1",
           "Name": "Biriyani",
           "price": 170,
           "img_path": "https://healux.in/wp-content/uploads/2020/11/ChickenBiryani.jpg",
           "isAvailable": true
         },
         {
-          "id": 2,
+          "id": "2",
           "Name": "Pastry",
           "price": 120,
           "img_path": "../../../../assets/Images/pastry.jpg",
@@ -546,16 +564,16 @@
           "price": 700,
           "img_path": "https://mojo.generalmills.com/api/public/content/LASaPpVD5E6LGty8lf97zA_gmi_hi_res_jpeg.jpeg?v=7059e7bf&t=466b54bb264e48b199fc8e83ef1136b4",
           "isAvailable": true,
-          "id": 4,
-          "restaurant_id": 1
+          "id": "4",
+          "restaurant_id": "1"
         },
         {
           "dishName": "Soup",
           "price": 123,
           "img_path": "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2023/09/Vegetable-Soup-main.jpg",
           "isAvailable": false,
-          "id": 5,
-          "restaurant_id": 1
+          "id": "5",
+          "restaurant_id": "1"
         }
       ],
       "quantity": [
@@ -570,11 +588,11 @@
       "orderAmount": 140,
       "arrDishes": [
         {
-          "id": 15,
+          "id": "15",
           "dishName": "Dosa",
           "price": 70,
           "img_path": "https://www.daringgourmet.com/wp-content/uploads/2023/06/Dosa-Recipe-4.jpg",
-          "restaurant_id": 5,
+          "restaurant_id": "5",
           "isAvailable": true
         }
       ],
@@ -593,8 +611,8 @@
           "price": 250,
           "img_path": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsMM4lIAwmTBTRzvxwbg02DR_BRZs6_l3eEwKh9tombQ&s",
           "isAvailable": true,
-          "id": 3,
-          "restaurant_id": 1
+          "id": "3",
+          "restaurant_id": "1"
         }
       ],
       "quantity": [
@@ -608,11 +626,11 @@
       "orderAmount": 170,
       "arrDishes": [
         {
-          "id": 1,
+          "id": "1",
           "dishName": "Biriyani",
           "price": 170,
           "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
-          "restaurant_id": 14,
+          "restaurant_id": "14",
           "isAvailable": true
         }
       ],
@@ -631,8 +649,8 @@
           "price": 170,
           "img_path": "https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?cs=srgb&dl=pexels-brett-jordan-2297961.jpg&fm=jpg",
           "isAvailable": true,
-          "id": 1,
-          "restaurant_id": 1
+          "id": "1",
+          "restaurant_id": "1"
         }
       ],
       "quantity": [

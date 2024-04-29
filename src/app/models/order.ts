@@ -1,14 +1,14 @@
 import { Dish } from "./dish";
 
 export class Order{
-     id: number;
+     id: string;
      orderDate : string;
      orderAmount : number
-     userId: number;
+     userId: string;
      arrDishes: Dish[]
      quantity: number[]
 
-     constructor(id:number, date: string, amount:number, uid:number, arrDishes:Dish[],qty:number[]){
+     constructor(id:string, date: string, amount:number, uid:string, arrDishes:Dish[],qty:number[]){
         this.id = id;
         this.orderDate = date;
         this.userId = uid;
