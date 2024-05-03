@@ -52,8 +52,7 @@ export class UserService {
   }
 
   updateUser(u:User, uId: string) : Observable<User> {
-    console.log(u);
-    return this.httpClient.put<User>(this.baseUrl + '/Users/' + parseInt(uId), JSON.stringify(u), this.httpHeader).pipe(
+    return this.httpClient.put<User>(this.baseUrl + '/Users/' + uId, JSON.stringify(u), this.httpHeader).pipe(
       catchError(this.httpError)
     )
   }

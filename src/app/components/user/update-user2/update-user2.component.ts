@@ -72,9 +72,8 @@ export class UpdateUser2Component {
       this.tempUser=new User (this.idObtained.toString(),updateUserForm.firstName,updateUserForm.lastName,updateUserForm.email,updateUserForm.password,"user",updateUserForm.date_of_birth,this.tempAddr)
       this.userService.updateUser(this.tempUser, this.idObtained.toString()).subscribe(data=>{
         console.log(data) 
-        console.log(this.tempUser)
       })
-      //window.location.reload();
+      window.location.reload();
     } else this.markFormGroupTouched(this.updateUserForm);
   }
 
