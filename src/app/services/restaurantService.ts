@@ -10,7 +10,7 @@ export class RestaurantService{
 
     arrRestaurants:Restaurant[]
 
-    baseUrl:string="http://localhost:3000"
+    baseUrl:string="https://localhost:7092/api"
 
   httpHeader={
     headers:new HttpHeaders({
@@ -54,7 +54,7 @@ export class RestaurantService{
           
       }
     getRestaurants():Observable<Restaurant[]>{
-        return this.httpClient.get<Restaurant[]>(this.baseUrl+'/restaurants').pipe(
+        return this.httpClient.get<Restaurant[]>(this.baseUrl+'/Restaurants').pipe(
           catchError(this.httpError)
         )
     }
@@ -69,7 +69,7 @@ export class RestaurantService{
       //   }
       //  return new Restaurant(0,'','',0,[],[])
 
-      return this.httpClient.get<Restaurant>(this.baseUrl+'/restaurants/'+rid).pipe(
+      return this.httpClient.get<Restaurant>(this.baseUrl+'/Restaurants/'+rid).pipe(
         catchError(this.httpError)
       )
   }
@@ -80,13 +80,13 @@ export class RestaurantService{
   // }
 
 addRestaurant(r:Restaurant):Observable<Restaurant>{
-return this.httpClient.post<any>(this.baseUrl+'/restaurants/',JSON.stringify(r),this.httpHeader).pipe(
+return this.httpClient.post<any>(this.baseUrl+'/Restaurants/',JSON.stringify(r),this.httpHeader).pipe(
   catchError(this.httpError))
 }
 
 
 updateRestaurant(restaurant: Restaurant): Observable<Restaurant> {
-  const url = `${this.baseUrl}/restaurants/${restaurant.id}`;
+  const url = `${this.baseUrl}/Restaurants/${restaurant.id}`;
   return this.httpClient.put<Restaurant>(url, restaurant, this.httpHeader)
     .pipe(
       catchError(this.httpError)
@@ -95,7 +95,7 @@ updateRestaurant(restaurant: Restaurant): Observable<Restaurant> {
 
 
 deleteRestaurant(restId: string): Observable<Restaurant> {
-  const url = `${this.baseUrl}/restaurants/${restId}`;
+  const url = `${this.baseUrl}/Restaurants/${restId}`;
   return this.httpClient.delete<Restaurant>(url, this.httpHeader)
     .pipe(
       catchError(this.httpError)

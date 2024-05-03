@@ -19,6 +19,7 @@ export class RestaurantComponent {
   
   this.restaurantService.getRestaurants().subscribe(data=>{
     this.arrRestaurants = data;
+  
     console.log(this.arrRestaurants);
   })
  }
