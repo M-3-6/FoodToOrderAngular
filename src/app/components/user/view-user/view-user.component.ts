@@ -14,6 +14,7 @@ export class ViewUserComponent {
       this.userService.getUsers().subscribe(
         data => {
           this.arrUsers = data;
+          console.log(this.arrUsers);
         }
       )
   }

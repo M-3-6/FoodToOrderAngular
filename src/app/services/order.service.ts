@@ -11,7 +11,7 @@ import { Order } from '../models/order';
   providedIn: 'root',
 })
 export class OrderService {
-  baseUrl: string = 'http://localhost:3000';
+  baseUrl: string = 'https://localhost:7092/api';
 
   httpHeader = {
     headers: new HttpHeaders({
@@ -33,26 +33,26 @@ export class OrderService {
 
   getOrders(): Observable<Order[]> {
     return this.httpClient
-      .get<Order[]>(this.baseUrl + '/orders')
+      .get<Order[]>(this.baseUrl + '/Orders')
       .pipe(catchError(this.httpError));
   }
 
   getOrderById(oId: number): Observable<Order> {
     return this.httpClient
-      .get<Order>(this.baseUrl + '/orders/' + oId)
+      .get<Order>(this.baseUrl + '/Orders/' + oId)
       .pipe(catchError(this.httpError));
   }
 
   getOrdersByUserId(uId: number): Observable<Order[]> {
     return this.httpClient
-      .get<Order[]>(this.baseUrl + '/orders?userId=' + uId)
+      .get<Order[]>(this.baseUrl + '/Orders?user_id=' + uId)
       .pipe(catchError(this.httpError));
   }
 
   addOrder(o: Order) {
     return this.httpClient
       .post<Order>(
-        this.baseUrl + '/orders/',
+        this.baseUrl + '/Orders/',
         JSON.stringify(o),
         this.httpHeader
       )
@@ -61,7 +61,7 @@ export class OrderService {
 
   updateOrder(o: any, oId: any): Observable<Order> {
     return this.httpClient
-      .put<Order>(this.baseUrl + '/orders/' + oId, o, this.httpHeader)
+      .put<Order>(this.baseUrl + '/Orders/' + oId, o, this.httpHeader)
       .pipe(catchError(this.httpError));
   }
 }

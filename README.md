@@ -1,6 +1,34 @@
-# BasicProject
+# FoodToOrder
+FoodToOrder is an angular application which allows the customers to login/register to view the restaurants which are Open and allows them to view, add to cart and order from available dishes. There is an admin who can view and make changes to the restaurants and dishes. The admin can also view/edit/add users and orders. Data is fetched from and stored in a json file. json-server is used to provide a fake api.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
+## Users:
+FoodToOrder system has two kinds of users:
+1. Customer - There are multiple customrs Customer can:
+      1. Login/Register
+      2. Browse dishes from multiple restaurants.
+      3. Add to cart from only one restaurant.
+      4. Place order
+2. Admin - There is only 1 admin Admin should be able to:
+      1. Add/Edit/View/Delete Restaurants
+      2. Add/Edit/View/Delete Dishes
+      3. Add/Edit/View Orders
+      4. Add/Edit/View Users
+     
+## Modules:
+1. Login
+2. Restaurant
+3. Dish
+4. Cart
+5. Order
+6. User
+7. Admin CRUD
+
+## Functionalities:
+1. guards
+2. http communication - RESTful services
+3. directives
+4. pipes
+5. form validations
 
 ## Development server
 
