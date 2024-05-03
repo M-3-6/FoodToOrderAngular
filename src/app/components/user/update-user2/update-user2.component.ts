@@ -32,6 +32,7 @@ export class UpdateUser2Component {
  country:AbstractControl;
   
   idUpdated: number=0;
+  idAddress: number=0;
   idObtained : number = 0;
 
   constructor(fb: FormBuilder,private userService:UserService) {
@@ -67,12 +68,13 @@ export class UpdateUser2Component {
 
   onSubmit(updateUserForm: any): void {
     if (this.updateUserForm.valid) {
-      this.tempAddr=new Address("1",updateUserForm.houseno,updateUserForm.street,updateUserForm.area,updateUserForm.city,updateUserForm.pincode,updateUserForm.country)
+      this.tempAddr=new Address(this.idAddress.toString(),updateUserForm.houseno,updateUserForm.street,updateUserForm.area,updateUserForm.city,updateUserForm.pincode,updateUserForm.country)
       this.tempUser=new User (this.idObtained.toString(),updateUserForm.firstName,updateUserForm.lastName,updateUserForm.email,updateUserForm.password,"user",updateUserForm.date_of_birth,this.tempAddr)
       this.userService.updateUser(this.tempUser, this.idObtained.toString()).subscribe(data=>{
         console.log(data) 
+        console.log(this.tempUser)
       })
-      window.location.reload();
+      //window.location.reload();
     } else this.markFormGroupTouched(this.updateUserForm);
   }
 
@@ -92,6 +94,7 @@ markFormGroupTouched(formGroup: FormGroup) {
     this.idObtained = evt.target.value;
     this.userService.getUserById(this.idObtained.toString()).subscribe(user => {
       if (user) {
+        this.idAddress = parseInt(user.address.id);
         this.updateUserForm.get('firstName')?.setValue(user.firstName);
         this.updateUserForm.get('lastName')?.setValue(user.lastName)
         this.updateUserForm.get('role')?.setValue(user.role)

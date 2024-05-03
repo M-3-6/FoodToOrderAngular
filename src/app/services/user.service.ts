@@ -10,7 +10,7 @@ import { Restaurant } from '../models/restaurant';
 })
 export class UserService {
 
-  baseUrl:string="http://localhost:3000"
+  baseUrl:string="https://localhost:7092/api"
 
   httpHeader={
     headers:new HttpHeaders({
@@ -34,25 +34,26 @@ export class UserService {
   }
   
   getUsers() : Observable<User[]> {
-    return this.httpClient.get<User[]>(this.baseUrl + '/users').pipe(
+    return this.httpClient.get<User[]>(this.baseUrl + '/Users').pipe(
       catchError(this.httpError)
     );
   }
 
   getUserById(uId:string) : Observable<User> {
-    return this.httpClient.get<User>(this.baseUrl + '/users/' + uId).pipe(
+    return this.httpClient.get<User>(this.baseUrl + '/Users/' + uId).pipe(
       catchError(this.httpError)
     );
   }
 
   addUser(u:User) : Observable<User> {
-    return this.httpClient.post<User>(this.baseUrl + '/users/', JSON.stringify(u), this.httpHeader).pipe(
+    return this.httpClient.post<User>(this.baseUrl + '/Users/', JSON.stringify(u), this.httpHeader).pipe(
       catchError(this.httpError)
     )
   }
 
   updateUser(u:User, uId: string) : Observable<User> {
-    return this.httpClient.put<User>(this.baseUrl + '/users/' + uId, JSON.stringify(u), this.httpHeader).pipe(
+    console.log(u);
+    return this.httpClient.put<User>(this.baseUrl + '/Users/' + parseInt(uId), JSON.stringify(u), this.httpHeader).pipe(
       catchError(this.httpError)
     )
   }

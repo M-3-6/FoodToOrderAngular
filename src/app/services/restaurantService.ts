@@ -10,7 +10,7 @@ export class RestaurantService{
 
     arrRestaurants:Restaurant[]
 
-    baseUrl:string="http://localhost:3000"
+    baseUrl:string="https://localhost:7144/api"
 
   httpHeader={
     headers:new HttpHeaders({
@@ -54,7 +54,7 @@ export class RestaurantService{
           
       }
     getRestaurants():Observable<Restaurant[]>{
-        return this.httpClient.get<Restaurant[]>(this.baseUrl+'/restaurants').pipe(
+        return this.httpClient.get<Restaurant[]>(this.baseUrl+'/Restaurant').pipe(
           catchError(this.httpError)
         )
     }
@@ -69,7 +69,7 @@ export class RestaurantService{
       //   }
       //  return new Restaurant(0,'','',0,[],[])
 
-      return this.httpClient.get<Restaurant>(this.baseUrl+'/restaurants/'+rid).pipe(
+      return this.httpClient.get<Restaurant>(this.baseUrl+'/Restaurant/'+rid).pipe(
         catchError(this.httpError)
       )
   }
