@@ -45,7 +45,7 @@ export class OrderService {
 
   getOrdersByUserId(uId: number): Observable<Order[]> {
     return this.httpClient
-      .get<Order[]>(this.baseUrl + '/Orders?user_id=' + uId)
+      .get<Order[]>(this.baseUrl + '/Orders/' + uId)
       .pipe(catchError(this.httpError));
   }
 
@@ -61,7 +61,7 @@ export class OrderService {
 
   updateOrder(o: any, oId: any): Observable<Order> {
     return this.httpClient
-      .put<Order>(this.baseUrl + '/Orders/' + oId, o, this.httpHeader)
+      .put<Order>(this.baseUrl + '/Orders/' + oId, JSON.stringify(o), this.httpHeader)
       .pipe(catchError(this.httpError));
   }
 }

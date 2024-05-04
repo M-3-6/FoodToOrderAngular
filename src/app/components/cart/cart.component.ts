@@ -16,7 +16,7 @@ import { CartDish } from '../../models/cartDish';
 export class CartComponent implements OnInit {
   cart: Cart = new Cart('', 0, [], []);
   cartId: number = 0;
-  order: Order = new Order('', '', 0, '', [], []);
+  order: Order = new Order('', '', 0, '', [], [], []);
 
   constructor(
     private cartService: CartService,
