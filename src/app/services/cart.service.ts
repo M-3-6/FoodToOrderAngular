@@ -13,7 +13,7 @@ import { switchMap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class CartService {
-  baseUrl: string = 'http://localhost:3000';
+  baseUrl: string = 'https://localhost:7092/api';
 
   httpHeader = {
     headers: new HttpHeaders({

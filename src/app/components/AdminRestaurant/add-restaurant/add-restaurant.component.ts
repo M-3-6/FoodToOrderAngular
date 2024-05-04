@@ -100,11 +100,11 @@ export class AddRestaurantComponent {
       console.log(addressArr[0])
 
      // this.restaurant.arrAddresses = []
-      this.addId = 1;
+     // this.addId = 1;
       
       
       addressArr[0].forEach((add:any)=>{
-        this.restaurant.arrAddresses.push(new Address((this.addId++).toString(),add.houseno,add.street,add.area,add.city,add.pincode,add.country))
+        this.restaurant.arrAddresses.push(new Address("0",add.houseno,add.street,add.area,add.city,add.pincode,add.country))
       })
       console.log(this.restaurant)
       
@@ -123,23 +123,37 @@ export class AddRestaurantComponent {
 
       this.addDishId = 1;
 
-      this.restaurantService.getRestaurants().subscribe(data=>{
-        const largestId = Math.max(...data.map(item=>parseInt(item.id)))
-        console.log(largestId)
-        this.restaurant.id = (largestId + 1).toString();
+      // this.restaurantService.getRestaurants().subscribe(data=>{
+      //   const largestId = Math.max(...data.map(item=>parseInt(item.id)))
+      //   console.log(largestId)
+      //   this.restaurant.id = (largestId + 1).toString();
 
-        dishesArr[0].forEach((add:any)=>{
-          this.restaurant.dishes.push(new Dish((this.addDishId++).toString(),add.dishName,parseFloat(add.price),add.img_path,this.restaurant.id,JSON.parse(add.isAvailable.toLowerCase())))
-        })
+      //   dishesArr[0].forEach((add:any)=>{
+      //     this.restaurant.dishes.push(new Dish((this.addDishId++).toString(),add.dishName,parseFloat(add.price),add.img_path,this.restaurant.id,JSON.parse(add.isAvailable.toLowerCase())))
+      //   })
 
 
-       console.log(this.restaurant)
+      //  console.log(this.restaurant)
       
 
-      this.restaurantService.addRestaurant(this.restaurant).subscribe(data=>{
-        console.log(data)
+      // this.restaurantService.addRestaurant(this.restaurant).subscribe(data=>{
+      //   console.log(data)
+      // })
+      // })
+      this.restaurant.id = "0"
+
+      dishesArr[0].forEach((add:any)=>{
+        this.restaurant.dishes.push(new Dish("0",add.dishName,parseFloat(add.price),add.img_path,"0",JSON.parse(add.isAvailable.toLowerCase())))
       })
-      })
+
+
+     console.log(this.restaurant)
+    
+
+    this.restaurantService.addRestaurant(this.restaurant).subscribe(data=>{
+      console.log(data)
+    })
+      
 
       
     }

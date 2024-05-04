@@ -59,6 +59,7 @@ export class UpdateRestaurantComponent {
   loadAddressesIntoFormArray(Addresses: Address[]) {
     
     const addressFormArray = this.addressListForm.get('addresses') as FormArray;
+    addressFormArray.clear();
     if(!Array.isArray(Addresses) || Addresses.length==0){
       addressFormArray.push(this.createAddressFormGroup());
     }
@@ -71,6 +72,7 @@ export class UpdateRestaurantComponent {
 
   createAddressFormGroup(address?: Address): FormGroup {
     return this.formBuilder.group({
+      id: [address? address.id:'0'],
       houseno: [address ? address.houseno : '', Validators.required],
       street: [address ? address.street : '', Validators.required],
       area: [address ? address.area : '', Validators.required],
@@ -83,6 +85,7 @@ export class UpdateRestaurantComponent {
   loadDishesIntoFormArray(Dishes: Dish[]) {
     
     const dishFormArray = this.addDishesListForm.get('dishFormArray') as FormArray;
+    dishFormArray.clear();
     if( !Array.isArray(Dishes) || Dishes.length==0){
       dishFormArray.push(this.createDishFormGroup());
     }
@@ -95,6 +98,7 @@ export class UpdateRestaurantComponent {
 
   createDishFormGroup(dish?: Dish): FormGroup {
          return new FormGroup({
+          'id':new FormControl(dish?dish.id:'0'),
         'dishName':new FormControl(dish ? dish.dishName : '',Validators.required),
         'price':new FormControl(dish ? dish.price : 0,Validators.required),
         'img_path':new FormControl(dish ? dish.img_path : '',Validators.required),
@@ -145,11 +149,11 @@ export class UpdateRestaurantComponent {
     console.log(addressArr[0])
 
    // this.restaurant.arrAddresses = []
-    this.addId = 1;
+    //this.addId = 1;
     
     this.rest.arrAddresses = []
     addressArr[0].forEach((add:any)=>{
-      this.rest.arrAddresses.push(new Address((this.addId++).toString(),add.houseno,add.street,add.area,add.city,add.pincode,add.country))
+      this.rest.arrAddresses.push(new Address(add.id,add.houseno,add.street,add.area,add.city,add.pincode,add.country))
     })
     console.log(this.rest)
   }
@@ -161,14 +165,14 @@ export class UpdateRestaurantComponent {
       let dishesArr = Object.values(formdata);
     console.log(dishesArr[0])
 
-    this.addDishId = 1;
+   // this.addDishId = 1;
     
     this.rest.dishes = [];
 
    
    
     dishesArr[0].forEach((add:any)=>{
-      this.rest.dishes.push(new Dish((this.addDishId++).toString(),add.dishName,parseFloat(add.price),add.img_path,this.rest.id,JSON.parse(add.isAvailable.toLowerCase())))
+      this.rest.dishes.push(new Dish(add.id,add.dishName,parseFloat(add.price),add.img_path,this.rest.id,JSON.parse(add.isAvailable.toLowerCase())))
     })
     console.log(this.rest)
 
