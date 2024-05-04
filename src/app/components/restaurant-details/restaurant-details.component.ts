@@ -6,6 +6,7 @@ import { Dish } from '../../models/dish';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
 import { CartService } from '../../services/cart.service';
 import { Cart } from '../../models/cart';
+import { CartDish } from '../../models/cartDish';
 
 @Component({
   selector: 'app-restaurant-details',
@@ -110,6 +111,11 @@ export class RestaurantDetailsComponent implements OnInit {
           this.cart.quantity.push(1);
           this.cart.Amount += dish.price;
         }
+
+        for(var i=0;i<this.cart.arrDishes.length;i++){
+          this.cart.cartDishes.push(new CartDish(parseInt(this.cart.arrDishes[i].id),this.cart.arrDishes[i],this.cart.quantity[i]))
+        }
+        console.log(this.cart);
         //window.location.reload();
         this.cartService.updateCart(this.cart).subscribe((data) => {
           console.log(data);

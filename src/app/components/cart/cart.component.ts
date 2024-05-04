@@ -6,6 +6,7 @@ import { Cart } from '../../models/cart';
 import { OrderService } from '../../services/order.service';
 import { Order } from '../../models/order';
 import { UserService } from '../../services/user.service';
+import { CartDish } from '../../models/cartDish';
 
 @Component({
   selector: 'app-cart',
@@ -102,6 +103,7 @@ export class CartComponent implements OnInit {
     this.cart.quantity = [];
     this.cart.arrDishes = [];
     this.cart.Amount = 0;
+    this.cart.cartDishes = [];
     this.cartService.updateCart(this.cart).subscribe(() => {
       console.log('new cart: ', this.cart);
       localStorage.setItem('restaurantSelected', '');
@@ -109,6 +111,11 @@ export class CartComponent implements OnInit {
   }
 
   onSaveCart() {
+    
+    for(var i=0;i<this.cart.arrDishes.length;i++){
+      this.cart.cartDishes.push(new CartDish(parseInt(this.cart.arrDishes[i].id),this.cart.arrDishes[i],this.cart.quantity[i]))
+    }
+    
     this.cartService.updateCart(this.cart).subscribe(() => {
       console.log('current cart: ', this.cart);
     });

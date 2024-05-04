@@ -199,6 +199,8 @@ export class UpdateRestaurantComponent {
   
   public removeOrClearAddress(i: number) {
     const addresses = this.addressListForm.get('addresses') as FormArray
+    var id = addresses.at(i).value["id"];
+    console.log(id);
     if (addresses.length > 1) {
       addresses.removeAt(i)
     } else {
