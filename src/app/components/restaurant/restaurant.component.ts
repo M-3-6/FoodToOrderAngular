@@ -15,12 +15,12 @@ export class RestaurantComponent {
   
   arrRestaurants:Restaurant[]=[]
  //restaurantService:RestaurantService = new RestaurantService()
- 
+
  constructor(private restaurantService: RestaurantService,private router:Router){
   this.restaurantService.getRestaurants().subscribe(data=>{
     this.arrRestaurants = data;
   
-    console.log(this.arrRestaurants);
+    console.log(this.arrRestaurants[0]);
   })
  }
 

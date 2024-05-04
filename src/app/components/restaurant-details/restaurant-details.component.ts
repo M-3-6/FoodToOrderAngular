@@ -79,8 +79,24 @@ export class RestaurantDetailsComponent implements OnInit {
         : '0';
       this.cartId = parseInt(cartId ? cartId : '0');
       this.cartService.getCartById(this.cartId.toString()).subscribe((data) => {
-        this.cart = data;
+    
+        var tempCart = new Cart("0",0,[],[])
+        tempCart = data;
+
+      //  console.log(tempCart)
+
+        this.cart.id = tempCart.id.toString();
+    //    console.log(tempCart.Amount)
+
+        this.cart.Amount = tempCart.Amount;
+        
+        tempCart.cartDishes.forEach(cd => {
+        //  console.log(cd.Dish)
+          this.cart.arrDishes.push(cd.Dish)
+          this.cart.quantity.push(cd.quantity)
+        });
         console.log('cart:', this.cart);
+
         this.dishFound = false;
         for (var i = 0; i < this.cart.arrDishes.length; i++) {
           if (this.cart.arrDishes[i].id == dish.id) {

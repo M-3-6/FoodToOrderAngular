@@ -44,11 +44,12 @@ export class BannerComponent {
     let userId = localStorage.getItem('userId');
     if (userId) {
       this.cartService.getCartById(userId.toString()).subscribe((data) => {
-        let currCount = 0;
-        for (let qty of data.quantity) {
-          currCount += qty;
-        }
-        this.count = currCount;
+        
+       // let currCount = 0;
+        // for (let qty of data.quantity) {
+        //   currCount += qty;
+        // }
+        this.count = data.cartDishes.length;
         //this.count = data.arrDishes.length;
         localStorage.setItem('cartCount', this.count.toString());
       });

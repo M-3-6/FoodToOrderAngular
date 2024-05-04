@@ -1,3 +1,4 @@
+import { CartDish } from "./cartDish";
 import { Dish } from "./dish";
 
 export class Cart{
@@ -6,6 +7,9 @@ export class Cart{
     
     arrDishes:Dish[]
     quantity:number[]
+
+    cartDishes:CartDish[]=[]
+
 
     constructor(Id:string,Amount:number,arrDishes:Dish[],quantity:number[]){
         this.id = Id;

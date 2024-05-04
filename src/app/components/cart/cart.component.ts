@@ -34,7 +34,22 @@ export class CartComponent implements OnInit {
       this.cartId = parseInt(cartId ? cartId : '0');
 
       this.cartService.getCartById(this.cartId.toString()).subscribe((data) => {
-        this.cart = data;
+      //  console.log(data);
+        var tempCart = new Cart("0",0,[],[])
+        tempCart = data;
+
+      //  console.log(tempCart)
+
+        this.cart.id = tempCart.id.toString();
+    //    console.log(tempCart.Amount)
+
+        this.cart.Amount = tempCart.Amount;
+        
+        tempCart.cartDishes.forEach(cd => {
+        //  console.log(cd.Dish)
+          this.cart.arrDishes.push(cd.Dish)
+          this.cart.quantity.push(cd.quantity)
+        });
         console.log('cart details:', this.cart);
       });
     }
