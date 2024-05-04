@@ -12,9 +12,6 @@
       </div>
     </form>
     <div *ngIf="arrOrders as orders">
-      <div *ngIf="orders.length == 0 && flag == 0">
-          {{onNoOrdersPrompted()}}          
-      </div>
       <h5 *ngIf="orders.length > 0" class="text-center">ORDERS</h5>
     <div class="container-fluid" *ngFor="let order of orders; let j = index">    
         <h6>ORDER ID: {{ order.id }} | ORDER DATE: {{ order.orderDate }}</h6>
@@ -29,6 +26,9 @@
         </div>
       </div>
   </div>
+  <div *ngIf="orders.length == 0 && flag == 0">
+    {{onNoOrdersPrompted()}}          
+</div>
   </div>
   </div>
 

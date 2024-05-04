@@ -33,7 +33,7 @@ export class UpdateOrderComponent {
   arrUsers: Observable<User[]>;
 
   order: Order = new Order('', '', 0, '', [], [], []);
-  arrOrders: Observable<Order[]> = new Observable<Order[]>();
+  arrOrders: Order[]=[];
 
   addId: number = 1;
   addDishId: number = 1;
@@ -66,6 +66,7 @@ export class UpdateOrderComponent {
   }
 
   loadDishesIntoFormArray(Dishes: Dish[]) {
+    // console.log(Dishes)
     const dishFormArray = this.addDishesListForm.get(
       'dishFormArray'
     ) as FormArray;
@@ -95,8 +96,11 @@ export class UpdateOrderComponent {
 
   onUserSelected(evt: any) {
     console.log('user selected: ', evt.target.value);
-    this.arrOrders = this.orderService.getOrdersByUserId(evt.target.value);
-    console.log('user id selected:', evt.target.value);
+    this.orderService.getOrders().subscribe(
+      orders => {
+        this.arrOrders = orders.filter((order) => order.userId == evt.target.value);
+      }
+    );
   }
 
   saveFirstStepData(formData: FormGroup) {
@@ -114,7 +118,13 @@ export class UpdateOrderComponent {
       });
 
       this.secondFormGroup.disable();
-
+      this.order.arrDishes = [];
+      this.order.quantity = [];
+      this.order.dishOrders.forEach(dishorder => {
+        this.order.arrDishes.push(dishorder.dish);
+        this.order.quantity.push(dishorder.quantity)
+      });
+      //console.log(this.order.arrDishes)
       this.loadDishesIntoFormArray(this.order.arrDishes);
     });
   }
