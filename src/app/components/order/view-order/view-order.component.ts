@@ -17,7 +17,7 @@ export class ViewOrderComponent {
   currencyCode: string = 'INR'
   arrUsers: Observable<User[]>;
   flag: number = 0;
-  arrOrders: Observable<Order[]> = new Observable<Order[]>();
+  arrOrders: Order[] = [];
 
   addId: number = 1;
   addDishId: number = 1;
@@ -31,7 +31,19 @@ export class ViewOrderComponent {
 
   onUserSelected(evt: any) {
     console.log('user selected: ', evt.target.value);
-    this.arrOrders = this.orderService.getOrdersByUserId(evt.target.value);
+    this.orderService.getOrders().subscribe(
+      orders => {
+        this.arrOrders = orders.filter((order) => order.userId == evt.target.value);
+        this.arrOrders.forEach(order => {
+          order.dishOrders.forEach(dishorder => {
+            if (order.quantity == null) order.quantity = [];
+            if(order.arrDishes == null) order.arrDishes = [];
+            order.quantity.push(dishorder.quantity);
+            order.arrDishes.push(dishorder.dish);
+          });
+        });
+      }
+    )
   }
 
   resetFlag() {

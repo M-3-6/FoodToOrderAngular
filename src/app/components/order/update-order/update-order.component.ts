@@ -32,7 +32,7 @@ export class UpdateOrderComponent {
   );
   arrUsers: Observable<User[]>;
 
-  order: Order = new Order('', '', 0, '', [], []);
+  order: Order = new Order('', '', 0, '', [], [], []);
   arrOrders: Observable<Order[]> = new Observable<Order[]>();
 
   addId: number = 1;

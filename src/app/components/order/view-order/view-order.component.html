@@ -11,7 +11,7 @@
         </select>
       </div>
     </form>
-    <div *ngIf="arrOrders | async as orders">
+    <div *ngIf="arrOrders as orders">
       <div *ngIf="orders.length == 0 && flag == 0">
           {{onNoOrdersPrompted()}}          
       </div>
