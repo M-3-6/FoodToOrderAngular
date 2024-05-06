@@ -6,6 +6,7 @@ import {
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Order } from '../models/order';
+import { DishService } from './dish.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class OrderService {
     }),
   };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private dishService: DishService) {}
 
   httpError(error: HttpErrorResponse) {
     let msg = '';
@@ -60,6 +61,18 @@ export class OrderService {
   }
 
   updateOrder(o: any, oId: any): Observable<Order> {
+    console.log("order to be updated:", o)
+    o.User = null;
+    o.dishOrders.forEach((dishorder: any) => {
+      console.log(dishorder.dishId);
+      this.dishService.updateDish(dishorder.dish, dishorder.dishId).subscribe(
+        data => {
+          console.log("updated dish", data);
+          dishorder.dish = null;
+        }        
+      );
+    });
+    console.log(o); 
     return this.httpClient
       .put<Order>(this.baseUrl + '/Orders/' + oId, JSON.stringify(o), this.httpHeader)
       .pipe(catchError(this.httpError));
