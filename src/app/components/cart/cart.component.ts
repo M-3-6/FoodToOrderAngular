@@ -7,6 +7,7 @@ import { OrderService } from '../../services/order.service';
 import { Order } from '../../models/order';
 import { UserService } from '../../services/user.service';
 import { CartDish } from '../../models/cartDish';
+import { DishOrder } from '../../models/dishorder';
 
 @Component({
   selector: 'app-cart',
@@ -17,6 +18,8 @@ export class CartComponent implements OnInit {
   cart: Cart = new Cart('', 0, [], []);
   cartId: number = 0;
   order: Order = new Order('', '', 0, '', [], [], []);
+  tempDish: Dish = new Dish("","",0,"","",false);
+  tempDishOrder: DishOrder = new DishOrder(0,this.tempDish,0, new Order("","",0,"",[],[],[]),0);
 
   constructor(
     private cartService: CartService,
@@ -73,13 +76,21 @@ export class CartComponent implements OnInit {
 
   Checkout() {
     this.orderService.getOrders().subscribe((data) => {
-      const largestId = Math.max(...data.map((item) => parseInt(item.id)));
-      console.log(largestId);
-      this.order.id = (largestId + 1).toString();
+      // const largestId = Math.max(...data.map((item) => parseInt(item.id)));
+      // console.log(largestId);
+      // this.order.id = (largestId + 1).toString();
+      this.order.id = "0";
 
       this.order.orderDate = new Date().toLocaleDateString();
       this.order.userId = this.cart.id;
       this.order.orderAmount = this.cart.Amount;
+      this.cart.cartDishes.forEach((cartdish) => {
+        cartdish.Dish ? this.tempDishOrder.dish = cartdish.Dish : this.tempDish;
+        this.tempDishOrder.dishId = cartdish.DishId;
+        this.tempDishOrder.quantity = cartdish.quantity;
+        this.order.dishOrders.push(this.tempDishOrder);
+      });
+
       this.cart.arrDishes.forEach((dish) => {
         this.order.arrDishes.push(dish);
       });

@@ -34,4 +34,14 @@ export class DishService {
       .put<Dish>(this.baseUrl + '/Dishes/' + dId, JSON.stringify(d), this.httpHeader)
       .pipe(catchError(this.httpError));
   }
+
+  getDishesByRestaurantId(rId: string) : Observable<Dish[]> {
+    return this.httpClient.get<Dish[]>(this.baseUrl + '/Dishes/'+ rId)
+    .pipe(catchError(this.httpError));
+  }
+
+  getDishById(dId: string) : Observable<Dish> {
+    return this.httpClient.get<Dish>(this.baseUrl + '/Dishes/GetDishById/'+ dId)
+    .pipe(catchError(this.httpError));
+  }
 }

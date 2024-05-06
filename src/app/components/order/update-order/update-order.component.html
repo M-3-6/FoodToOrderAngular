@@ -87,6 +87,17 @@
             <mat-radio-button value="false">False</mat-radio-button>
           </mat-radio-group>
 
+          <label>Change Dish</label>
+              <div class="form-group" *ngIf="arrDishes as dishes">
+                  <select class="form-select" id="did" formControlName="changeDish" placeholder="Dish"
+                  (change)="onDishSelected($event, i)">
+                    <option selected>Select a dish</option>
+                    <option *ngFor="let dish of dishes;" [value]="dish.id">
+                      {{ dish.dishName }}
+                    </option>
+                  </select>
+                </div>
+
           <!-- <mat-radio-group formControlName="isAvailable">
                   <mat-radio-button *ngFor="let available of availabilityOptions" [value]="available">{{available}}</mat-radio-button>
                 </mat-radio-group> -->
