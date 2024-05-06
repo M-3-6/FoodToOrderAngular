@@ -119,6 +119,7 @@ export class RestaurantDetailsComponent implements OnInit {
         //window.location.reload();
         this.cartService.updateCart(this.cart).subscribe((data) => {
           console.log(data);
+          this.cart = new Cart('', 0, [], []);
           this.messageService.add({
             key: 'tr',
             severity: 'success',
