@@ -4,7 +4,7 @@ import { Dish } from "./dish";
 export class Cart{
     id:string
     Amount:number
-    
+    user_id:number=0
     arrDishes:Dish[]
     quantity:number[]
 

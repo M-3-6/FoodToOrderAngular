@@ -90,10 +90,10 @@ export class RestaurantDetailsComponent implements OnInit {
     //    console.log(tempCart.Amount)
 
         this.cart.Amount = tempCart.Amount;
-        
+          this.cart.user_id = tempCart.user_id;
         tempCart.cartDishes.forEach(cd => {
         //  console.log(cd.Dish)
-          this.cart.arrDishes.push(cd.Dish)
+          this.cart.arrDishes.push(cd.Dish?cd.Dish:new Dish("0","",0,"","",true))
           this.cart.quantity.push(cd.quantity)
         });
         console.log('cart:', this.cart);
@@ -113,7 +113,7 @@ export class RestaurantDetailsComponent implements OnInit {
         }
 
         for(var i=0;i<this.cart.arrDishes.length;i++){
-          this.cart.cartDishes.push(new CartDish(parseInt(this.cart.arrDishes[i].id),this.cart.arrDishes[i],this.cart.quantity[i]))
+          this.cart.cartDishes.push(new CartDish(parseInt(this.cart.arrDishes[i].id),this.cart.quantity[i],parseInt(this.cart.id)))
         }
         console.log(this.cart);
         //window.location.reload();
