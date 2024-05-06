@@ -146,20 +146,34 @@ export class UpdateOrderComponent {
     this.order.quantity = [];
 
     dishesArr[0].forEach((add: any) => {
-      this.order.arrDishes.push(
-        new Dish(
-          (this.addDishId++).toString(),
+      this.order.dishOrders.forEach(dishorder => {
+        dishorder.dish = new Dish(
+          (dishorder.dishId).toString(),
           add.dishName,
           parseFloat(add.price),
           add.img_path,
-          this.order.id.toString(),
+          dishorder.dish.restaurant_id,
           JSON.parse(add.isAvailable.toLowerCase())
-        )
-      );
-      this.order.quantity.push(parseInt(add.quantity));
-      this.order.orderAmount += parseFloat(add.price) * parseInt(add.quantity);
-      idx++;
+        );        
+        dishorder.quantity = parseInt(add.quantity);
+
+        this.order.arrDishes.push(
+          new Dish(
+            (dishorder.dishId).toString(),
+            add.dishName,
+            parseFloat(add.price),
+            add.img_path,
+            dishorder.dish.restaurant_id,
+            JSON.parse(add.isAvailable.toLowerCase())
+          )
+        );
+        this.order.quantity.push(parseInt(add.quantity));     
+        this.order.orderAmount += parseFloat(add.price) * parseInt(add.quantity);
+        idx++;
+      });
     });
+
+    console.log('current order to be updated:', this.order);
 
     this.orderService
       .updateOrder(this.order, this.order.id)
