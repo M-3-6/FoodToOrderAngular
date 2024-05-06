@@ -119,6 +119,7 @@ export class RestaurantDetailsComponent implements OnInit {
         //window.location.reload();
         this.cartService.updateCart(this.cart).subscribe((data) => {
           console.log(data);
+          
           this.messageService.add({
             key: 'tr',
             severity: 'success',
@@ -127,6 +128,7 @@ export class RestaurantDetailsComponent implements OnInit {
           });
           localStorage.setItem('restaurantSelected', this.restaurant.rName);
         });
+        this.cart = new Cart('', 0, [], []);
       });
     } else {
       this.messageService.add({

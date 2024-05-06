@@ -67,7 +67,7 @@ export class CartComponent implements OnInit {
 
     if (this.cart.quantity[index] == 0) {
       this.cart.quantity.splice(index, 1);
-      this.cart.arrDishes.splice(index, 1);
+     this.cart.arrDishes.splice(index, 1);
       if (this.cart.quantity.length == 0) {
         this.onSaveCart();
       }
