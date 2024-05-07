@@ -66,6 +66,7 @@ export class OrderService {
     o.dishOrders.forEach((dishorder: any) => {
       console.log(dishorder.dishId);
       dishorder.dish = null;
+      dishorder.order = null;
       // this.dishService.updateDish(dishorder.dish, dishorder.dishId).subscribe(
       //   data => {
       //     console.log("updated dish", data);
