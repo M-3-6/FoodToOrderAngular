@@ -101,9 +101,9 @@ export class AddUser2Component {
     try {
       if (this.addUserForm.valid) {
         this.userService.getUsers().subscribe((data) => {
-          const largestId = Math.max(...data.map((item) => parseInt(item.id)));
-          console.log(largestId);
-          this.idUpdated = largestId + 1;
+          // const largestId = Math.max(...data.map((item) => parseInt(item.id)));
+          // console.log(largestId);
+          // this.idUpdated = largestId + 1;
           this.tempAddr = new Address(
             "0",
             addUserFormValue.houseno,
@@ -114,7 +114,7 @@ export class AddUser2Component {
             addUserFormValue.country
           );
           this.tempUser = new User(
-            this.idUpdated.toString(),
+            "0",
             addUserFormValue.firstName,
             addUserFormValue.lastName,
             addUserFormValue.email,
@@ -123,21 +123,22 @@ export class AddUser2Component {
             addUserFormValue.date_of_birth,
             this.tempAddr
           );
-          this.cart.id = this.idUpdated.toString();
+        //  this.cart.id = this.idUpdated.toString();
           localStorage.setItem('restaurantSelected', '');
-          this.cartService
-            .addCart(new Cart(this.idUpdated.toString(), 0, [], []))
-            .subscribe((data) => {
-              console.log(
-                'Created cart for user:',
-                this.tempUser.firstName,
-                data
-              );
-            });
+          // this.cartService
+          //   .addCart(new Cart(this.idUpdated.toString(), 0, [], []))
+          //   .subscribe((data) => {
+          //     console.log(
+          //       'Created cart for user:',
+          //       this.tempUser.firstName,
+          //       data
+          //     );
+          //   });
+          console.log(this.tempUser)
           this.userService.addUser(this.tempUser).subscribe((data) => {
-            console.log(data);
+            console.log("successfully registered user");
           });
-          window.location.reload();
+         // window.location.reload();
         });
       } else this.markFormGroupTouched(this.addUserForm);
   } catch(e) {
