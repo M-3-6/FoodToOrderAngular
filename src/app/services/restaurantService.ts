@@ -68,7 +68,7 @@ return this.httpClient.post<any>(this.baseUrl+'/Restaurants/',JSON.stringify(r),
 
 updateRestaurant(restaurant: Restaurant): Observable<Restaurant> {
   const url = `${this.baseUrl}/Restaurants/${restaurant.id}`;
-  return this.httpClient.put<Restaurant>(url, restaurant, this.httpHeader)
+  return this.httpClient.put<Restaurant>(url,JSON.stringify(restaurant), this.httpHeader)
     .pipe(
       catchError(this.httpError)
     );

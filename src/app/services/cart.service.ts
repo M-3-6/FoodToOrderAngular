@@ -51,13 +51,13 @@ export class CartService {
     console.log('updated cart:', cart);
     this.cartUpdated.emit();
     return this.httpClient
-      .put<Cart>(`${this.baseUrl}/carts/${cart.id}`, cart, this.httpHeader)
+      .put<Cart>(`${this.baseUrl}/carts/${cart.id}`, JSON.stringify(cart), this.httpHeader)
       .pipe(catchError(this.httpError));
   }
 
   addCart(cart: Cart): Observable<Cart> {
     return this.httpClient
-      .post<Cart>(`${this.baseUrl}/carts/`, cart, this.httpHeader)
+      .post<Cart>(`${this.baseUrl}/carts/`, JSON.stringify(cart), this.httpHeader)
       .pipe(catchError(this.httpError));
   }
 }
