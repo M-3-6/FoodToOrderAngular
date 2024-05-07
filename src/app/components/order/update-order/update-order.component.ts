@@ -90,11 +90,11 @@ export class UpdateOrderComponent {
   createDishFormGroup(dish?: Dish, quantity?: number): FormGroup {
     console.log("dish :", dish)
     return new FormGroup({
-      dishName: new FormControl({value : dish ? dish.dishName : '', disabled : true}, Validators.required),
-      price: new FormControl({value : dish ? dish.price : 0, disabled : true}, Validators.required),
-      img_path: new FormControl({value :dish ? dish.img_path : '', disabled : true}, Validators.required),
+      dishName: new FormControl(dish ? dish.dishName : '', Validators.required),
+      price: new FormControl(dish ? dish.price : 0, Validators.required),
+      img_path: new FormControl(dish ? dish.img_path : '', Validators.required),
       isAvailable: new FormControl(
-        {value : dish ? dish.isAvailable.valueOf().toString() : 'true', disabled : true}
+        dish ? dish.isAvailable.valueOf().toString() : 'true'
       ),
       quantity: new FormControl(quantity ? quantity : 0),
       changeDish: new FormControl('')
@@ -148,7 +148,8 @@ export class UpdateOrderComponent {
       data => {
         this.tempDish = data;
         this.order.dishOrders[i].dish = this.tempDish;
-        console.log(this.order.dishOrders[i])
+        console.log(this.order.dishOrders[i]);
+
         const dishFormArray = this.addDishesListForm.get('dishFormArray') as FormArray;
         dishFormArray.at(i).value['dishName'] = this.tempDish.dishName;
         dishFormArray.at(i).value['price'] = this.tempDish.price;
@@ -157,7 +158,13 @@ export class UpdateOrderComponent {
         console.log(dishFormArray);
 
         this.createDishFormGroup(this.tempDish, this.order.dishOrders[i].quantity)
-        //this.loadDishesIntoFormArray(this.order.arrDishes);
+
+        this.order.arrDishes[i] = this.order.dishOrders[i].dish;
+        
+        console.log("order after selected: ", this.order)
+        this.loadDishesIntoFormArray(this.order.arrDishes);
+
+        console.log(this.addDishesListForm.value);
       }
     );
     
@@ -180,6 +187,7 @@ export class UpdateOrderComponent {
     this.order.quantity = [];
 
     dishesArr[0].forEach((add: any) => {
+      console.log("add:",add)
       this.order.dishOrders.forEach(dishorder => {
         dishorder.dish = new Dish(
           (dishorder.dishId).toString(),
