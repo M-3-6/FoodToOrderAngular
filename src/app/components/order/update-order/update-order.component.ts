@@ -13,6 +13,7 @@ import { Order } from '../../../models/order';
 import { OrderService } from '../../../services/order.service';
 import { Dish } from '../../../models/dish';
 import { Address } from '../../../models/address';
+import { DishService } from '../../../services/dish.service';
 
 @Component({
   selector: 'app-update-order',
@@ -34,6 +35,9 @@ export class UpdateOrderComponent {
 
   order: Order = new Order('', '', 0, '', [], [], []);
   arrOrders: Order[]=[];
+  arrDishes: Dish[] = [];
+  tempDish : Dish = new Dish("","",0,"","",false);
+  selectedDish : Dish = this.tempDish;
 
   addId: number = 1;
   addDishId: number = 1;
@@ -56,7 +60,8 @@ export class UpdateOrderComponent {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private dishService : DishService
   ) {
     this.addDishesListForm = this.formBuilder.group({
       dishFormArray: this.formBuilder.array([]),
@@ -83,14 +88,16 @@ export class UpdateOrderComponent {
   }
 
   createDishFormGroup(dish?: Dish, quantity?: number): FormGroup {
+    console.log("dish :", dish)
     return new FormGroup({
-      dishName: new FormControl(dish ? dish.dishName : '', Validators.required),
-      price: new FormControl(dish ? dish.price : 0, Validators.required),
-      img_path: new FormControl(dish ? dish.img_path : '', Validators.required),
+      dishName: new FormControl({value : dish ? dish.dishName : '', disabled : true}, Validators.required),
+      price: new FormControl({value : dish ? dish.price : 0, disabled : true}, Validators.required),
+      img_path: new FormControl({value :dish ? dish.img_path : '', disabled : true}, Validators.required),
       isAvailable: new FormControl(
-        dish ? dish.isAvailable.valueOf().toString() : 'true'
+        {value : dish ? dish.isAvailable.valueOf().toString() : 'true', disabled : true}
       ),
       quantity: new FormControl(quantity ? quantity : 0),
+      changeDish: new FormControl('')
     });
   }
 
@@ -124,9 +131,36 @@ export class UpdateOrderComponent {
         this.order.arrDishes.push(dishorder.dish);
         this.order.quantity.push(dishorder.quantity)
       });
+
+      this.dishService.getDishesByRestaurantId(this.order.dishOrders[0].dish.restaurant_id).subscribe(data => {
+        this.arrDishes = data;
+        console.log(data)
+      })
       //console.log(this.order.arrDishes)
       this.loadDishesIntoFormArray(this.order.arrDishes);
     });
+  }
+
+  onDishSelected(evt: any, i: number) {
+    console.log('dish selected: ', evt.target.value);
+    this.order.dishOrders[i].dishId = evt.target.value;
+    this.dishService.getDishById(evt.target.value).subscribe(
+      data => {
+        this.tempDish = data;
+        this.order.dishOrders[i].dish = this.tempDish;
+        console.log(this.order.dishOrders[i])
+        const dishFormArray = this.addDishesListForm.get('dishFormArray') as FormArray;
+        dishFormArray.at(i).value['dishName'] = this.tempDish.dishName;
+        dishFormArray.at(i).value['price'] = this.tempDish.price;
+        dishFormArray.at(i).value['img_path'] = this.tempDish.img_path;
+        dishFormArray.at(i).value['isAvailable'] = this.tempDish.isAvailable;
+        console.log(dishFormArray);
+
+        this.createDishFormGroup(this.tempDish, this.order.dishOrders[i].quantity)
+        //this.loadDishesIntoFormArray(this.order.arrDishes);
+      }
+    );
+    
   }
 
   saveSecondStepData(formData: FormGroup) {}
