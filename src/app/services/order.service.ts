@@ -50,7 +50,13 @@ export class OrderService {
       .pipe(catchError(this.httpError));
   }
 
-  addOrder(o: Order) {
+  addOrder(o: any) {
+    o.User = null;
+    o.dishOrders.forEach((dishorder: any) => {
+      console.log(dishorder.dishId);
+      dishorder.dish = null;
+      dishorder.order = null;
+    });
     return this.httpClient
       .post<Order>(
         this.baseUrl + '/Orders/',
@@ -66,12 +72,7 @@ export class OrderService {
     o.dishOrders.forEach((dishorder: any) => {
       console.log(dishorder.dishId);
       dishorder.dish = null;
-      // this.dishService.updateDish(dishorder.dish, dishorder.dishId).subscribe(
-      //   data => {
-      //     console.log("updated dish", data);
-      //     dishorder.dish = null;
-      //   }        
-      // );
+      dishorder.order = null;
     });
     console.log(o); 
     return this.httpClient
