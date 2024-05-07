@@ -65,12 +65,13 @@ export class OrderService {
     o.User = null;
     o.dishOrders.forEach((dishorder: any) => {
       console.log(dishorder.dishId);
-      this.dishService.updateDish(dishorder.dish, dishorder.dishId).subscribe(
-        data => {
-          console.log("updated dish", data);
-          dishorder.dish = null;
-        }        
-      );
+      dishorder.dish = null;
+      // this.dishService.updateDish(dishorder.dish, dishorder.dishId).subscribe(
+      //   data => {
+      //     console.log("updated dish", data);
+      //     dishorder.dish = null;
+      //   }        
+      // );
     });
     console.log(o); 
     return this.httpClient
