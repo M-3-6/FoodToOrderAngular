@@ -34,14 +34,20 @@ export class ViewOrderComponent {
     this.orderService.getOrders().subscribe(
       orders => {
         this.arrOrders = orders.filter((order) => order.userId == evt.target.value);
-        this.arrOrders.forEach(order => {
-          order.dishOrders.forEach(dishorder => {
-            if (order.quantity == null) order.quantity = [];
-            if(order.arrDishes == null) order.arrDishes = [];
-            order.quantity.push(dishorder.quantity);
-            order.arrDishes.push(dishorder.dish);
+        if(this.arrOrders.length==0){
+          this.onNoOrdersPrompted();
+        }
+        else{
+          this.arrOrders.forEach(order => {
+            order.dishOrders.forEach(dishorder => {
+              if (order.quantity == null) order.quantity = [];
+              if(order.arrDishes == null) order.arrDishes = [];
+              order.quantity.push(dishorder.quantity);
+              order.arrDishes.push(dishorder.dish);
+            });
           });
-        });
+        }
+        
       }
     )
   }
@@ -54,8 +60,8 @@ export class ViewOrderComponent {
     this.flag = 1;
     this.messageService.add({
       key: 'tr',
-      severity: 'warn',
-      summary: 'Warning',
+      severity: 'info',
+      summary: 'Info',
       detail: 'No Orders!',     
   });
   }
