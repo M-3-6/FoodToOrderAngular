@@ -127,5 +127,7 @@ export class CartComponent implements OnInit {
     this.cartService.updateCart(this.cart).subscribe(() => {
       console.log('current cart: ', this.cart);
     });
+
+    this.cart.cartDishes = []
   }
 }
