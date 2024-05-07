@@ -127,8 +127,11 @@ export class RestaurantDetailsComponent implements OnInit {
             detail: 'Dish added to cart!',
           });
           localStorage.setItem('restaurantSelected', this.restaurant.rName);
+          this.cartService.refreshTheCart(this.cart)
+          this.cart = new Cart('', 0, [], []);
+          
         });
-        this.cart = new Cart('', 0, [], []);
+        
       });
     } else {
       this.messageService.add({
