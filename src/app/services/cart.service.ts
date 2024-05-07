@@ -4,7 +4,7 @@ import {
   HttpErrorResponse,
   HttpHeaders,
 } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, throwError, BehaviorSubject } from 'rxjs';
 import { Dish } from '../models/dish';
 import { Cart } from '../models/cart';
 import { switchMap } from 'rxjs/operators';
@@ -14,6 +14,8 @@ import { switchMap } from 'rxjs/operators';
 })
 export class CartService {
   baseUrl: string = 'https://localhost:7092/api';
+
+  
 
   httpHeader = {
     headers: new HttpHeaders({
@@ -35,6 +37,25 @@ export class CartService {
     return throwError(msg);
   }
 
+  
+
+  //trying behavior subject
+  private refreshedCart = new BehaviorSubject<Cart>(
+    new Cart("0",0,[],[])
+  );
+
+  private refreshedCart$ = this.refreshedCart.asObservable()
+
+  refreshTheCart(newCart:Cart){
+    console.log("refresh cart called")
+    return this.refreshedCart.next(newCart)
+  }
+
+  getTheRefreshedCart():Observable<Cart>{
+    return this.refreshedCart$
+  }
+
+  
   getCartById(cId: string): Observable<Cart> {
     return this.httpClient
       .get<Cart>(`${this.baseUrl}/carts/${cId}`)

@@ -52,6 +52,12 @@ export class CartComponent implements OnInit {
           this.cart.quantity.push(cd.quantity)
         });
         console.log('cart details:', this.cart);
+
+        this.cartService.refreshTheCart(this.cart)
+
+        this.cartService.getTheRefreshedCart().subscribe((data)=>{
+            this.cart = data;
+        })
       });
     }
   }
@@ -115,19 +121,25 @@ export class CartComponent implements OnInit {
     this.cartService.updateCart(this.cart).subscribe(() => {
       console.log('new cart: ', this.cart);
       localStorage.setItem('restaurantSelected', '');
+      this.cartService.refreshTheCart(this.cart)
     });
+
+    
   }
 
   onSaveCart() {
-    
+    this.cart.cartDishes = []
+
     for(var i=0;i<this.cart.arrDishes.length;i++){
       this.cart.cartDishes.push(new CartDish(parseInt(this.cart.arrDishes[i].id),this.cart.quantity[i],parseInt(this.cart.id)))
     }
     
     this.cartService.updateCart(this.cart).subscribe(() => {
       console.log('current cart: ', this.cart);
+      this.cartService.refreshTheCart(this.cart)
     });
 
-    this.cart.cartDishes = []
+    
+    
   }
 }
