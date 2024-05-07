@@ -147,42 +147,46 @@ export class UpdateOrderComponent {
 
   onDishSelected(evt: any, i: number) {
       console.log('dish selected: ', evt.target.value);
-      
+      // adding new order
       if (!this.order.dishOrders.at(i))  {
+        console.log("adding dish")
         this.order.dishOrders.push(new DishOrder(0, new Dish("","",0,"","",false), 0, new Order('', '', 0, '', [], [], []), 0));
         i = this.order.dishOrders.length - 1;
-        this.order.arrDishes.push(new Dish("","",0,"","",false));
       }
-      try {
       this.order.dishOrders[i].orderId = parseInt(this.order.id);
       this.order.dishOrders[i].dishId = evt.target.value;
       this.dishService.getDishById(evt.target.value).subscribe(
         data => {
+          console.log(this.order.dishOrders)
           this.tempDish = data;
+          console.log(i)
           this.order.dishOrders[i].dish = this.tempDish;
           console.log(this.order.dishOrders[i]);
+          this.order.arrDishes = [];
+          this.order.quantity = [];
+          this.order.dishOrders.forEach(dishorder => {
+            this.order.arrDishes.push(dishorder.dish);
+            this.order.quantity.push(dishorder.quantity)
+          });
 
-          const dishFormArray = this.addDishesListForm.get('dishFormArray') as FormArray;
-          dishFormArray.at(i).value['dishName'] = this.tempDish.dishName;
-          dishFormArray.at(i).value['price'] = this.tempDish.price;
-          dishFormArray.at(i).value['img_path'] = this.tempDish.img_path;
-          dishFormArray.at(i).value['isAvailable'] = this.tempDish.isAvailable;
-          console.log(dishFormArray);
+          // const dishFormArray = this.addDishesListForm.get('dishFormArray') as FormArray;
+          // dishFormArray.at(i).value['dishName'] = this.tempDish.dishName;
+          // dishFormArray.at(i).value['price'] = this.tempDish.price;
+          // dishFormArray.at(i).value['img_path'] = this.tempDish.img_path;
+          // dishFormArray.at(i).value['isAvailable'] = this.tempDish.isAvailable;
+          // console.log(dishFormArray);
 
-          this.createDishFormGroup(this.tempDish, this.order.dishOrders[i].quantity)
+          // this.createDishFormGroup(this.tempDish, this.order.dishOrders[i].quantity)
 
           this.order.arrDishes[i] = this.order.dishOrders[i].dish;
           
           console.log("order after selected: ", this.order)
+          console.log((this.order.arrDishes))
           this.loadDishesIntoFormArray(this.order.arrDishes);
 
           console.log(this.addDishesListForm.value);
         }
       );
-
-    } catch(e) {
-      console.log("updating dish in order:", e)
-    }
   }
 
   saveSecondStepData(formData: FormGroup) {}
@@ -245,6 +249,7 @@ export class UpdateOrderComponent {
     const dishFormArray = this.addDishesListForm.get(
       'dishFormArray'
     ) as FormArray;
+    console.log(dishFormArray);
     dishFormArray.push(this.createDishFormGroup());
   }
 
