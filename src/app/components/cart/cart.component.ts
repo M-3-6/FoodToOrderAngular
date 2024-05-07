@@ -76,18 +76,15 @@ export class CartComponent implements OnInit {
 
   Checkout() {
     this.orderService.getOrders().subscribe((data) => {
-      // const largestId = Math.max(...data.map((item) => parseInt(item.id)));
-      // console.log(largestId);
-      // this.order.id = (largestId + 1).toString();
       this.order.id = "0";
 
       this.order.orderDate = new Date().toLocaleDateString();
       this.order.userId = this.cart.id;
       this.order.orderAmount = this.cart.Amount;
-      this.cart.cartDishes.forEach((cartdish) => {
-        cartdish.Dish ? this.tempDishOrder.dish = cartdish.Dish : this.tempDish;
-        this.tempDishOrder.dishId = cartdish.DishId;
-        this.tempDishOrder.quantity = cartdish.quantity;
+      this.cart.arrDishes.forEach((arrdish, i) => {
+        arrdish ? this.tempDishOrder.dish = arrdish : this.tempDish;
+        this.tempDishOrder.dishId = parseInt(arrdish.id);
+        this.tempDishOrder.quantity = this.cart.quantity[i];
         this.order.dishOrders.push(this.tempDishOrder);
       });
 
@@ -98,6 +95,8 @@ export class CartComponent implements OnInit {
       this.cart.quantity.forEach((qty) => {
         this.order.quantity.push(qty);
       });
+
+      console.log("order to be added:", this.order);
 
       this.orderService.addOrder(this.order).subscribe((data) => {
         console.log(data);
