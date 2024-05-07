@@ -1,0 +1,16 @@
+.overlay {
+    position: absolute;
+    top: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity (0.5 for 50% black) */
+  }
+
+  .ErrorTitle{
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+   
+    font-family: 'Lobster';
+  }
