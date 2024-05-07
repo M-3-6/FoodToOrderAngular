@@ -137,7 +137,7 @@ export class AddUser2Component {
           this.userService.addUser(this.tempUser).subscribe((data) => {
             console.log(data);
           });
-          window.location.reload();
+          //window.location.reload();
         });
       } else this.markFormGroupTouched(this.addUserForm);
   } catch(e) {

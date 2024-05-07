@@ -73,7 +73,7 @@ export class UpdateUser2Component {
       this.userService.updateUser(this.tempUser, this.idObtained.toString()).subscribe(data=>{
         console.log(data) 
       })
-      window.location.reload();
+      //window.location.reload();
     } else this.markFormGroupTouched(this.updateUserForm);
   }
 
