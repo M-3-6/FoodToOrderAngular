@@ -7,6 +7,7 @@
 }
 
 
+
 .overlay {
     position: absolute;
     top: 0;
@@ -39,3 +40,16 @@
     
   }
   
+  @media only screen and (max-width: 750px) {
+    .bannerText {
+      font-size: 3rem;
+    }
+
+    .bannerDiv{
+   
+      margin-left: 0;
+     margin-top: 0;
+     width: 80%;
+     margin: auto;
+    }
+  }
