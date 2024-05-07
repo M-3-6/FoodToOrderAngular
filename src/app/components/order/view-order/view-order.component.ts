@@ -30,26 +30,30 @@ export class ViewOrderComponent {
   }
 
   onUserSelected(evt: any) {
-    console.log('user selected: ', evt.target.value);
-    this.orderService.getOrders().subscribe(
-      orders => {
-        this.arrOrders = orders.filter((order) => order.userId == evt.target.value);
-        if(this.arrOrders.length==0){
-          this.onNoOrdersPrompted();
-        }
-        else{
-          this.arrOrders.forEach(order => {
-            order.dishOrders.forEach(dishorder => {
-              if (order.quantity == null) order.quantity = [];
-              if(order.arrDishes == null) order.arrDishes = [];
-              order.quantity.push(dishorder.quantity);
-              order.arrDishes.push(dishorder.dish);
+    try {
+      console.log('user selected: ', evt.target.value);
+      this.orderService.getOrders().subscribe(
+        orders => {
+          this.arrOrders = orders.filter((order) => order.userId == evt.target.value);
+          if(this.arrOrders.length==0){
+            this.onNoOrdersPrompted();
+          }
+          else{
+            this.arrOrders.forEach(order => {
+              order.dishOrders.forEach(dishorder => {
+                if (order.quantity == null) order.quantity = [];
+                if(order.arrDishes == null) order.arrDishes = [];
+                order.quantity.push(dishorder.quantity);
+                order.arrDishes.push(dishorder.dish);
+              });
             });
-          });
+          }
+          
         }
-        
-      }
-    )
+      )
+    } catch(e) {
+      console.log("Unable to retrieve order data", e)
+    }
   }
 
   resetFlag() {
@@ -65,5 +69,4 @@ export class ViewOrderComponent {
       detail: 'No Orders!',     
   });
   }
-
 }

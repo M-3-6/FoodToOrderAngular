@@ -91,22 +91,26 @@ markFormGroupTouched(formGroup: FormGroup) {
   {
     console.log(evt.target.value)
     this.idObtained = evt.target.value;
-    this.userService.getUserById(this.idObtained.toString()).subscribe(user => {
-      if (user) {
-        this.idAddress = parseInt(user.address.id);
-        this.updateUserForm.get('firstName')?.setValue(user.firstName);
-        this.updateUserForm.get('lastName')?.setValue(user.lastName)
-        this.updateUserForm.get('role')?.setValue(user.role)
-        this.updateUserForm.get('email')?.setValue(user.email)
-        this.updateUserForm.get('password')?.setValue(user.password)
-        this.updateUserForm.get('houseno')?.setValue(user.address.houseno)
-        this.updateUserForm.get('street')?.setValue(user.address.street)
-        this.updateUserForm.get('area')?.setValue(user.address.area)
-        this.updateUserForm.get('city')?.setValue(user.address.city)
-        this.updateUserForm.get('country')?.setValue(user.address.country)
-        this.updateUserForm.get('pincode')?.setValue(user.address.pincode)
-      }
-    });
+    try {
+      this.userService.getUserById(this.idObtained.toString()).subscribe(user => {
+        if (user) {
+          this.idAddress = parseInt(user.address.id);
+          this.updateUserForm.get('firstName')?.setValue(user.firstName);
+          this.updateUserForm.get('lastName')?.setValue(user.lastName)
+          this.updateUserForm.get('role')?.setValue(user.role)
+          this.updateUserForm.get('email')?.setValue(user.email)
+          this.updateUserForm.get('password')?.setValue(user.password)
+          this.updateUserForm.get('houseno')?.setValue(user.address.houseno)
+          this.updateUserForm.get('street')?.setValue(user.address.street)
+          this.updateUserForm.get('area')?.setValue(user.address.area)
+          this.updateUserForm.get('city')?.setValue(user.address.city)
+          this.updateUserForm.get('country')?.setValue(user.address.country)
+          this.updateUserForm.get('pincode')?.setValue(user.address.pincode)
+        }
+      });
     
+  } catch(e) {
+    console.log("Unable to update user", e);
   }
+} 
 }

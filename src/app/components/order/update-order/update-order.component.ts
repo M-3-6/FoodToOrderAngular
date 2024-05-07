@@ -41,7 +41,6 @@ export class UpdateOrderComponent {
   selectedDish : Dish = this.tempDish;
 
   addId: number = 1;
-  // addDishId: number = 1;
 
   public addDishesListForm: FormGroup;
 
@@ -72,7 +71,6 @@ export class UpdateOrderComponent {
   }
 
   loadDishesIntoFormArray(Dishes: Dish[]) {
-    // console.log(Dishes)
     const dishFormArray = this.addDishesListForm.get(
       'dishFormArray'
     ) as FormArray;
@@ -132,25 +130,30 @@ export class UpdateOrderComponent {
         this.order.arrDishes.push(dishorder.dish);
         this.order.quantity.push(dishorder.quantity)
       });
-      if (this.order.dishOrders.length > 0) {
-        this.dishService.getDishesByRestaurantId(this.order.dishOrders[0].dish.restaurant_id).subscribe(data => {
-          this.arrDishes = data;
-          console.log(data)
-        })
+      try {
+        if (this.order.dishOrders.length > 0) {
+          this.dishService.getDishesByRestaurantId(this.order.dishOrders[0].dish.restaurant_id).subscribe(data => {
+            this.arrDishes = data;
+            console.log(data)
+          })
+        }
+      } catch(e) {
+        console.log("getting dishes from restaurant", e);
       }
-      //console.log(this.order.arrDishes)
+
       this.loadDishesIntoFormArray(this.order.arrDishes);
     });
   }
 
   onDishSelected(evt: any, i: number) {
       console.log('dish selected: ', evt.target.value);
+      
       if (!this.order.dishOrders.at(i))  {
-
         this.order.dishOrders.push(new DishOrder(0, new Dish("","",0,"","",false), 0, new Order('', '', 0, '', [], [], []), 0));
         i = this.order.dishOrders.length - 1;
         this.order.arrDishes.push(new Dish("","",0,"","",false));
       }
+      try {
       this.order.dishOrders[i].orderId = parseInt(this.order.id);
       this.order.dishOrders[i].dishId = evt.target.value;
       this.dishService.getDishById(evt.target.value).subscribe(
@@ -176,68 +179,62 @@ export class UpdateOrderComponent {
           console.log(this.addDishesListForm.value);
         }
       );
-    
+
+    } catch(e) {
+      console.log("updating dish in order:", e)
+    }
   }
 
   saveSecondStepData(formData: FormGroup) {}
 
   saveThirdStepData(formdata: FormGroup) {
-    let dishesArr = Object.values(formdata);
-    console.log(dishesArr[0]);
+    try {
+      let dishesArr = Object.values(formdata);
+      console.log(dishesArr[0]);
 
-    // this.addDishId = 1;
+      let idx = 0;
 
-    let idx = 0;
+      this.order.orderAmount = 0;
+      this.order.arrDishes = [];
+      this.order.quantity = [];
 
-    this.order.orderAmount = 0;
-    this.order.arrDishes = [];
-    this.order.quantity = [];
+      console.log("current order before update:", this.order);
 
-    console.log("current order before update:", this.order);
+      dishesArr[0].forEach((add: any, i: number) => {
+        console.log("add:",add)
+          this.order.dishOrders[i].dish = new Dish(
+            (this.order.dishOrders[i].dishId).toString(),
+            add.dishName ? add.dishName : "",
+            add.price ? parseFloat(add.price) : 0,
+            add.img_path ? add.img_path : "",
+            this.order.dishOrders[0].dish.restaurant_id,
+            add.isAvailable ? JSON.parse(add.isAvailable.toLowerCase()) : ""
+          );        
+          this.order.dishOrders[i].quantity = add.quantity ? parseInt(add.quantity) : 0;
+          
+          if (!add.price)  this.order.orderAmount = 0;
+          else this.order.orderAmount += parseFloat(add.price) * parseInt(add.quantity);
+          idx++;
 
-    dishesArr[0].forEach((add: any, i: number) => {
-      console.log("add:",add)
-      //this.order.dishOrders.forEach(dishorder => {
-        this.order.dishOrders[i].dish = new Dish(
-          (this.order.dishOrders[i].dishId).toString(),
-          add.dishName ? add.dishName : "",
-          add.price ? parseFloat(add.price) : 0,
-          add.img_path ? add.img_path : "",
-          this.order.dishOrders[0].dish.restaurant_id,
-          add.isAvailable ? JSON.parse(add.isAvailable.toLowerCase()) : ""
-        );        
-        this.order.dishOrders[i].quantity = add.quantity ? parseInt(add.quantity) : 0;
-
-        // this.order.arrDishes.push(
-        //   new Dish(
-        //     (dishorder.dishId).toString(),
-        //     add.dishName,
-        //     parseFloat(add.price),
-        //     add.img_path,
-        //     dishorder.dish.restaurant_id,
-        //     JSON.parse(add.isAvailable.toLowerCase())
-        //   )
-        // );
-        // this.order.quantity.push(parseInt(add.quantity)); 
-        if (!add.price)  this.order.orderAmount = 0;
-        else this.order.orderAmount += parseFloat(add.price) * parseInt(add.quantity);
-        idx++;
-      //});
-    });
-
-    console.log('current order to be updated:', this.order);
-
-    this.orderService
-      .updateOrder(this.order, this.order.id)
-      .subscribe((data) => {
-        console.log('updated order:', data);
       });
 
-    this.secondFormGroup.patchValue({
-      oDateCtrl: this.order.orderDate,
-      oAmountCtrl: this.order.orderAmount,
-      oUserIdCtrl: this.order.userId,
-    });
+      console.log('current order to be updated:', this.order);
+
+      this.orderService
+        .updateOrder(this.order, this.order.id)
+        .subscribe((data) => {
+          console.log('updated order:', data);
+        });
+
+      this.secondFormGroup.patchValue({
+        oDateCtrl: this.order.orderDate,
+        oAmountCtrl: this.order.orderAmount,
+        oUserIdCtrl: this.order.userId,
+      });
+    }
+    catch(e) {
+      console.log("Unable to save the updated data", e);
+    }
   }
 
   dishFormArray(): FormArray {

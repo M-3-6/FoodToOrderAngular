@@ -98,47 +98,51 @@ export class AddUser2Component {
   }
 
   onSubmit(addUserFormValue: any): void {
-    if (this.addUserForm.valid) {
-      this.userService.getUsers().subscribe((data) => {
-        const largestId = Math.max(...data.map((item) => parseInt(item.id)));
-        console.log(largestId);
-        this.idUpdated = largestId + 1;
-        this.tempAddr = new Address(
-          "0",
-          addUserFormValue.houseno,
-          addUserFormValue.street,
-          addUserFormValue.area,
-          addUserFormValue.city,
-          addUserFormValue.pincode,
-          addUserFormValue.country
-        );
-        this.tempUser = new User(
-          this.idUpdated.toString(),
-          addUserFormValue.firstName,
-          addUserFormValue.lastName,
-          addUserFormValue.email,
-          addUserFormValue.password,
-          'user',
-          addUserFormValue.date_of_birth,
-          this.tempAddr
-        );
-        this.cart.id = this.idUpdated.toString();
-        localStorage.setItem('restaurantSelected', '');
-        this.cartService
-          .addCart(new Cart(this.idUpdated.toString(), 0, [], []))
-          .subscribe((data) => {
-            console.log(
-              'Created cart for user:',
-              this.tempUser.firstName,
-              data
-            );
+    try {
+      if (this.addUserForm.valid) {
+        this.userService.getUsers().subscribe((data) => {
+          const largestId = Math.max(...data.map((item) => parseInt(item.id)));
+          console.log(largestId);
+          this.idUpdated = largestId + 1;
+          this.tempAddr = new Address(
+            "0",
+            addUserFormValue.houseno,
+            addUserFormValue.street,
+            addUserFormValue.area,
+            addUserFormValue.city,
+            addUserFormValue.pincode,
+            addUserFormValue.country
+          );
+          this.tempUser = new User(
+            this.idUpdated.toString(),
+            addUserFormValue.firstName,
+            addUserFormValue.lastName,
+            addUserFormValue.email,
+            addUserFormValue.password,
+            'user',
+            addUserFormValue.date_of_birth,
+            this.tempAddr
+          );
+          this.cart.id = this.idUpdated.toString();
+          localStorage.setItem('restaurantSelected', '');
+          this.cartService
+            .addCart(new Cart(this.idUpdated.toString(), 0, [], []))
+            .subscribe((data) => {
+              console.log(
+                'Created cart for user:',
+                this.tempUser.firstName,
+                data
+              );
+            });
+          this.userService.addUser(this.tempUser).subscribe((data) => {
+            console.log(data);
           });
-        this.userService.addUser(this.tempUser).subscribe((data) => {
-          console.log(data);
+          window.location.reload();
         });
-        window.location.reload();
-      });
-    } else this.markFormGroupTouched(this.addUserForm);
+      } else this.markFormGroupTouched(this.addUserForm);
+  } catch(e) {
+    console.log("Unable to add user", e);
+  }
   }
 
   markFormGroupTouched(formGroup: FormGroup) {
