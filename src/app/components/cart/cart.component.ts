@@ -120,7 +120,7 @@ export class CartComponent implements OnInit {
     this.cartService.updateCart(this.cart).subscribe(() => {
       console.log('new cart: ', this.cart);
       localStorage.setItem('restaurantSelected', '');
-      this.cartService.refreshTheCart(this.cart)
+      //this.cartService.refreshTheCart(this.cart)
     });
 
     
@@ -135,7 +135,7 @@ export class CartComponent implements OnInit {
     
     this.cartService.updateCart(this.cart).subscribe(() => {
       console.log('current cart: ', this.cart);
-      this.cartService.refreshTheCart(this.cart)
+      //this.cartService.refreshTheCart(this.cart)
     });
 
     
