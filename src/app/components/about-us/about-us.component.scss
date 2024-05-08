@@ -25,3 +25,12 @@ h4{
     background-color: #f2f6f7;
 }
 
+@media only screen and (max-width: 750px) {
+    .aboutUsInfo{
+        text-align: center;
+    }
+    .aup{
+        margin-right: 0;
+    }
+}
+
