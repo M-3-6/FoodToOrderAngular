@@ -117,11 +117,18 @@ export class CartComponent implements OnInit {
     this.cart.arrDishes = [];
     this.cart.Amount = 0;
     this.cart.cartDishes = [];
-    this.cartService.updateCart(this.cart).subscribe(() => {
-      console.log('new cart: ', this.cart);
-      localStorage.setItem('restaurantSelected', '');
-      // this.cartService.refreshTheCart(this.cart)
-    });
+
+    try{
+      this.cartService.updateCart(this.cart).subscribe(() => {
+        console.log('new cart: ', this.cart);
+        localStorage.setItem('restaurantSelected', '');
+        // this.cartService.refreshTheCart(this.cart)
+      });
+    }
+    catch(error){
+      console.log("Error while resetting cart:",error)
+    }
+    
 
     
   }
@@ -132,11 +139,18 @@ export class CartComponent implements OnInit {
     for(var i=0;i<this.cart.arrDishes.length;i++){
       this.cart.cartDishes.push(new CartDish(parseInt(this.cart.arrDishes[i].id),this.cart.quantity[i],parseInt(this.cart.id)))
     }
+
+    try{
+      this.cartService.updateCart(this.cart).subscribe(() => {
+        console.log('current cart: ', this.cart);
+        // this.cartService.refreshTheCart(this.cart)
+      });
+    }
+    catch(error){
+      console.log("Error while saving cart to backend:",error)
+    }
     
-    this.cartService.updateCart(this.cart).subscribe(() => {
-      console.log('current cart: ', this.cart);
-      // this.cartService.refreshTheCart(this.cart)
-    });
+    
 
     
     

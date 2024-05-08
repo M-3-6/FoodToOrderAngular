@@ -176,10 +176,15 @@ export class UpdateRestaurantComponent {
     })
     console.log(this.rest)
 
-
-    this.restaurantService.updateRestaurant(this.rest).subscribe(data => {
-      console.log(data);
-    });
+try{
+  this.restaurantService.updateRestaurant(this.rest).subscribe(data => {
+    console.log(data);
+  });
+}
+catch(error){
+  console.log("Error while updating restaurant details ",error)
+}
+    
     
   }
 
