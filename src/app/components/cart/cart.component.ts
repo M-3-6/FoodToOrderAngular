@@ -8,6 +8,7 @@ import { Order } from '../../models/order';
 import { UserService } from '../../services/user.service';
 import { CartDish } from '../../models/cartDish';
 import { DishOrder } from '../../models/dishorder';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-cart',
@@ -23,7 +24,8 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private messageService: MessageService
   ) {
     console.log('cart constructor called');
   }
@@ -113,6 +115,12 @@ export class CartComponent implements OnInit {
 
       this.orderService.addOrder(this.order).subscribe((data) => {
         console.log(data);
+        this.messageService.add({
+          key: 'tr',
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Your order is placed!',
+        });
         this.onResetCart();
       });
 
@@ -131,6 +139,13 @@ export class CartComponent implements OnInit {
         console.log('new cart: ', this.cart);
         localStorage.setItem('restaurantSelected', '');
         // this.cartService.refreshTheCart(this.cart)
+
+        this.messageService.add({
+          key: 'tr',
+          severity: 'info',
+          summary: 'Info',
+          detail: 'Cart is reset!',
+        });
       });
     }
     catch(error){
@@ -152,6 +167,12 @@ export class CartComponent implements OnInit {
       this.cartService.updateCart(this.cart).subscribe(() => {
         console.log('current cart: ', this.cart);
         // this.cartService.refreshTheCart(this.cart)
+        this.messageService.add({
+          key: 'tr',
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Cart saved successfully!',
+        });
       });
     }
     catch(error){
