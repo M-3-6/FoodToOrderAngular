@@ -12,6 +12,7 @@ import { dobValidator } from '../../../helpers/customValidation';
   styleUrl: './update-user2.component.scss'
 })
 export class UpdateUser2Component {
+  validMsg: boolean = false;
   arrUsers: Observable<User[]>
   arrAddresses:Address[]=[]
   tempUser:User=new User('','','','','','',new Date(),new Address('','','','','','',''))
@@ -68,6 +69,7 @@ export class UpdateUser2Component {
 
   onSubmit(updateUserForm: any): void {
     if (this.updateUserForm.valid) {
+      this.validMsg = true;
       this.tempAddr=new Address(this.idAddress.toString(),updateUserForm.houseno,updateUserForm.street,updateUserForm.area,updateUserForm.city,updateUserForm.pincode,updateUserForm.country)
       this.tempUser=new User (this.idObtained.toString(),updateUserForm.firstName,updateUserForm.lastName,updateUserForm.email,updateUserForm.password,"user",updateUserForm.date_of_birth,this.tempAddr)
       this.userService.updateUser(this.tempUser, this.idObtained.toString()).subscribe(data=>{

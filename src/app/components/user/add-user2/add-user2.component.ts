@@ -21,6 +21,7 @@ import { Cart } from '../../../models/cart';
   styleUrl: './add-user2.component.scss',
 })
 export class AddUser2Component {
+  validMsg: boolean = false;
   tempUser: User = new User(
     '',
     '',
@@ -100,6 +101,7 @@ export class AddUser2Component {
   onSubmit(addUserFormValue: any): void {
     try {
       if (this.addUserForm.valid) {
+        this.validMsg = true;
         this.userService.getUsers().subscribe((data) => {
           // const largestId = Math.max(...data.map((item) => parseInt(item.id)));
           // console.log(largestId);
