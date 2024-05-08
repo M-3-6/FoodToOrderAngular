@@ -30,6 +30,9 @@ FoodToOrder system has two kinds of users:
 4. pipes
 5. form validations
 
+## Demo Video
+https://drive.google.com/file/d/1rBYUPwVV5tEQTp3Trpc68O5eAg6yBl1J/view?usp=sharing
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
