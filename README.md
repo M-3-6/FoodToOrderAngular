@@ -31,7 +31,8 @@ FoodToOrder system has two kinds of users:
 5. form validations
 
 ## Demo Video
-[![Watch the video](https://static.toiimg.com/thumb/msid-101282760,width-1280,height-720,resizemode-4/101282760.jpg)]([https://youtu.be/AVKH-aYAmXo](https://drive.google.com/file/d/1rBYUPwVV5tEQTp3Trpc68O5eAg6yBl1J/view?usp=sharing))
+[![Watch the video](https://static.toiimg.com/thumb/msid-101282760,width-1280,height-720,resizemode-4/101282760.jpg)](https://drive.google.com/file/d/1rBYUPwVV5tEQTp3Trpc68O5eAg6yBl1J/view?usp=sharing)
+[Demo Video](https://drive.google.com/file/d/1rBYUPwVV5tEQTp3Trpc68O5eAg6yBl1J/view?usp=sharing)
 
 ## Development server
 
